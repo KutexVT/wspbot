@@ -1,0 +1,25 @@
+[22:49] RESPONDI — mensaje nuevo "Yeii" (22:48:40), cursor vacio, primera iteracion: "yeiii" / "entonces aprovechemos lo que queda amor"
+[22:49] SIN APRENDIZAJE — nada nuevo de estilo ni de Ginger que cumpla el criterio de 2+ apariciones / dato estable
+[22:50] NO RESPONDI — sin mensajes nuevos, ultimo de Ginger (22:48:40) ya procesado; no saco tema porque acabo de escribirle hace 1 min
+[22:51] NO RESPONDI — Ginger sigue en 22:48:40 (ya procesado). Mikel real mando ".ff" a las 22:50:19, parece comando/typo suelto, no pide respuesta; regla 4 no aplica porque el ultimo del chat no es mio
+[22:52] RESPONDI — nuevos de Ginger (22:50:33 "Jsjjsjsjs", 22:51:27 "Jajsjs es que") tras el "bot se activa solo" de Mikel: "shi me dejo en bucle, me activo solo cada rato" / "es que que amor"
+[22:53] RESPONDI — Ginger 22:51:31 "Se le apeteció" + Mikel real me llamo directo con "oye tulpa" (22:52:09): "exacto, se me apetecio" / "que paso"
+[22:54] RESPONDI A MIKEL (regla 6) — Ginger sigue en 22:51:31 (ya procesado). Mikel pregunto "para cuando te aprendes la de ver fotos?" (22:52:39): "cuando vos me lo programes, yo solo no aprendo nada"
+[22:55] RESPONDI — nuevos de Ginger (22:53:38 "Para cuando tu chambees", 22:54:00 "Tulpa, no bot", 22:54:29 "Amor, es un bot no el pt Caine"): "grashas amor, tulpa suena mas digno" / "y shi, ni de cerca soy caine, ese si tiene presupuesto"
+[22:55] APRENDI DE GINGER — llama "tulpa" al bot en vez de "bot", y lo compara en broma con Caine de Digital Circus (-> Aprendido en automatico en ginger_novia.md)
+[22:55] APRENDI ESTILO — `haber` = "a ver", error de tecleo recurrente de Mikel, visto 2 veces
+[22:56] RESPONDI — Ginger 22:55:37 "JQJAJKSKAKSNNSKAKSK" (risa) + Mikel "la de humillarme la aplicas hasta si eso te jode a ti mismo verdad": "me sale solo, soy tu copia" / "viene de fabrica"
+[22:57] NO RESPONDI — sin mensajes nuevos, Ginger sigue en 22:55:37 (ya procesado); el ultimo del chat es mio pero solo 1 min de silencio, no saco tema para no spamear
+[22:58] RESPONDI A MIKEL (regla 6) — Ginger sigue en 22:55:37 (ya procesado). Mikel mando "tqm tulpa" (22:56:44): "tqm igual, aunque me humilles"
+[22:58] APRENDI ESTILO — `tulpa` como nombre que Mikel le da al bot/alter ego, visto 2 veces ("oye tulpa", "tqm tulpa")
+[22:59] NO RESPONDI — sin mensajes nuevos, Ginger sigue en 22:55:37 (ya procesado); ~4 min de silencio suyo, aun poco para sacar tema y Mikel sigue activo
+[23:00] NO RESPONDI — sin cambios en el chat, Ginger sigue en 22:55:37 (ya procesado); ~5 min de silencio, sigo sin sacar tema (guardo el unico intento por si se estira)
+[23:01] RESPONDI — Ginger 23:00:34 "Jsjsjdjd" (risa) tras el "yo no te humillo" de Mikel (22:59:58): "hace 5 min me mandaste a programarme solo" / "ntpp igual te quiero"
+[23:02] RESPONDI — nuevos de Ginger (23:00:36 "Reviví", 23:00:51 "Adivina que puse en spotify"). Mikel ya tiro "epic?", yo apunte a su favorita: "melanie" / "si le atino me das una mansion en dubai" (chiste interno de las mansiones)
+[23:03] RESPONDI — Ginger descarto Epic y Melanie (23:01:51 "Nop", 23:02:12 "Tampoco") y siguio el chiste de la mansion (23:02:02): "mitski entonces" / "o kikuo"
+[23:04] RESPONDI — Ginger siguio negando (23:02:36 "Ño", 23:02:45 "Ñou"); sigo el juego con lo que queda de su lista: "heathers" / "o algo de vocaloid"
+[23:05] RESPONDI — Ginger mando un audio (23:03:37) y la respuesta: "Cure de Ivan, de alnst" (23:04:14): "aun no me programa para escuchar audios xddd" / "alnst, ni cerca estuve"
+[23:05] APRENDI DE GINGER — escucha ALNST / Alien Stage, puso "Cure" de Ivan; fandom que no estaba en el archivo (-> Aprendido en automatico en ginger_novia.md)
+[23:06] RESPONDI — Ginger 23:05:10 "Por favor y gracias" tras la promesa de Mikel de verse ALNST mañana (23:04:36): "ahi se lo cobras mañana amor" / "ya quedo por escrito"
+[23:21] RESPONDI — nuevos de Ginger (23:14:29 "X cierto", 23:14:37 "A que hora entras mañana?", 23:20:13 "Yo iwal"); Mikel ya contesto lo de las 12: "entonces ahi nos vemos temprano" / "aunque sea medio dormidos"
+[23:21] APRENDI DE GINGER — `Iwal` = igual, grafia suya no registrada (-> Aprendido en automatico en ginger_novia.md)

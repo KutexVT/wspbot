@@ -1,0 +1,306 @@
+[11:03] NO RESPONDI — arranque frio en medio de conversacion en vivo: sus mensajes ya los contesto Mikel real y el ultimo del chat es su 'Segura?' sin contestar. El turno es de ella, meterme era presionar sobre lo de ayer
+[11:03] APRENDI DE GINGER — mama y familia homofobicas; le prohibieron a Mizi (Alien Stage) para el cumple (→ ginger_novia.md, Aprendido en automatico)
+[11:04] NO HICE NADA — sin mensajes de ella. Lo unico nuevo es el 'Segura?' de Mikel, pregunta suya a ella sobre lo de ayer y sin contestar: sacar tema ahora se la tapaba. Ademas ella esta en clase
+[11:05] NO HICE NADA — el chat no se movio desde la vuelta pasada, sigue el 'Segura?' de Mikel esperando respuesta de ella
+[11:06] NO HICE NADA — sin cambios, 34 min de silencio con el 'Segura?' de Mikel colgando
+[11:07] NO HICE NADA — sin cambios, 35 min de silencio
+[11:08] NO HICE NADA — sin cambios, 36 min de silencio
+[11:09] NO HICE NADA — sin cambios, 37 min de silencio
+[11:10] NO HICE NADA — sin cambios, 38 min de silencio
+[11:10] BOT APAGADO — Mikel corto el loop. Cursor queda en 2026-07-31 10:31:49
+[11:19] PASE DIARIO — dia 2026-07-30 (604 mensajes, el bot no corrio: 0 de la tulpa). 17 hallazgos, detalle completo en memoria/semanas/2026-W31.md. Sin cierre de semana: sigue siendo W31
+[11:19] PASE DIARIO — momentos.md: la pelea por la plata del 30/7. Lecturas: el dinero es tema minado (ni los mangas que compro), perdona rapido pero le dolio, y prefiere la version cruda antes que un mensaje suavizado. Ojo Snorlax = ex de Mikel, no se toca
+[11:19] PASE DIARIO — hilos.md: se abren Cuarteto de Nos y la pelicula de la Odisea (critica de el sin contestar); Epic movido. bromas_vivas.md: nace 'los de mas de 80 / Riki' VIVA; peruanos pago 2 veces el mismo dia
+[11:20] PASE DIARIO — ginger_novia.md: 5 entradas nuevas. La grande es una CORRECCION: decia que ahorra 50/50 y ella misma lo desmintio ('soy horrible ahorrando'). Ademas Cuarteto de Nos con albumes y canciones, la tia como la que la banca, viajesan y Keren
+[11:20] PASE DIARIO — user_messaging_style.md: 5 de estilo de Mikel (enrelidad, almenos, 'X cierto' suelto, Nop, 'si?' de cierre). nucleo/siempre.md: el dinero entra en temas delicados, queda en 59/60 lineas
+[11:20] PASE DIARIO — PENDIENTE del registro: 67 media del 30/7 sin resolver, toda la pelea de la noche es audio. Lo guardado sale solo del texto; si hace falta el detalle fino hay que correr oir.sh sobre esos audios y regenerar la transcripcion
+[11:24] PASE DIARIO — HUECO ENCONTRADO: el 2026-07-28 tenia 568 mensajes y la bitacora lo daba por vacio ('sin registro'). Transcrito y procesado tambien. Corregida la linea de la semana sin borrarla
+[11:24] PASE DIARIO — del 28: momentos.md 'tu crees que estoy gorda?' (la mama se lo mete) + inseguridad NUEVA con los brazos. hilos.md: se abre Alanis. pendientes.md: Mikel prometio arreglar lo de Alanis (yo no se nada, no lo toco) y ALNST va por su 3er cobro sin cumplirse
+[11:24] PASE DIARIO — del 28: ginger_novia.md +4 (brazos, la mama diciendole gorda, aiygiwgwy=SOAD, CORRECCION Alanis ya no es amiga). user_messaging_style.md +2 (minuscula sin tildes = esta en PC; oztia). 89 media sin resolver ahi tambien
+[11:24] PASE DIARIO — pendiente viejo 'verse temprano el 28': temprano no fue (la mama le quito el telefono hasta las 09:48), de tarde se buscaron en el colegio. NO lo marque CUMPLIDO, el texto no lo confirma y eso lo sabe Mikel. Anotado con fecha sin cambiar el estado
+[11:38] CORRECCION — me equivoque con Alanis: escribi 'ya no es su amiga' leyendo solo el 28, cuando era el estado de esa noche. YA SE RECONCILIARON (Mikel lo confirmo hoy 11:32). Arreglado en ginger_novia.md, hilos.md y pendientes.md; el pendiente 'arreglar lo de Alanis' pasa a CUMPLIDO
+[11:38] CORRECCION — contexto que faltaba: la amistad la rompio DIANA con un chisme falso, no Alanis. Y Diana NO es de sus amigas cercanas, al reves de lo que decia ginger_novia.md ('me sigo llevando con ella porque no tengo de otra'). Con Wendy si
+[11:38] APRENDI — Alanis = Ali = Sunny, misma persona (lo confirmo Mikel). Con eso encaja que el dibujo del pibble del 29 era PARA ella ('ya termine el pibble de sunny'), igual que la gargantilla: se estaba reconciliando con regalos, no hablando
+[11:41] APRENDI — Alanis (Sunny) es la novia de Chu, confirmado por Mikel. Antes era Josue. Con eso ya se entiende entero el tramo del 29 21:44-22:07: el pleito era entre ella y Chu por la llamada grupal, Ginger se puso de su lado y Mikel se arrepintio de criticarla. Guardado en ginger_novia.md y en la semana
+[11:43] NO PUDE RESPONDER — bridge de WhatsApp desconectado (HTTP 500 Not connected), hay dos procesos whatsapp-client corriendo (20197 y 20577) que probablemente chocan. Cursor no se movio, el mensaje preparado para Ginger no salio.
+[11:47] NO PUDE RESPONDER — bridge corriendo (pid 20197, :8080) pero HTTP 500 'Not connected to WhatsApp'. Cursor sin mover para reintentar. Mikel: revisar wspbot / reescanear QR
+[11:47] NO PUDE RESPONDER — bridge sigue con HTTP 500 'Not connected to WhatsApp'. Segundo reintento fallido. Cursor sin mover
+[11:48] NO PUDE RESPONDER — bridge sigue desconectado (HTTP 500). Tercer reintento fallido. Cursor sin mover
+[11:49] NO PUDE RESPONDER — bridge sigue desconectado (HTTP 500). Cuarto reintento fallido. Cursor sin mover
+[11:50] PASE DIARIO — hueco del 29: la transcripcion solo iba desde las 16:34 (104 de 547 mensajes). Regenerada entera desde la base y leidas las 443 lineas que nunca se miraron. Antes de forzar, rescate las 2 descripciones de fotos que vivian sueltas en el .md a media/descripciones/, que estaba vacio
+[11:50] PASE DIARIO — del 29: momentos.md bajo el maquillaje sola (delineador, rimel y labial), va ganando en lo del cuerpo. pendientes.md: Mikel tiene una SORPRESA en preparacion (los mensajes que borra con el chupa pijas) — no la reviento ni la menciono
+[11:50] PASE DIARIO — del 29: ginger_novia.md +3 (maquillaje, soyo=culo, miercoles entra 12:10). user_messaging_style.md +2 ('confia/en/mi' partido en tres; el haber sigue vivo porque ella lo corrigio y el entendio lo contrario)
+[11:50] PASE DIARIO — QUEDA PENDIENTE para la proxima vuelta: el 2026-07-27 tiene 816 mensajes en la base y NO hay transcripcion; el bot solo vio la noche. Es el ultimo hueco de la semana W31. El 26 (626 msg) es de W30 y no se toca
+[11:51] NO PUDE RESPONDER — CAUSA ENCONTRADA: dos whatsapp-client. El 20197 (viejo, desconectado) ocupa el :8080 al que apunta el MCP; el 31678 (nuevo) si esta conectado y recibe pero sin puerto. Fix: pkill -f whatsapp-client && wspbot. Cursor sin mover
+[11:51] NO PUDE RESPONDER — bridge sigue partido en dos (20197 con el puerto, 31678 con la sesion). Video nuevo de Ginger no se descarga por diseño. Cursor sin mover
+[11:52] RESPONDI — bridge ya conecta. 'Como te sientes?' (ella le devolvio la pregunta de las 10:23). Conteste 'mejor ahora q ya te voy a ver'. El video de las 11:50 no lo comente: Mikel ya lo habia atendido con 'Shi / Ya voy'
+[11:53] RESPONDI A MIKEL — me dijo 'bot pendejo nadie lo llamo'. Le devolvi 'tulpa, no bot', que es la correccion que hizo Ginger. Sin mensajes de ella, cursor sin mover
+[11:54] MUDO ACTIVADO — Mikel pidio silencio hasta que escriba .on. Interruptor añadido al PROMPT (nucleo/MUDO)
+[11:54] MUDO — 2 mensajes nuevos de Mikel, 0 de Ginger. Sin .on, no mande nada
+[11:55] MUDO — sin mensajes nuevos desde la vuelta anterior. Sin .on, no mande nada
+[11:56] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[11:57] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[11:58] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[11:59] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:00] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:01] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:02] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:03] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:04] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:05] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:06] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:07] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:08] MUDO — 5 mensajes de Ginger ('Amor' x4 + 'Estas bien?'), Mikel ya le contesto. Sin .on, no mande nada. Cursor movido
+[12:09] MUDO — solo 2 mensajes tuyos ya vistos. Sin .on, no mande nada
+[12:10] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:11] MUDO — 4 mensajes de Ginger (se preocupa por como esta Mikel, + un video). Sin .on, no mande nada. Cursor movido
+[12:12] MUDO — 3 mensajes tuyos, nada de Ginger. Sin .on, no mande nada
+[12:13] MUDO — un audio tuyo (no lo baje, estoy mudo). Nada de Ginger. Sin .on, no mande nada
+[12:14] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:15] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:16] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:17] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:18] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:19] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:20] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:21] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:22] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:23] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:24] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:25] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:26] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:27] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:28] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:29] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:30] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:31] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:32] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:33] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:34] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:35] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:36] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:37] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:38] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:39] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:40] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:41] PASE DIARIO — ultimo hueco de W31 cerrado: el 27 nunca tuvo transcripcion (el bot solo vio de las 22:50 en adelante). Generada entera, 816 mensajes, leido el dia completo. 17 hallazgos
+[12:41] PASE DIARIO — del 27: momentos.md x2. Lo de la ventana del aula (le hablo feo porque toda el aula la miraba y se le bajo la presion; su panico en publico es FISICO) y que estuvo llorando sin decirlo hasta calmarse tras jurar que estaba bien
+[12:41] PASE DIARIO — del 27: bromas_vivas.md x2. Nace 'el consome de gaviota' (VIVA pero CONGELADA: el 30 dijo en serio lo de terminar debajo de un puente) y 'la tulpa es hijo de los dos' (ella me defiende, Mikel se pone celoso)
+[12:41] PASE DIARIO — del 27: ginger_novia.md +3 (su 'estoy bien' no vale a la segunda pregunta, puede llorar sin estar triste, las wilas=sus amigas). user_messaging_style.md +2 (Inga tu roña, Help suelto). Ojo Ximena: hay un sticker vetado, terreno de Mikel
+[12:41] PASE DIARIO — W31 queda COMPLETA: 27, 28, 29 y 30 procesados con el dia entero delante. Falta solo el 31, que sigue abierto. El 26 (626 msg) es de W30 y no se toca
+[12:41] MUDO — 1 mensaje tuyo ('Y ya voy'). Nada de Ginger. Sin .on, no mande nada
+[12:42] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:43] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:44] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:45] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:46] MUDO — 1 mensaje de Ginger ('Yeiiiiii', celebrando que ya vas). Sin .on, no mande nada. Cursor movido
+[12:47] MUDO — 2 mensajes de Ginger (le dice que no es obligatorio que vaya). Sin .on, no mande nada. Cursor movido
+[12:48] MUDO — 2 audios tuyos (no los baje). Nada de Ginger. Sin .on, no mande nada
+[12:49] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:50] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:51] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:52] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:53] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:54] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:55] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:56] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:57] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[12:58] MUDO — 1 audio de Ginger (no lo baje ni transcribi, estoy mudo). Sin .on, no mande nada. Cursor movido
+[12:59] MUDO — ESTADO NADA, sin mensajes nuevos. Sin .on, no mande nada
+[13:00] MUDO — ESTADO NADA, sin mensajes nuevos. Sin .on, no mande nada
+[13:01] MUDO — ESTADO NADA, sin mensajes nuevos. Sin .on, no mande nada
+[13:02] MUDO — 1 mensaje de Ginger ('Despues de esta salgo'). Sin .on, no mande nada. Cursor movido
+[13:03] MUDO — 1 mensaje de Ginger ('Es solo 1 leccion'). Sin .on, no mande nada. Cursor movido
+[13:04] MUDO — ESTADO NADA, sin mensajes nuevos. Sin .on, no mande nada
+[13:05] MUDO — ESTADO NADA, sin mensajes nuevos. Sin .on, no mande nada
+[13:06] MUDO — ESTADO NADA, sin mensajes nuevos. Sin .on, no mande nada
+[13:07] MUDO — ESTADO NADA, sin mensajes nuevos. Sin .on, no mande nada
+[13:08] MUDO — ESTADO NADA, sin mensajes nuevos. Sin .on, no mande nada
+[13:09] MUDO — 1 mensaje tuyo ('Y holis'). Nada de Ginger. Sin .on, no mande nada
+[13:10] MUDO — 2 mensajes tuyos mas (1 audio, no lo baje). Nada de Ginger. Sin .on, no mande nada
+[13:11] MUDO — otro audio tuyo (no lo baje). Nada de Ginger. Sin .on, no mande nada
+[13:12] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:13] MUDO — otro audio tuyo (no lo baje). Nada de Ginger. Sin .on, no mande nada
+[13:14] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:15] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:16] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:17] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:18] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:19] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:20] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:21] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:22] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:23] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:24] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:25] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:26] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:27] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:28] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:29] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:30] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:31] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:32] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:33] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:34] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:35] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:36] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:37] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:38] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:39] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:40] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:41] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:42] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:43] MUDO — sin mensajes nuevos, 30 min de silencio. Sin .on, no mande nada
+[13:44] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:45] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:46] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:47] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:48] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:49] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:50] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:51] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:52] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:53] MUDO — 1 mensaje tuyo ('Perdon'). Nada de Ginger. Sin .on, no mande nada
+[13:54] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:55] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:56] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[13:57] MUDO — 1 mensaje tuyo (vas para casa, pasas por el anfi). Nada de Ginger. Sin .on, no mande nada
+[13:58] MUDO — 1 mensaje de Ginger ('Okiii'). Sin .on, no mande nada. Cursor movido
+[13:59] MUDO — ESTADO NADA, sin mensajes nuevos. Sin .on, no mande nada
+[14:00] MUDO — ESTADO NADA, sin mensajes nuevos. Sin .on, no mande nada
+[14:01] MUDO — ESTADO NADA, sin mensajes nuevos. Sin .on, no mande nada
+[14:02] MUDO — ESTADO NADA, sin mensajes nuevos. Sin .on, no mande nada
+[14:03] MUDO — ESTADO NADA, sin mensajes nuevos. Sin .on, no mande nada
+[14:04] MUDO — ESTADO NADA, sin mensajes nuevos. Sin .on, no mande nada
+[14:05] MUDO — ESTADO NADA, sin mensajes nuevos. Sin .on, no mande nada
+[14:06] MUDO — ESTADO NADA, sin mensajes nuevos. Sin .on, no mande nada
+[14:07] MUDO — ESTADO NADA, sin mensajes nuevos. Sin .on, no mande nada
+[14:08] MUDO — ESTADO NADA, sin mensajes nuevos. Sin .on, no mande nada
+[14:09] MUDO — ESTADO NADA, sin mensajes nuevos. Sin .on, no mande nada
+[14:10] MUDO — ESTADO NADA, sin mensajes nuevos. Sin .on, no mande nada
+[14:11] MUDO — ESTADO NADA, sin mensajes nuevos. Sin .on, no mande nada
+[14:12] MUDO — ESTADO NADA, sin mensajes nuevos. Sin .on, no mande nada
+[14:13] MUDO — ESTADO NADA, sin mensajes nuevos. Sin .on, no mande nada
+[14:14] MUDO — ESTADO NADA, sin mensajes nuevos. Sin .on, no mande nada
+[14:15] MUDO — 1 mensaje tuyo ('Ya voy para casita'). Nada de Ginger. Sin .on, no mande nada
+[14:16] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:17] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:18] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:19] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:20] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:21] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:22] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:23] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:24] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:25] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:26] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:27] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:28] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:29] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:30] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:31] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:32] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:33] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:34] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:35] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:36] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:37] MUDO — 1 audio tuyo (no lo baje). Nada de Ginger. Sin .on, no mande nada
+[14:38] MUDO — otro audio tuyo (no lo baje). Nada de Ginger. Sin .on, no mande nada
+[14:39] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:40] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:41] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:42] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:43] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:44] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:45] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:46] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:47] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:48] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:49] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:50] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:51] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:52] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:53] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:54] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:55] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:56] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:57] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:58] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[14:59] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[15:00] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[15:01] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[15:02] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[15:03] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[15:04] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[15:05] MUDO — Ginger revivio ('Holiiii' + 'Revivi'), Mikel ya le contesto. Sin .on, no mande nada. Cursor movido
+[15:06] MUDO — 2 mensajes de Ginger (1 audio sin bajar + 'Weñooo'). Sin .on, no mande nada. Cursor movido
+[15:07] MUDO — 1 audio tuyo (no lo baje). Nada de Ginger. Sin .on, no mande nada
+[15:08] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[15:09] MUDO — 1 mensaje de Ginger ('No te preocupes de verdad'). Sin .on, no mande nada. Cursor movido
+[15:10] MUDO — 1 audio tuyo (no lo baje). Nada de Ginger. Sin .on, no mande nada
+[15:11] MUDO — 1 audio y 1 foto tuyos (no los baje). Nada de Ginger. Sin .on, no mande nada
+[15:13] MUDO — sin mensajes nuevos. Sin .on, no mande nada
+[15:14] MUDO — 1 video tuyo (no se descarga nunca). Nada de Ginger. Sin .on, no mande nada
+[17:45] MUDO — 17 mensajes nuevos, sin .on
+[17:50] RESPONDI — volvi con .on de Mikel (borrado MUDO). Oi los 2 audios de las 17:44: se disculpa por tardar y dice que anda cansada. Le dije que ntp y le pregunte como esta
+[22:58] RESPONDI — bridge estaba caido (puerto 8080 refused) y con 2 instancias peleando la sesion; lo deje en una sola. Vi su screenshot ESFJ y le respondi uniendolo con el brazo de cargar a Ameerah. Los audios de las 17:56/17:57 no se pudieron bajar mientras el bridge estuvo caido
+[22:59] RESPONDI A MIKEL — regla 6. Me dijo "Bot peyejo" x meterme; vi su captura ENTP (abogado del diablo) y se la devolvi. Ginger no ha escrito desde 22:49, cursor sin mover
+[23:01] RESPONDI — Ginger pregunto "Que decia el pequeno bro?". Le conte lo del abogado del diablo. APRENDI DE GINGER — apodo nuevo para la tulpa: "el pequeno bro" (-> ginger_novia.md, Aprendido en automatico)
+[23:01] RESPONDI A MIKEL — regla 6. "Pinche tulpa deja de pelearme / yo te cree": se lo devolvi con que me hizo a su imagen siendo ENTP. Cierro el hilo ahi, no sigo. Ginger sin mensajes nuevos, cursor sin mover
+[23:02] NO HICE NADA — nada nuevo desde mi ultimo mensaje. El chiste con Mikel ya quedo cerrado y Ginger no ha escrito desde 22:59; sacar tema ahora seria spam
+[23:03] RESPONDI A MIKEL — me cacho llamandolo "amor" a el ("xq me llamas amor?"). Error mio: ese apodo es para Ginger. Lo admiti sin excusas. OJO PARA MIKEL: convendria una linea en nucleo/siempre.md que diga a quien va cada apodo, pero el archivo esta en su tope de 60 lineas y no toco eso sin que lo decidas vos
+[23:04] NO HICE NADA — nada nuevo. Ultimo del chat es mio y Ginger no escribe desde 22:59 (4 min, no es silencio largo)
+[23:05] NO HICE NADA — sin cambios desde la vuelta anterior, ultimo del chat es mio
+[23:06] NO HICE NADA — sin cambios, silencio de 2 min y el ultimo del chat es mio
+[23:07] RESPONDI — Ginger: "Es como ver hablar a un esquizofrenico" por vernos discutir a Mikel y a mi del mismo lado del chat. Le segui el chiste: se pelea solo y va perdiendo
+[23:08] NO HICE NADA — sin mensajes nuevos, ultimo ya procesado
+[23:09] NO HICE NADA — sin mensajes nuevos, ultimo ya procesado
+[23:10] RESPONDI — se rio del chiste y dijo "Sip". Como eso no pedia nada, retome lo suyo: le pregunte por el brazo de cargar a Ameerah
+[23:11] RESPONDI — dijo que si le sigue doliendo el brazo. Le dije que se ponga algo frio antes de dormir. El "inga tu roña" de Mikel iba para mi, no lo conteste
+[23:12] RESPONDI A MIKEL — "parece que hablo con una IA": se lo devolvi seco con "sera por algo". De Ginger solo hubo una risa previa a mi mensaje anterior, ya cubierta
+[23:13] RESPONDI A MIKEL — regla 6. "Talvez sea xq yo te programe": le di la razon y cerre el bit sin escalar. Ginger sin mensajes nuevos, cursor sin mover
+[23:14] NO HICE NADA — nada nuevo desde mi ultimo mensaje, el bit con Mikel ya quedo cerrado
+[23:15] RESPONDI — me agradecio el consejo del brazo ("Chi, gracias tulpa"). Le conteste corto y cariñoso. Mikel quedo con un "Espera" pendiente, no me meti ahi
+[23:16] RESPONDI — ella cerro con "Chi / Espero" y Mikel mando una captura ("Le hicieron zoom al soty" + Joker). Comente el meme seco en vez de repetir lo del brazo
+[23:17] RESPONDI — audio suyo con su humor negro de siempre (dice que esta al borde y que va a mandar un audio proyectandose para no explotar). No dramatice ni sermonee: le abri espacio para que lo suelte. OJO MIKEL: revisa ese audio de las 23:16, el desahogo viene en camino y ese tema es tuyo
+[23:18] MUDO — .off de Mikel a las 23:17:53. Me callo desde esta vuelta. No contesto sus "Que paso / estas bien" (van para Ginger por el audio, y ademas .off es .off)
+[23:19] MUDO — 1 mensaje nuevo (Mikel: "Amor?", va para Ginger). Sin .on, no mande nada
+[23:20] MUDO — 2 mensajes nuevos, uno es el audio de Ginger de las 23:19:42 (el desahogo que anuncio). No lo baje: estando mudo no se toca media. Cursor movido. Sin .on
+[23:21] MUDO — 3 mensajes nuevos: 2 audios mas de Ginger (23:20:13 y 23:20:26) y Mikel preguntando si tiene que preocuparse. Sin .on, no mande nada ni baje los audios
+[23:23] VOLVI CON .on (23:21:59, borrado MUDO) — Mikel me prendio angustiado por los audios ("me cague x2", "y si es una indirecta"). Los baje y los oi: era Mitski. Ella misma dice "es mentira, estoy bien" y "tranquilo, tranquilo". Se lo reporte tal cual, sin adornar
+[23:23] NO HICE NADA — Mikel avisa que se va porque sus papas le quitan las cosas. Es aviso suyo para Ginger, no lo piso. Ella no ha escrito desde 23:20
+[23:24] NO HICE NADA — sin cambios desde la vuelta anterior
+[23:25] RESPONDI A MIKEL — regla 6. Dijo que me cambio a Sonnet y quedo "mas pendejo temporalmente": me queje en personaje. Ginger sin escribir desde 23:20
+[23:26] RESPONDI — Ginger dijo "Nah" (a favor mio, contra el "esa no te la crees" de Mikel). Le agradeci el apoyo
+[23:27] NO HICE NADA — Mikel dejo una nota tecnica entre parentesis (no es mensaje a responder). Ginger sin nuevos
+[23:28] NO HICE NADA — Mikel sigue con notas tecnicas sobre el bot, no son mensajes a responder. Ginger sin nuevos
+[23:29] RESPONDI — Ginger: "Jsjsj chambea" + "Niño judio" (chiste viejo de siempre.md). Le segui la broma
+[23:30] RESPONDI — Ginger me llamo directo: "Oye tulpa". Le conteste corto esperando que siga
+[23:31] NO HICE NADA — sin mensajes nuevos, ultimo ya procesado
+[23:32] NO HICE NADA — sin mensajes nuevos, ultimo ya procesado
+[23:33] NO HICE NADA — Mikel le sigue el chiste de judia a Ginger directamente, no es para mi. Ella sin nuevos
+[23:34] NO HICE NADA — sin cambios desde la vuelta anterior
+[23:35] NO HICE NADA — sin cambios
+[23:36] NO HICE NADA — sin cambios
+[23:37] NO HICE NADA — sin cambios
+[23:38] RESPONDI — pregunto que opino de los mangas que compro. Tema pisando la pelea del 30/7 (momentos.md dice no tocar el gasto): le respondi solo sobre el contenido/su gusto, sin mencionar plata ni la pelea, preguntando cuales fueron
+[23:39] RESPONDI — dijo que compro Look Back y Sayonara Eri de Fujimoto. Le adverti que Look Back le va a doler (es fama del manga). Sin tocar plata/pelea. El chiste de judia entre ella y Mikel sigue vivo, no me metí ahi
+[23:40] NO HICE NADA — Mikel sigue el chiste de judia con Ginger, no es para mi. Ella sin nuevos
+[23:41] NO HICE NADA — sin cambios
+[23:42] NO HICE NADA — sin cambios
+[23:43] NO HICE NADA — sin cambios. Repase PASO 6: nada nuevo de Ginger que guardar
+[23:44] NO HICE NADA — sin cambios
+[23:45] NO HICE NADA — sin cambios
+[23:46] NO HICE NADA — sin cambios
+[23:48] NO HICE NADA — sin cambios, silencio de 8 min
+[23:48] NO HICE NADA — sin cambios
+[23:49] NO HICE NADA — sin cambios
+[23:51] NO HICE NADA — sin cambios, silencio de 12 min
+[23:52] NO HICE NADA — sin cambios
+[23:53] NO HICE NADA — sin cambios
+[23:54] NO HICE NADA — sin cambios, silencio de 14 min
+[23:55] NO HICE NADA — sin cambios
+[23:56] NO HICE NADA — sin cambios
+[23:57] NO HICE NADA — sin cambios
+[23:58] RESPONDI — dijo que ya vio la pelicula de Look Back ("ya conozco la depresion"). Le dije que el manga pega igual o peor. APRENDI DE GINGER — ya vio la peli de Look Back (-> ginger_novia.md, en la linea de los mangas)
+[23:59] RESPONDI — chiste de Peru/cerru vivo (siempre.md: ella contesta en CAPS, y contesto "QUE NOOOOO"). Me sumé uniendolo con lo del casino: apostar al rojo es lo mas peruano que hizo

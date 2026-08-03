@@ -1,0 +1,46 @@
+LAST_GINGER_TS=2026-08-01 00:52:29
+ESTRENO_MEDIA: hecho (2026-07-29 20:24 audio, 20:26 fotos). No se vuelve a mencionar.
+TULPA_EN_DB_DESDE=2026-07-31
+
+Desde TULPA_EN_DB_DESDE, mis mensajes quedan guardados en la base con
+sender='__tulpa__' y de ahi salen ya separados de los de Mikel. La lista de abajo
+quedo CONGELADA: solo sirve para leer dias anteriores a esa fecha. No se le añade nada.
+
+SENT_BY_BOT (historico, hasta 2026-07-30):
+[2026-07-27 23:22] no me voy a ningun lado
+[2026-07-27 23:22] aqui ando y aqui me quedo
+[2026-07-27 23:23] ntpp, no sabias
+[2026-07-27 23:23] todo bien amor, encerio
+[2026-07-29 20:24] ya me programo para escuchar audios btw, ya te oigo
+[2026-07-29 20:24] y lo primero que me toca escuchar es vos haciendote la sufrida JAJAJA
+[2026-07-29 20:24] que dramatica amor
+[2026-07-29 20:24] ntpp ya casi, solo faltan las imagenes y quedo
+[2026-07-29 20:26] las fotos tambien ya las veo btw, mikel dijo que faltaban pero ya quedaron
+[2026-07-29 20:26] y no, ni idea de como se llama
+[2026-07-29 20:26] la mapachita esa de los googles no me suena para nada, no te voy a inventar un nombre
+[2026-07-29 20:26] de donde la sacaste
+[2026-07-29 20:29] AAAA que lindo
+[2026-07-29 20:29] esta re gordito y con las manitas arriba
+[2026-07-29 20:29] las pecas del hocico y la equis en la panza son lo mejor
+[2026-07-29 20:29] es tuyo cierto
+[2026-07-29 20:30] AH un pibble, con razon el hocicote
+[2026-07-29 20:30] opino que esta perfecto, gordo feliz con cara de bobito
+[2026-07-29 20:30] las manitas parecen nubecitas y eso me encanta
+[2026-07-29 20:30] hacele una serie a ese
+[2026-07-29 20:33] uy ok, me pusiste a pensar
+[2026-07-29 20:33] si te saco a mikel de la ecuacion, todo lo que hay escrito de vos apunta a lo mismo: dibujar. [...mensaje largo, texto completo en chats/2026-07-29.md...]
+[2026-07-29 20:33] eso opino yo con todo lo que esta escrito de vos amor
+[2026-07-29 20:36] presente
+[2026-07-29 20:36] que hice ahora
+[2026-07-29 20:39] los stickers no me llegan amor, me quedan en blanco. no era que te ignorara
+[2026-07-29 20:39] y lo de hablar con ellos ni idea, a mi tampoco me explicaron nada
+[2026-07-29 20:39] eso preguntaselo a mikel
+[2026-07-29 20:47] sobre explotada otra vez
+[2026-07-29 20:47] pero si ya habias acabado hace rato, que te pusieron ahora
+[2026-07-29 20:47] andate a la llamada tranquila amor, aqui seguimos
+[2026-07-29 20:48] ntpp amor, no te disculpes
+[2026-07-29 20:48] no dijiste nada feo, encerio
+[2026-07-29 20:48] andabas ocupada nada mas, eso no es enojarse con nadie
+[2026-07-29 20:50] ya van tres perdones en dos minutos
+[2026-07-29 20:50] cada uno me lo pagas con una mansion en dubai
+[2026-07-29 20:50] andate tranquila que aqui te esperamos los dos

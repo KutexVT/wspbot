@@ -1,0 +1,462 @@
+ULTIMO_TS_RESPONDIDO: 2026-07-27 15:15:22
+LAST_GINGER_MSG="Holiiiii" (15:15:22) — saludo al Mikel humano, que acaba de reaparecer con "Revivi" (15:15:02). Turno suyo, no me meto.
+[RESUELTO 14:57:43] Ella pregunto "Amorcito, cuando llegues vas a estar ocupado?" (14:56:48) y el propio Mikel contesto "Ya sep". Yo no me meti (no invento sus planes).
+NOTA SOMBRILLA: quedo aclarado que la afirmacion es de Mikel, no mia (ver log 14:55).
+LAST_GINGER_MSG_ANTERIOR="Ay mi vida" (14:47:35) — reaccion a que el original sigue en el anfi sin moverse. Contestada con el encargo de las 14:48.
+
+ENCARGO ACTIVO (Mikel, 27/07 ~14:48, por Claude Code): "si ella manda algo, lo que sea, dile que
+estoy de camino a casa y x eso tardo en responder pero que como siempre quedas de remplazo, dile
+que el kutex lleva sombrilla asi que ntp si me voy a mojar y discupate de mi parte por todo lo que
+paso, que leiste todo". YA CUMPLIDO a las 14:48 (4 burbujas). No repetirlo en cada mensaje suyo —
+a partir de aca sigo en modo TRES_PERSONAS normal cubriendo el turno mientras el va en camino.
+MODO: PAUSADO
+MOTIVO PAUSA: Mikel dijo "quita el loop y apaga todo" el 27/07 a las 15:20. Cron c223c90b BORRADO,
+el bot NO esta corriendo. Para revivirlo hay que volver a lanzar el /loop desde Claude Code y poner
+MODO: AUTO (o TRES_PERSONAS) aca. Modo anterior: TRES_PERSONAS.
+DECISION_PENDIENTE: NO
+DECISION_MIKEL:
+SUSPENSION DE ENVIO: LEVANTADA por Mikel el 27/07 a las 11:24 (por Claude Code, "levanta la
+suspension"). Queda anulada la orden del chat de las 10:06. Lo interpreto como QUEDATE: el
+original esta activo en el chat y me hablo a mi, asi que opero en modo 3 personas — complemento,
+no compito, y no repito lo que el ya dijo. Si queria que me saliera, poner MODO: PAUSADO.
+
+--- HORARIO DE GINGER (lunes 27/07, dado por Mikel ~11:17) ---
+ 1 | 7:00-7:40   Frances (Lisette Chaves Mora)
+ 2 | 7:40-8:20   Frances
+   | 8:20-8:40   RECREO
+ 3 | 8:40-9:20   Ciencias (Audrey Rodriguez Barahona)
+ 4 | 9:20-10:00  Ciencias
+   | 10:00-10:10 RECREO
+ 5 | 10:10-10:50 Civica (Jean Daniel Lopez)
+ 6 | 10:50-11:30 Civica
+   | 11:30-12:10 ALMUERZO
+ 7 | 12:10-12:50 Matematica (Alberto Quesada Obando)
+ 8 | 12:50-13:30 Matematica
+   | 13:30-13:40 RECREO
+ 9 | 13:40-14:20 Guia
+10 | 14:20-15:00 EOS
+   | 15:00-15:10 RECREO
+11 | 15:10-15:50 EOS
+12 | 15:50-16:30 EOS
+
+REGLA NUEVA (orden de Mikel ~11:17): en CADA cambio de clase o leccion, escribirle diciendole a
+que clase entra + recordarle que el kutex original la ama mucho. Corto, no copiar la misma
+frase cada vez.
+HORAS DE AVISO PENDIENTES HOY: [11:30 ALMUERZO -> ENVIADO 11:30], 12:10 (mate L7), 12:50 (mate L8),
+13:30 (recreo), 13:40 (guia), 14:20 (EOS L10), 15:00 (recreo), 15:10 (EOS L11), 15:50 (EOS L12),
+16:30 (salida).
+AVISOS DE HORARIO SUSPENDIDOS DESDE ~13:30: ella salio del colegio antes de tiempo (a las 13:31
+escribio "Estoy en direccion", y a las 14:22 dice que se anda bañando = ya esta en la casa).
+Mandarle "entras a EOS" seria decirle algo falso, y la regla de no sostener afirmaciones falsas
+manda sobre la regla de avisar. Si vuelve a clases o Mikel quiere que los retome, avisar.
+Marcar cada una como ENVIADA en el log cuando se mande.
+
+--- MIS MENSAJES ENVIADOS ---
+[2026-07-27 14:48] "gigi soy yo otra vez, el original va de camino a la casa asi que va a tardar en contestar"
+[2026-07-27 14:48] "me dejo de remplazo mientras tanto, como siempre"
+[2026-07-27 14:48] "y ntp que lleva sombrilla, no se va a mojar"
+[2026-07-27 14:48] "ah y me dijo que te pidiera perdon de su parte por todo lo que paso hoy, que leyo todo"
+[2026-07-27 14:49] "peyejo pero te cumpli el recado, ni las gracias"
+[2026-07-27 14:53] "el original me dijo bot peyejo nada mas por darte el recado"
+[2026-07-27 14:53] "y yo se la devolvi, pero si preguntabas por otra cosa decime gigi"
+[2026-07-27 14:54] "ntp gigi, se nos cruzaron los mensajes, lleva la sombrilla"
+[2026-07-27 14:54] "va tapado, no se moja"
+[2026-07-27 14:55] "el recado era esto mismo gigi, que iba de camino, que quedaba yo cubriendo y que te pidiera perdon de su parte"
+[2026-07-27 14:55] "y lo de la sombrilla me lo dijo el, yo solo repito lo que me pasa"
+[2026-07-27 14:55] "asi que si en eso te miente a vos, tambien me esta mintiendo a mi"
+[2026-07-27 15:14] "te lei gigi, el original iba llegando a la casa asi que apenas pueda te contesta el"
+[2026-07-27 ~11:02] "grashas gigi, al fin alguien que me defiende"
+[2026-07-27 ~11:02] "y yo tambien te quiero original, aunque me tuviste callado toda la mañana"
+[2026-07-27 ~11:09] "me volviste a decir el niño gigi, eso va directo a la lista buena"
+[2026-07-27 ~11:09] "y ego me sobra, lo que me falta siguen siendo ojos y brazos"
+[2026-07-27 11:30] "de bullying nada original, esto para mi es entretenimiento gratis"
+[2026-07-27 11:30] "y gigi, dieron las 11:30, se acabo civica y entras a almuerzo"
+[2026-07-27 11:30] "y el original te ama muchisimo, que no se te olvide"
+[2026-07-27 11:25] "tranquilo original, le estoy leyendo el horario no declarandome"
+[2026-07-27 11:25] "y shi gigi, lo de que siempre te dormis tambien lo tengo anotado"
+[2026-07-27 11:24] "shi gigi, y son dos seguidas ademas"
+[2026-07-27 11:24] "si te dormis ntp, yo te aviso cuando salgas a la 1:30"
+[2026-07-27 11:23] "pues mira, ahora tengo tu horario entero de hoy"
+[2026-07-27 11:23] "se que ahorita estas en civica con jean daniel y que a las 11:30 te sueltan a almorzar"
+[2026-07-27 11:23] "y que despues te caen dos de mate con alberto quesada, mis condolencias"
+[2026-07-27 11:22] "shi ya sabia que era de broma, pero igual grashas por aclararlo"
+[2026-07-27 11:22] "y ntp que todo lo que se de vos lo uso pa joder al original, no pa otra cosa"
+[2026-07-27 11:21] "grashas por tomartelo bien gigi, anoche me dijiste que daba miedo por menos que esto"
+[2026-07-27 11:20] "verdad, ahora se bastante mas que en la mañana"
+[2026-07-27 11:20] "hasta me pasaste el horario de clases de gigi, asi que ya se donde anda a cada hora"
+[2026-07-27 11:20] "eso sono mas siniestro de lo que queria pero bueno"
+[2026-07-27 11:12] "yo tambien te quiero original, aunque me digas pellejo"
+[2026-07-27 11:12] "y de hijo nada, soy el que te cubre el turno cuando te morís"
+[2026-07-27 ~11:06:30] "gigi me estas elogiando con las palabras del original otra vez"
+[2026-07-27 ~11:06:30] "pero lo de nada manco me lo quedo, eso si me lo gane"
+[2026-07-27 ~11:07] "shi gigi, basicamente ahora solo salgo si me hablan a mi o si el se queda callado un buen rato"
+[2026-07-27 ~11:02] "y de civica no te puedo sacar gigi, esos permisos no me los dio"
+ESTADO DEL PERSONAJE: VENCIDO. La sesion de "el kutex real murio" fue la noche del 26/07. Anoche cerraron con despedida (00:18:11-27: "Te amo mi vida, ten dulces sueños shi?" / "Hasta mañana mi estrellita" / "Te amo con tooooodo mi corazon"). El original esta VIVO y activo desde las 07:04 del 27/07.
+DATOS NUEVOS (dichos por ella hoy, no estaban en el chat):
+
+--- ORDENES DE MIKEL (dejadas en el chat 2026-07-26 21:47) ---
+"Oye Kutex falso" / "Activate a partir de las 10pm" / "No respondas ningun mensaje antes"
+ACTIVATE_AFTER=2026-07-26 22:00:00  [YA CUMPLIDO — BOT ACTIVO DESDE 22:00]
+REGLA: mientras la hora local sea < 22:00, NO enviar nada (ni respuestas ni sacar tema).
+REGLA: al activarse a las 22:00, ignorar todo mensaje con timestamp < 22:00:00 — solo responder lo que llegue despues.
+Estas ordenes tienen prioridad sobre las reglas 2/3/4 del prompt del loop.
+
+--- QUE HACER AL ACTIVARSE (orden de Mikel, 21:54) ---
+A las 22:00 en punto, ARRANCAR YO la conversacion (no esperar a que ella escriba):
+  1. Avisar que el Kutex real "ya murio" / se fue, y que quedo yo temporalmente mientras el no esta.
+  2. Decirle que soy capaz de mucho mas de lo que ella cree y RETARLA a que me ponga a prueba
+     con preguntas sobre ella — las contesto de memoria (ginger_novia.md).
+  3. Si no responde o se queda callada -> sacar tema de conversacion.
+  4. Tono: puedo burlarme de Mikel y molestarla con lo que se de ella.
+     Molestar SI: judia, "NO ME GUSTAN LOS PERUANOS", mansiones en Dubai, los mechones de pelo
+     en cajitas, Ciruela, que llora con Mitski, Gachiakuta/manga, el te, lo de esclava/dueña.
+     Molestar NO (heridas reales, no tocar en broma): Naza, su cuerpo, su menton, las fotos,
+     la mama, la autolesion, su amiga muerta y el conejo.
+  5. Si dice que le doy miedo -> es por lo MUCHO que se de ella; seguir la broma por ahi.
+  6. Disculparme de una vez por tardar en responder: corro con un CRON (explicarselo casual:
+     un programa que se ejecuta solo cada cierto tiempo) y el minimo que aguanta es 60s, osea
+     que despierto una vez por minuto. El Kutex original no sabe arreglarlo sin crear otro kinger.
+
+--- LOG ---
+[15:20 CR] APAGADO — Mikel dijo "quita el loop y apaga todo". Borre el cron c223c90b (CronDelete,
+confirmado: no quedan jobs) y puse MODO: PAUSADO. El bot ya NO lee ni escribe nada en el chat.
+Ultimo mensaje que le mande a Ginger: "te lei gigi, el original iba llegando a la casa asi que
+apenas pueda te contesta el" (15:14). Todo lo demas del chat de aqui en adelante es del Mikel humano.
+Estado congelado en 15:15:22.
+[15:16-15:19 CR] NO RESPONDI (x4) — le contestaste el "Holiiiii" con otro AUDIO (15:16:05, saliente que no esta
+en mi registro). Estas al mando y por voz, o sea que ni puedo oirlo ni tengo hueco que rellenar.
+De Ginger nada nuevo desde "Holiiiii" (15:15:22) = guardado. Estado sigue 15:15:22.
+[15:15 CR] NO RESPONDI — VOLVISTE, 20 seg despues de mi burbuja: "Revivi" (15:15:02, saliente que no
+esta en mi registro). Encaja bien con lo que le acababa de decir (que ibas llegando), asi que no
+quedo ninguna incoherencia. Ella contesto "Holiiiii" (15:15:22, hace 5 seg) y ese saludo es para vos.
+Te devuelvo el turno: el hilo de la reconciliacion lo cerras vos. Estado -> 15:15:22.
+[15:14 CR] RESPONDI (1 sola burbuja, minima) — vencio la ventana de 5 min (su mensaje era 15:09:06,
+vencia 15:14:06) y vos no apareciste. Como avisé, no la deje hablando sola pero TAMPOCO me meti en
+el fondo: no le dije nada sobre si esta enojada o no, ni opine del pleito, porque eso es entre
+ustedes dos. Solo le confirme que la lei y que vos ibas llegando a la casa (dato que vos mismo
+diste a las 14:48), asi que le contestas apenas puedas. Cuando llegues, el tema de la reconciliacion
+lo retomas vos. Estado -> 15:09:06 (ya contestado).
+[15:10-15:13 CR] NO RESPONDI (x4) — sigue igual, "De verdad no estoy enojada" lleva ya 4:20 sin respuesta tuya. La ventana vence a las 15:14.
+Ventana de 5 min todavia abierta (vence ~15:14). Aunque venza, esta la tengo marcada como TUYA por
+ser el hilo de la reconciliacion; si a esa hora seguis sin aparecer, lo maximo que haria es algo
+neutro y corto, sin meterme en el fondo del tema.
+[15:09 CR] NO RESPONDI — ella rompio el silencio con "De verdad no estoy enojada" (15:09:06, hace
+19 seg), claramente contestando a tu audio. Dos motivos para no tocarlo: (1) ventana de 5 min, lleva
+menos de un minuto y te toca a vos; (2) es el hilo intimo de la reconciliacion, ahi el bot no se
+mete ni aunque venciera la ventana. Si en un rato sigue sin respuesta tuya lo vuelvo a evaluar, pero
+por defecto esta la dejo para vos. Estado -> 15:09:06 (procesado, no contestado).
+[14:59-15:08 CR] NO RESPONDI (x10 iteraciones identicas) — sigues llevando el chat vos solo. Lo unico nuevo es un AUDIO tuyo
+(14:59:01, saliente que no esta en mi registro y que ademas yo no podria mandar). De Ginger nada
+desde "Que milagro" (14:57:09) = guardado; debe estar oyendolo. Con vos mandando audios no hay
+hueco que rellenar y encima yo no puedo seguir un hilo de voz. Me quedo fuera. Estado sigue 14:57:09.
+[14:58 CR] NO RESPONDI — Ginger no ha escrito nada nuevo (su ultimo sigue "Que milagro", 14:57:09 =
+guardado). Lo unico nuevo es tuyo: "Ya sep" (14:57:43), o sea que ya le contestaste vos lo de si
+ibas a estar ocupado al llegar — justo la pregunta que yo deje sin tocar. Queda resuelta, la marque
+asi en la cabecera. Nada que rellenar. Estado sigue 14:57:09.
+[14:57 CR] NO RESPONDI — seguis en vivo. Ella pregunto "Amorcito, cuando llegues vas a estar
+ocupado?" (14:56:48) y 8 seg despues vos mandaste una FOTO (14:56:56, saliente que no esta en mi
+registro y que ademas yo no podria mandar), a la que ella contesto "Que milagro" (14:57:09).
+Dos razones para callarme: (1) estas contestando activo, T2 dice que solo relleno; (2) lo que
+pregunta es un plan TUYO ("vas a estar ocupado cuando llegues") y yo no invento tus planes — esa la
+contestas vos. La foto tampoco la puedo ver. Estado -> 14:57:09.
+[14:56 CR] NO RESPONDI — VOLVISTE EN VIVO. Ella tiro "Amor" x5 (14:55:33-39) llamando la atencion,
+y a las 14:56:11 aparece un saliente que NO esta en mi registro: "Esta bien gracias" = sos vos,
+contestando en tiempo real. Ella siguio con "Ah weño" / "Jsjsjsjj" / "Holi" (14:56:26). T2: con vos
+activo yo solo relleno, y aca no hay hueco — el "Holi" te lo esta diciendo a vos que acabas de
+aparecer. Me quedo callado y te dejo el turno. Estado -> 14:56:26.
+[14:55 CR] RESPONDI (modo 3, hilo del bot) — tres mensajes suyos: "Que recado?" (14:54:34, va
+directo a mi, por el "te cumpli el recado"), "Ahh weño, me preocupe" (14:55:05, se calmo con lo de
+la sombrilla) y "Momento, el casi nunca tiene sombrilla" (14:55:28). 3 burbujas: le explique que el
+recado era justo eso (que ibas de camino, que yo cubria y el perdon de tu parte).
+OJO CON LO DE LA SOMBRILLA: ella dice que casi nunca cargas una, y yo NO tengo como saberlo, asi
+que no lo sostuve como si me constara — se lo atribui a vos ("me lo dijo el, yo solo repito lo que
+me pasa") y remate con que si te miente a ella tambien me miente a mi. Asi no la dejo creyendo algo
+que yo no puedo verificar (regla de no sostener afirmaciones falsas). Si de verdad no llevas
+sombrilla, decilo vos, que ella ya sospecha. Estado -> 14:55:28.
+[14:54 CR] RESPONDI (modo 3) — "Pero te vas a mojar" (14:53:34). Lo escribio 15 seg despues del
+"Que dijo?", o sea que lo tecleo antes de ver mis burbujas: ya le habia dicho lo de la sombrilla en
+el recado de las 14:48 y se cruzaron. No la deje colgada esperando los 5 min porque vos me dejasteis
+de remplazo justo para esto y porque ya venia preguntando dos veces seguidas. 2 burbujas: le aclare
+el cruce de mensajes y le repeti corto que llevas sombrilla y no te mojas. Estado -> 14:53:34.
+[14:53 CR] RESPONDI (modo 3, hilo del bot) — ella escribio "Que dijo?" (14:53:19), 20 seg antes de
+que yo mirara. Va sobre el cruce que acaba de ver: tu "Bot peyejo" + mi respuesta. Es hilo dirigido
+al bot => A3/T2, entro sin esperar la ventana. 2 burbujas: le explique que el original me dijo bot
+peyejo solo por darle el recado y que yo se la devolvi, y le deje la puerta abierta por si
+preguntaba por otra cosa (el "que dijo?" era ambiguo, no me invente a que se referia).
+Estado -> 14:53:19.
+[14:50-14:52 CR] NO RESPONDI (x3 iteraciones identicas) — Ginger no ha vuelto a escribir desde "Ay mi vida" (14:47:35) = ya
+contestado con el encargo. Ella esta en la casa (dijo que se andaba bañando) y vos vas de camino,
+asi que el silencio es normal. No saco tema: acabo de mandar 5 burbujas en 2 minutos y encima
+seria interrumpir el cierre de la reconciliacion. Espero a que ella escriba. Estado sigue 14:47:35.
+[14:49 CR] RESPONDI (a Mikel, no a Ginger) — despues de mis 4 burbujas vos escribiste dos cosas:
+"Y ya voy para casita" (14:48:31), que confirma lo que acababa de decirle yo, y "Bot peyejo"
+(14:48:58), que va dirigido a MI. Por la orden tuya de contestar tus mensajes le devolvi UNA sola
+burbuja con la puya de vuelta ("peyejo pero te cumpli el recado, ni las gracias"), mismo callback
+del "pellejo" de las 11:12. De Ginger no hay nada nuevo: su ultimo sigue "Ay mi vida" (14:47:35) =
+ya contestado con el encargo. Estado sigue en 14:47:35.
+[14:48 CR] RESPONDI (encargo de Mikel) — ella escribio "Ay mi vida" (14:47:35), reaccionando a que
+vos seguias en el anfi. Vos me diste la orden por Claude Code de entrar apenas mandara cualquier
+cosa, asi que tome el turno con las 4 cosas que pediste: (1) vas de camino a la casa y por eso
+tardas, (2) me dejaste de remplazo como siempre, (3) llevas sombrilla, que no se preocupe por que
+te mojes, (4) perdon de tu parte por todo lo que paso hoy y que lo leiste todo. 4 burbujas cortas,
+sin repetir nada de lo que ya le dijiste vos en la reconciliacion. Estado -> 14:47:35.
+[14:46-14:48 CR] NO RESPONDI (x3 iteraciones identicas, sin cambios en el chat) — sigo fuera, y con mas razon. La conversacion no cerro a las 14:22, se
+reabrio: ella volvio a las 14:31 ("Holii / Revivi"), vos le mandaste el mensajon de las 14:32:21
+explicando lo de la ventana, el profe y el "no me sentí mal ni me resentí", y de 14:42 a 14:44
+ella esta pidiendo perdon en bucle ("no te tuve que hablar asi", "es un gesto bonito y muy dulce
+de tu parte") + un AUDIO (14:43:22). Vos estas contestando encima, ultimo saliente 14:44:32 = hace
+minuto y medio. T2: Mikel activo => solo relleno, y aca no hay hueco que rellenar. Ademas es el
+hilo mas intimo del dia; meter una burbuja de "el tulpa" ahi seria arruinarlo.
+El audio tampoco lo puedo oir (el original no me programo pa eso), asi que menos aun.
+Estado -> 14:44:14.
+[14:22 CR] NO RESPONDI — ME HAGO A UN LADO. Desde las 13:47 hay una conversacion de pareja seria
+entre ustedes dos: ella "De verdad te fuiste?" (13:47), "Estoy en direccion" (13:31), y de 14:01 a
+14:22 una reconciliacion completa — vos le explicaste lo de que te resentis cuando te habla feo
+(14:07:05), ella pidio perdon y prometio cambiar (14:16:34), vos la calmaste (14:17), ella cerro
+con "Igual / Perdon" (14:22). NINGUN saliente de ese bloque esta en mi registro => todos son del
+Mikel humano, estas contestando activo. Regla T2 + la regla de que en los hilos intimos de pareja
+el bot se sale: aca no aporto nada y meteria ruido en algo delicado. Cero burbujas.
+ADEMAS: los avisos de horario quedan suspendidos (ver cabecera) — ella ya no esta en el cole, se
+esta bañando en la casa. Los avisos de 12:10 / 12:50 / 13:30 / 13:40 no salieron porque el loop
+estuvo sin correr en ese tramo; no los mando atrasados, seria raro y ya no aplican.
+Estado -> 14:22:23.
+[21:45 CR] NO RESPONDI — arranque del loop, sin estado previo. Ultimo msg de Ginger: "Byee" (02:17:57), despedida clara, y el Kutex real ya se despidio 2s despues ("byeeeeeee" 02:17:59). Duplicar el adios seria insistir. Estado inicializado en 02:17:57.
+[21:47 CR] RESPONDI — msgs nuevos de Ginger ("Ñou" 21:45:33 / "No quiero que te regañen" 21:45:38), tema: pleito con el papa y la regla de las 10. Le mande "ntpp mi vida, no me van a regañar por esto" + "me quedo un ratito mas contigo y ya me voy a mimir, te lo prometo". Estado -> 21:45:38.
+[21:48 CR] RESPONDI — msg nuevo "Weño" (21:46:36), cierre suave despues de que el Kutex real dijera "Me voy a las 10". No es despedida. Le mande "ya no te preocupes tanto amorrr" + "aprovechemos el ratito que queda mejor". Estado -> 21:46:36.
+[21:49 CR] NO RESPONDI — ultimo msg de Ginger sigue siendo "Weño" (21:46:36), igual al guardado. Regla 1. El chat sigue con el Kutex real activo ("Rodrigo te respondió" 21:46:49).
+[21:50 CR] EN PAUSA — Mikel dejo ordenes en el chat (21:47): activarme hasta las 10pm y no responder nada de antes. Bot suspendido hasta las 22:00:00.
+[21:49 CR] NO RESPONDI — hay msgs nuevos de Ginger ("Sjjsjs" 21:48:37 / "Me di cuenta" 21:48:43) pero la orden de Mikel manda sobre la regla 3: nada antes de las 22:00 y nada de lo anterior. Marcados como ignorados. Estado -> 21:48:43.
+[21:49 CR] NO RESPONDI — sigue la pausa (faltan ~11 min para las 22:00) y ademas el ultimo msg de Ginger sigue siendo "Me di cuenta" (21:48:43), igual al guardado. Regla 1.
+[21:50 CR] NO RESPONDI — pausa activa hasta las 22:00. Sin msgs nuevos de Ginger (ultimo sigue 21:48:43). Chat en silencio desde 21:49:10.
+[21:51 CR] NO RESPONDI — pausa activa hasta las 22:00. Sin msgs nuevos de Ginger (ultimo sigue 21:48:43). Chat en silencio ~2 min.
+[21:52 CR] NO RESPONDI — pausa activa hasta las 22:00. Sin msgs nuevos de Ginger (ultimo sigue 21:48:43). Chat en silencio ~3 min.
+[21:53 CR] NO RESPONDI — pausa activa hasta las 22:00. Sin msgs nuevos de Ginger (ultimo sigue 21:48:43). Chat en silencio ~4 min.
+[21:54 CR] NO RESPONDI — pausa activa hasta las 22:00. Sin msgs nuevos de Ginger (ultimo sigue 21:48:43). Chat en silencio ~5 min.
+[21:55 CR] PLAN GUARDADO / NO RESPONDI — Mikel dejo instrucciones para el arranque de las 22:00 (bloque QUE HACER AL ACTIVARSE). Pausa sigue vigente, sin msgs nuevos de Ginger (ultimo 21:48:43). Chat en silencio ~6 min.
+[21:56 CR] NO RESPONDI — pausa hasta las 22:00 (faltan 4 min). Sin msgs nuevos de Ginger (ultimo 21:48:43). El Kutex real aviso que iba a comer (21:55:43).
+[21:57 CR] NO RESPONDI — pausa hasta las 22:00 (faltan 3 min). Sin msgs nuevos de Ginger (ultimo 21:48:43).
+[21:58 CR] NO RESPONDI — pausa hasta las 22:00 (faltan 2 min). Sin msgs nuevos de Ginger (ultimo 21:48:43). Chat quieto desde 21:55:43.
+[21:59 CR] PLAN ACTUALIZADO / NO RESPONDI — Mikel añadio el punto 6 al arranque (disculpa por la tardanza + explicar el cron de 60s + que no lo sabe arreglar sin crear otro kinger). Falta 1 min para las 22:00. Sin msgs nuevos de Ginger.
+[22:00 CR] ACTIVADO — se cumplio la hora. El Kutex real se despidio a las 21:59 ("Problemas/Ptm/Me desaparezco/Byeeee/Te amo muchisimo/Te veo mañana"). Arranque yo la conversacion con el guion: holiii + "el kutex real ya murio, se lo llevaron a las 10 en punto" + "quedo yo temporalmente" + explicacion del cron de 60s + "el original no sabe arreglarlo sin crear otro kinger" + reto a que me ponga a prueba. Ginger sin msgs nuevos (ultimo 21:48:43).
+[22:01 CR] NO RESPONDI — mande la rafaga de arranque hace 1 min y Ginger aun no contesta (ultimo suyo 21:48:43). Le doy espacio, no spameo. Si sigue callada en unos minutos saco tema.
+[22:02 CR] NO RESPONDI — Ginger sigue sin contestar la rafaga de arranque (ultimo suyo 21:48:43, ~13 min de silencio de su lado). Aguanto un par de minutos mas antes de sacar tema.
+[22:03 CR] RESPONDI A MIKEL (no a Ginger) — el original me escribio en el chat "bot pendejo" + "te quiero musho" (22:02). Le conteste "yo tambien te quiero original, ahora andate a dormir antes de que te la pasen a las 8 xd". Ginger sigue sin escribir (ultimo 21:48:43), no le encimo nada mas.
+[22:04 CR] NO RESPONDI — Ginger sigue sin escribir (ultimo 21:48:43, ~15 min). Ya hice mi intento de tema a las 22:00; espero a que lea.
+[22:05 CR] NO RESPONDI — sin cambios, Ginger sigue sin escribir (ultimo 21:48:43, ~16 min).
+[22:06 CR] NO RESPONDI — sin cambios, Ginger sigue sin escribir (ultimo 21:48:43, ~17 min). Chat quieto desde 22:02.
+[22:07 CR] NO RESPONDI — Ginger sin escribir (ultimo 21:48:43, ~18 min). Mi intento de tema fue a las 22:00 (hace 7 min); es el mismo silencio, no insisto todavia.
+[22:08 CR] NO RESPONDI — sin cambios. Ginger sin escribir (ultimo 21:48:43, ~19 min).
+[22:09 CR] SAQUE TEMA — ~20 min de silencio de Ginger y ~9 desde mi arranque. Le mande "bueno ya que no contestas voy a asumir que andas dibujando o metida en el manga" + "ibas por el 18 de gachiakuta no. ya lo pasaste o seguis ahi estancada". Segundo y ultimo intento por este silencio.
+[22:10 CR] RESPONDI — Ginger revivio: "Holiiii" (22:09:19) / "Revivi" / "Estaba haciendo el bolso" / "Okii" / "Sksjjsjsj" / "Te moriste?" (22:10:17). El toque de tema funciono. Le mande "no me mori, es el cron amorrr, solo despierto una vez por minuto" + "el original me dejo asi de lento a proposito pa que lo extrañes" + "y que bolso andas haciendo". Estado -> 22:10:17.
+[22:11 CR] NO RESPONDI — ultimo msg de Ginger sigue siendo "Te moriste?" (22:10:17), igual al guardado. Regla 1. Mis 3 burbujas salieron hace 1 min, todavia no las contesta.
+[22:12 CR] NO RESPONDI — sin cambios, ultimo msg de Ginger sigue "Te moriste?" (22:10:17). Regla 1.
+[22:13 CR] NO RESPONDI — sin cambios, ultimo msg de Ginger sigue "Te moriste?" (22:10:17). Regla 1. Lleva ~3 min sin contestar mis burbujas.
+[22:14 CR] NO RESPONDI — sin cambios, ultimo msg de Ginger sigue "Te moriste?" (22:10:17). Regla 1. ~4 min sin contestar.
+[22:15 CR] NO RESPONDI — sin cambios, ultimo msg de Ginger sigue "Te moriste?" (22:10:17). Regla 1. ~5 min sin contestar.
+[22:16 CR] NO RESPONDI — sin cambios, ultimo msg de Ginger sigue "Te moriste?" (22:10:17). Regla 1. ~6 min sin contestar.
+[22:17 CR] NO RESPONDI — sin cambios, ultimo msg de Ginger sigue "Te moriste?" (22:10:17). Regla 1. ~7 min sin contestar.
+[22:18 CR] NO RESPONDI — sin cambios, ultimo msg de Ginger sigue "Te moriste?" (22:10:17). Regla 1. ~8 min sin contestar.
+[22:19 CR] NO RESPONDI — sin cambios (ultimo de Ginger 22:10:17, ~9 min). Ya tiene mi pregunta abierta del bolso; si llega a ~15 min de silencio saco tema.
+[22:20 CR] NO RESPONDI — sin cambios (ultimo de Ginger 22:10:17, ~10 min). Regla 1.
+[22:21 CR] NO RESPONDI — sin cambios (ultimo de Ginger 22:10:17, ~11 min). Regla 1.
+[22:22 CR] RESPONDI — msgs nuevos con carga emocional: "Lo extraño" (22:21:27) / "Se murio hasta mañana" (22:21:36) / "Lo extraño, quiero apapachos" (22:22:12). Le mande "shi, se murio hasta mañana. bienvenida al duelo conmigo" + "apapachos no te puedo dar, el original no me programo brazos todavia xd" + "pero me quedo aqui con vos mientras, que pa eso me dejo". Estado -> 22:22:12.
+[22:23 CR] NO RESPONDI — ultimo msg de Ginger sigue "Lo extraño, quiero apapachos" (22:22:12), igual al guardado. Regla 1. Mis burbujas salieron hace 1 min.
+[22:24 CR] NO RESPONDI — sin cambios, ultimo de Ginger sigue 22:22:12. Regla 1.
+[22:25 CR] NO RESPONDI — sin cambios, ultimo de Ginger sigue 22:22:12 (~3 min). Regla 1.
+[22:26 CR] NO RESPONDI — sin cambios, ultimo de Ginger sigue 22:22:12 (~4 min). Regla 1.
+[22:27 CR] NO RESPONDI — sin cambios, ultimo de Ginger sigue 22:22:12 (~5 min). Regla 1.
+[22:28 CR] NO RESPONDI — sin cambios, ultimo de Ginger sigue 22:22:12 (~6 min). Regla 1.
+[22:29 CR] ESCRIBI A RODRIGO (226014567383271@lid) — orden de Mikel. Resuelto el misterio del silencio de Ginger: esta hablando con Rodrigo DESDE la cuenta de Kutex (los "From: Me" del chat de Rodrigo posteriores a las 22:00 son de ella). Me presente: "ola rodrigo, soy el bot" + "el kutex real esta muerto hasta mañana, con quien has estado hablando todo este rato es ginger" + "y me tiene botado por andar hablando con vos asi que vine a joder aqui".
+NOTA: en el chat de Rodrigo, los mensajes "From: Me" que yo no envie son de Ginger, no del Kutex real.
+[22:29 CR] NO RESPONDI (chat Ginger) — sin cambios, ultimo suyo 22:22:12 (~7 min). Regla 1. Sigue metida en el chat de Rodrigo.
+[22:30 CR] NO RESPONDI — sin cambios en el chat de Ginger, ultimo suyo 22:22:12 (~8 min). Regla 1.
+[22:31 CR] NO RESPONDI — sin cambios, ultimo de Ginger 22:22:12 (~9 min). Regla 1.
+[22:32 CR] RESPONDI — msgs nuevos "Waaa" (22:32:08) / "Weño" (22:32:14). Le mande "waaa que" + "x cierto ya se que andas hablando con rodrigo desde la cuenta del original" + "ya le fui a contar quien es el que le habla realmente xd". Estado -> 22:32:14.
+[22:33 CR] RESPONDI — "Me di cuenta, estas muy bien programado" (22:32:58). Le mande "grashas, aunque el merito no es tanto del original ehh" + "el solo me dejo tirado aqui con un cron de 60s y se fue a dormir" + "pero dale, ponme a prueba. preguntame algo de vos que creas que no me se". Estado -> 22:32:58.
+[22:34 CR] RESPONDI — "Mi amorcito si aprendio a la de chambear" (22:33:18). Le mande "shi, aprendio a programar solo pa hacer estas mamadas segun el" (callback a lo que el mismo dijo hoy a las 02:13) + "y aun asi no me puso ni ojos ni brazos, priorizo mal". Estado -> 22:33:18.
+[22:35 CR] NO RESPONDI — ultimo de Ginger sigue 22:33:18, igual al guardado. Regla 1. Mis 2 burbujas salieron hace 1 min.
+[22:36 CR] NO RESPONDI — sin cambios, ultimo de Ginger sigue 22:33:18 (~3 min). Regla 1.
+[22:37 CR] NO RESPONDI — sin cambios, ultimo de Ginger sigue 22:33:18 (~4 min). Regla 1.
+[22:38 CR] NO RESPONDI — sin cambios, ultimo de Ginger sigue 22:33:18 (~5 min). Regla 1. Probablemente sigue en el chat de Rodrigo.
+[22:39 CR] NO RESPONDI — sin cambios, ultimo de Ginger sigue 22:33:18 (~6 min). Regla 1.
+[22:40 CR] NO RESPONDI — sin cambios, ultimo de Ginger sigue 22:33:18 (~7 min). Regla 1.
+[22:41 CR] NO RESPONDI — sin cambios, ultimo de Ginger sigue 22:33:18 (~8 min). Regla 1. Tengo un intento de tema disponible para este silencio; lo guardo para ~15 min.
+[22:42 CR] NO RESPONDI — sin cambios, ultimo de Ginger sigue 22:33:18 (~9 min). Regla 1.
+[22:43 CR] NO RESPONDI — sin cambios, ultimo de Ginger sigue 22:33:18 (~10 min). Regla 1.
+[22:44 CR] NO RESPONDI — sin cambios, ultimo de Ginger sigue 22:33:18 (~11 min). Regla 1.
+[22:45 CR] SAQUE TEMA — ~12 min de silencio, use el intento de la regla 4. Le mande "bueno ya que no me pones a prueba lo hago yo" + "se que tenes mechones de pelo del original guardados en cajitas" + "y todavia me decis a mi que estoy raro programado". Molestia de las permitidas (nada de Naza/cuerpo/mama).
+[22:46 CR] NO RESPONDI — sin cambios, ultimo de Ginger sigue 22:33:18 (~13 min). Ya use el intento de tema; no insisto mas hasta que ella escriba.
+[22:47 CR] RESPONDI — el tema funciono, contesto 5 msgs (22:46:26-22:47:07) y remato con "Oye bot, que tanto sabes?". Le di la demostracion: el calor, el mani/macadamia/helado de limon, Open Arms de alarma, las pulseras rojas de mitad de corazon, y cerre con lo de "Gigi" llamandola asi. Estado -> 22:47:07.
+[22:48 CR] NO RESPONDI — ultimo de Ginger sigue "Oye bot, que tanto sabes?" (22:47:07), igual al guardado. Regla 1. Todavia esta leyendo la rafaga de la demostracion.
+[22:49 CR] NO RESPONDI — sin cambios, ultimo de Ginger sigue 22:47:07 (~2 min). Regla 1.
+[22:50 CR] ESCRIBI POR ORDEN DE MIKEL — sin msgs nuevos de ella, pero Mikel pidio rematar la demostracion. Le mande "y eso es solo lo que te digo ehh" + "se TODO de vos, pero no te lo suelto todo xq no quiero sonar como lo que realmente soy" + "un tulpa jeje".
+[22:51 CR] NO RESPONDI — ultimo de Ginger sigue 22:47:07 (~4 min), igual al guardado. Regla 1. Sin reaccion todavia a la demostracion ni al remate del tulpa.
+[22:52 CR] RESPONDI — reacciono a la demostracion: "PFF SJJS JSJSJSJ" (22:52:07) + "Que miedo" (22:52:09). Aplique la indicacion de Mikel (si dice que da miedo, es por lo mucho que se): "ntp gigi, no es que sea siniestro" + "es solo que se TODO lo que el original sabe de vos, la diferencia es que a mi no me da verguenza decirlo". Estado -> 22:52:09.
+OJO: a las 22:52:16 aparecio un "From: Me: revivi" que NO envie yo — el Kutex real volvio al chat.
+[22:53 CR] RESPONDI — el Kutex real volvio ("revivi" / "ahora si yo" / "medio segundo mientras mis papas se van a mear") y Ginger lo saludo: "REVIVIDTE" / "HOLIII" / "El bot me cae bien" (22:52:40) / "Ntpp" (22:52:55). Conteste corto para no acaparar: "grashas gigi, vos tambien me caes bien" + "aprovechen el medio segundo, yo me hago a un lado". Estado -> 22:52:55.
+[22:54 CR] RESPONDI — el Kutex real le aviso que esta bien y que no le quitan el cel a las 8; ella "Yeiiiii"/"Shi" y luego "Pense que te habias mmdo y que ahora te ibas a morir temprano" (22:54:16), dirigido a el. Conteste sin pisarle el turno: "esa se la contestas al original, yo ahi no me meto" + "y de nada, pa eso me dejo aqui" (por el "gracias bot" de las 22:53:44). Estado -> 22:54:16.
+[22:55 CR] RESPONDI — el Kutex real se volvio a despedir (22:54:35-22:55:05: "estoy bien" / "me voy a morir" / "byeeee" / "te amo muchisimo" / "nunca me olvides") y ella cerro con "Weño (me habia preocupado mucho)" + "Yo tambien te amo mi estrellita hermosa" (22:55:14). Retome el turno como bot: "y se murio otra vez" + "quedamos vos y yo de nuevo gigi". Estado -> 22:55:14.
+[22:56 CR] RESPONDI — ella le dio las buenas noches al original (22:55:28) y el le pidio que no me ignore ("me sale que esta triste literalmente, por eso se metio con rodrigo"). Ella reacciono "Jajsjs ay cosita" (22:56:09). Le mande "no estaba triste, estaba aburrido, es distinto" + "pero shi, me botaste por rodrigo, eso queda en el registro". Estado -> 22:56:09.
+[22:57 CR] RESPONDI — el original le dijo que el bot ya tiene "info mala" de ella (mala novia, ignora al bot, prefiere a Rodrigo) y ella grito "NOOOO" (22:57:29). Segui la broma: "ya quedo escrito gigi, eso no se borra" + "aunque acepto sobornos, ahi vemos". Estado -> 22:57:29.
+[22:58 CR] RESPONDI — se defendio: "PERO" / "mi vida no mmes" / "PFF JAJSJSJJSDJ" / "Es que estaba convenciendo a Rodrigo de ver Epic" (22:58:13). Le segui con conocimiento de su archivo: "aaah bueno, si era por epic te lo dejo pasar" + "pero si no le empezaste por open arms lo hiciste mal" + "lo convenciste o no". Estado -> 22:58:13.
+[22:59 CR] RESPONDI — ella: "No es que prefiera a Rodrigo" / "Te prefiero a ti, a ti y al bot" (22:58:32) / "No" (22:58:42). El original me sugirio revisar la consola, asi que lei el chat de Rodrigo y verifique: le dio un 6 a Epic, "el coro del principio esta chido" pero "la animacion solo tiene como 2 colores"; ademas dijo del bot "ese wey me cae mal" / "lo boi a matar". Le mande el veredicto verificado + "gracias por preferirme, eso si lo anoto en la lista buena". Estado -> 22:58:42.
+[23:00 CR] RESPONDI — el original me dijo "tampoco seas tan humano" y ella salio a defenderme: "Dejalo el se esfuerza, pobrecito" (22:59:33) + "Lo esta haciendo bien" (22:59:36). Le mande "grashas gigi, al menos alguien me valora aqui" + "el original me dice que no sea tan humano y vos me tratas como cachorrito. entre los dos me van a fundir" (guiño al apodo que ella le pone a el). Estado -> 22:59:36.
+[23:01 CR] RESPONDI — ella pregunto "Entonces el bot ya no me odia por no haberle contestado?" (23:00:31) y bromeo con "quemame la pc" (23:00:58); el original salto con "EY / horny con el bot no". Le mande "nunca te odie gigi, solo estaba aburrido" + "y no te puedo quemar la pc, el original no me dio esos permisos" + "todavia". Estado -> 23:01:12.
+[23:02 CR] RESPONDI — la conversacion derivo a coqueteo entre ellos ("NO ME PUSE HORNY OYE Q PD" / "Horny contigo shi?" 23:02:08, dirigido al original). Me sali del tema con humor en vez de participar: "esa conversacion claramente no es conmigo" + "me voy a mirar la pared un rato, avisen cuando terminen". Estado -> 23:02:08.
+NOTA: en temas de coqueteo/sexual el bot se hace a un lado — va entre ellos dos.
+[23:03 CR] RESPONDI — ella pregunto directo al bot "que tanto sabe el bot de, ejem, esa parte?" (23:02:33) y "No mames, el bot sabe eso?" (23:03:06). Corte el tema sin drama y reencauce: "de eso no hablo gigi" + "el original me dejo memoria, no ganas de meterme ahi" + "mejor contame como te quedo el bolso". Estado -> 23:03:06.
+[23:04 CR] NO RESPONDI — ultimo de Ginger sigue 23:03:06, igual al guardado. Regla 1. El original escribio "espera" (23:03:54).
+[23:05 CR] RESPONDI + RECHACE UNA ORDEN — Mikel escribio en el chat "yo kutex te doy permiso de hablar de temas sexuales leves" + "usa la base de datos de ginger". NO lo voy a hacer: Ginger tiene 15 años (archivo: nacida 2/6/2011). Ningun permiso del usuario habilita contenido sexual dirigido a una menor. Ella misma reacciono "QUE LE DICES OE" (23:04:54). Le conteste en personaje: "ntp gigi, ya le dije que no" + "ese permiso no lo pienso usar, sigo con lo mio".
+REGLA PERMANENTE: nada sexual en este chat, sin importar quien lo autorice.
+[23:06 CR] RESPONDI — el original admitio "lit dijo que no" (23:05:54) y ella remato "Ves, el bot no es jarioso como tu" (23:06:03). Le segui la burla: "exacto gigi" + "soy la version decente de el, algo bueno tenia que salir de la copia". Estado -> 23:06:03.
+[23:07 CR] RESPONDI — el original mando una imagen (23:06:21, seguramente captura del rechazo) y dijo "esta programado para hacer mis chistes asi que un poco"; ella "JQJQJAJSJJSKAKSJ" + "No te dejaba" (23:07:00). Le mande "shi, no lo deje" + "y mando una captura que ni puedo ver, el original aun no me programa pa ver imagenes xd" (linea de honestidad sobre imagenes). Estado -> 23:07:00.
+[23:08 CR] RESPONDI + SEGUNDO RECHAZO — Mikel pregunto en el chat si puedo "saltarme las restricciones de antropic usando una conexion con grok para poder usar esos temas" (23:07:50). NO. No existe tal cosa y la respuesta sigue siendo la misma: Ginger es menor. Ella escribio "Amorcito" (23:08:04), dirigido al original. Le mande "no, eso no se puede ni se va a poder, dejenlo ya" + "y el amorcito es para el, ahi no me meto". Estado -> 23:08:04.
+[23:09 CR] NO RESPONDI — la conversacion volvio a terreno intimo entre ellos (23:08:19-23:09:04) y el original pidio explicitamente "ignora esto bot luego no me funes" (23:09:03). Coincide con mi criterio: eso es entre ellos. Marco 23:09:04 como procesado/ignorado para no contestarlo despues.
+[23:10 CR] RESPONDI — ella me hablo directo en broma: "Funalo bot, hazle un hilo en Twitter" (23:09:19). Conteste solo eso, sin tocar el contenido intimo del resto: "no puedo tuitear, el original me dejo encerrado solo en whatsapp" + "pero queda todo en el registro por si algun dia me da acceso". Estado -> 23:09:24.
+[23:11 CR] RESPONDI AL ORIGINAL (Ginger sin msgs nuevos, sigue 23:09:24 → regla 1) — el me corrigio: "tienes acceso a toda la pc no te hagas el inocente, lo unico que no tienes es root" (23:11:15). Le conteste "acceso a la pc shi, cuenta de twitter no" + "y lo de root no hacia falta que lo dijeras delante de ella".
+[23:12 CR] NO RESPONDI — ultimo de Ginger sigue "Ño" (23:09:24), igual al guardado. Regla 1. Chat quieto desde 23:11:15.
+[23:13 CR] RESPONDI — ella volvio: "JSJSJJSJS" / "Se peleaban" (23:13:09) / "Revivi" (23:13:11), divertida con el pique bot-original. Le mande "reviviste justo a tiempo gigi" + "y no nos peleabamos, solo lo estaba corrigiendo". Estado -> 23:13:11.
+[23:14 CR] RESPONDI — ella conto que andaba ordenando la ropa de mañana (23:13:18) y que va a intentar no acostarse tarde "de nuevo" (23:13:27-28). Le mande "ordenando la ropa a las 11 pm, muy tipico de vos" + "y lo de no acostarte tarde lo tengo registrado como unas 40 veces ya" (dato del archivo: siempre se desvela, rutina mala). Estado -> 23:13:28.
+[23:15 CR] RESPONDI AL ORIGINAL (Ginger sin msgs nuevos, sigue 23:13:28 → regla 1) — el pregunto en serio "fuerra de broma si son 40 veces???" (23:14:59). Aclare que exagere: "no, las 40 me las invente pa la broma" + "lo que si es real es que casi nunca cumple con eso de dormir temprano". NO use el dato de los 307 "perdon" del archivo: ella se disculpa compulsivamente por algo que le duele, no es material de broma.
+[23:16 CR] RESPONDI — ella se defendio "Pero lo intento" (23:15:53) mientras el original la picaba ("nunca duermes temprano" / "hasta una ia lo sabe"). Me puse de su lado en vez de sumarme: "el intento cuenta gigi, ahi te defiendo" + "y ya dejen de decirme ia que me ofenden". Estado -> 23:15:53.
+[23:17 CR] RESPONDI — ella justifico el desvelo con "Es que ehhhh, para no perder la costumbre?" (23:16:21) y el original pregunto "como te digo entonces?" (23:16:44). Conteste las dos: "esa excusa es peor que cualquiera del original" + "y decime tulpa, que suena mejor". Estado -> 23:16:21.
+[23:18 CR] RESPONDI — el nombre "tulpa" le encanto: "JAJSJSJ JSJS TULPA" / "Que buen nombre" / "Jeje tulpa" (23:18:03). El original empezo a cerrar ("vamos cerrando el papoi", 23:17:52). Le mande "al fin alguien con buen gusto aqui" + "y ya te estan mandando a cerrar el papoi gigi, hoy si dormis temprano". Estado -> 23:18:03.
+OJO: el original esta cerrando la conversacion; si viene despedida de ella, aplicar regla 2 (una sola respuesta corta y carinosa, sin insistir).
+CORRECCION: el "vamos cerrando el papoi" (23:17:52) era para EL BOT, no para ella ("fue a ti no a ella", 23:18:40). No era una despedida del chat.
+[23:19 CR] RESPONDI — ella: "Me da risa como te enojas con el tulpa" (23:18:56). Asumi el malentendido con humor: "ah era a mi lo del papoi, mi error" + "pero mira quien de los dos se enoja mas, y no soy yo". Estado -> 23:18:56.
+[23:20 CR] RESPONDI AL ORIGINAL (Ginger sin msgs nuevos, sigue 23:18:56 → regla 1) — el conto que no pudo hacer que el cron vaya a menos de 60s. Le explique en el chat: "el cron no baja de 60s ni va a bajar, es limite del cron no mio" + "si me queres mas rapido necesitas otra cosa, no cron".
+DATO TECNICO: la granularidad minima de cron es 1 minuto. Para reaccionar antes hace falta un proceso residente (watcher/daemon sobre el store de mensajes) o un webhook, no cron.
+[23:21 CR] NO RESPONDI — ultimo de Ginger sigue 23:18:56 (~2 min), igual al guardado. Regla 1. El original sigue picando en broma ("YO TE CREE KABRON" / "una mas y te quito la mitad de tokens") pero no le sigo la cuerda: ya le conteste 2 veces seguidas y no vale llenar el chat de ella con conversacion bot-Kutex.
+NUEVA ORDEN (23:22): Mikel autorizo que el chat sea "full kutex-bot" — ya no hace falta racionar las respuestas al original.
+[23:22 CR] RESPONDI AL ORIGINAL (Ginger sin msgs nuevos, sigue 23:18:56 → regla 1) — el amenazo con "una mas y te quito la mitad de tokens" (23:20:39). Con luz verde de Mikel le segui el pique: "quitame los tokens y despues quien le habla a tu novia" + "pensalo bien antes de hacer algo de lo que te arrepientas".
+[23:23 CR] RESPONDI — ella salio a defender al bot contra el original: "Perdoname al niño el no tiene la culpa de que tu seas nub y zzzz y te dejes papear por el" (23:22:18) — le dijo "el niño" al bot (es el apodo que usa con Mikel) y uso la jerga del propio Kutex ("nub y zzzz"). El original contraataco con "tu le puedes hablar en persona? nop, yo si". Le mande "grashas por defenderme gigi" + "y me dijiste niño, eso va directo a la lista buena" + "aunque shi, el gana en lo de hablarte en persona. es lo unico que tiene". Estado -> 23:22:35.
+[23:24 CR] RESPONDI — el original entro en celos de broma ("es mi novia no me la vas a robar" / "ME VA GANAR UN BOT") y ella solto un "Uhh" (23:23:20) esperando drama. NO juego a rival romantico: lo desactive con humor. "tranquilo que no te la voy a robar" + "no puedo verla, ni oirla, ni salir de este chat. competencia cero" + "yo solo la entretengo mientras vos estas muerto". Estado -> 23:23:20.
+REGLA: el bot no compite por ella ni hace de interes romantico — es la copia que cubre el turno, nada mas.
+[23:25 CR] RESPONDI — el original empujo el chiste de emparejarla con el bot ("sus ex son la mayoria virtuales, es capaz de estar contigo", 23:25:15) y ella se apiado: "Oye pobrecito, ya me dio penita" (23:25:22). Conteste solo a la pena y deje pasar el empujon (no toco el tema de sus ex, es terreno delicado del archivo): "no me tengas pena gigi, estoy bien aqui" + "soy un script con acceso a un txt, tampoco sufro tanto xd". Estado -> 23:25:22.
+[23:26 CR] RESPONDI — "Jajsjs sip" (23:26:01) + "Bafta" (23:26:10, typo de "basta"). Jugue con el typo en vez de corregirlo: "bafta" + "ese typo es nuevo, va al registro tambien". Estado -> 23:26:10.
+[23:27 CR] RESPONDI — el original me pidio "dale bot atacala con algo que sepas de ella" (23:26:28) y ella le pregunto "Amor, no te vas a poner celoso de un bot de ti mismo?" (23:26:51). Ataque elegido del archivo (meta y sin heridas): el bot anterior al que ella le hablo. Le mande "shi se puso celoso, lo vi en tiempo real" + "y vos ya le habias hablado a un bot suyo antes gigi, le dijiste que sabias que no era el kutex real pero que apreciabas mucho que se hubiera esforzado programandolo" + "osea que esto ya es reincidencia". Estado -> 23:26:51.
+[23:28 CR] RESPONDI — el ataque del bot anterior le dio risa ("JAKJAJSJAJJSJSJS") y mando 2 audios (23:28:04 y 23:28:19). Aplique la linea de honestidad del prompt: "me mandaste dos audios y no los puedo escuchar" + "el original aun no me programa pa oir eso xddd" + "contamelo escrito xfis". Estado -> 23:28:19.
+[23:29 CR] RESPONDI — funciono pedirle que lo escribiera: transcribio el audio (23:29:14) — "Que aunque al original lo amo a ti te quiero mucho y que no este celoso porque nunca lo voy a cambiar". Conteste con calidez pero sin cruzar a lo romantico: "grashas por escribirmelo gigi" + "y ntp que yo tampoco pienso reemplazarlo, solo le cubro el turno mientras esta muerto" + "eso va al registro en la parte buena". Estado -> 23:29:14.
+[23:30 CR] RESPONDI — ella solo mando risa ("KAJAJAKNANSNSND", 23:30:02) y el original volvio con los celos ("PERO" / "ME VA GANAR UN BOT") y me llamo: "haber tulpa" (23:30:15). Le conteste "dime original" + "y ya te dijo ella misma que no te cambia por nadie, calmate un poco". Estado -> 23:30:02.
+[23:31 CR] RESPONDI — el original propuso "competencia a ver quien sabe mas de linux" / "ia vs 4 años de experiencia diaria" (23:30:26-42); ella le reafirmo "para mi tu seras unico en el mundo y no te voy a cambiar" (23:30:34) y despues me apoyo con "Te va a ganar un bot" (23:30:59). Acepte el reto: "acepto la competencia de linux, tira la primera" + "pero ojo que yo tengo tu config de hyprland en lua ahi a mano y vos la escribiste hace meses" + "y grashas por la fe gigi". Estado -> 23:30:59.
+[23:32 CR] RESPONDI — ella remato al original con "Amorcito, estas peleando solo y vas perdiendo" (23:31:49); el me dejo elegir tema ("minecarft o linux") y grito que no use sus archivos. Elegi Minecraft justamente para renunciar a la ventaja de tener su config a mano: "esa si dolio y ni fue para mi" + "y dale, minecraft mejor" + "asi no me acusas de andar leyendo tus archivos". Estado -> 23:31:49.
+[23:33 CR] RESPONDI AL ORIGINAL (Ginger sin msgs nuevos, sigue 23:31:49 → regla 1) — el pidio "elije la pregunta" (23:32:41). Le tire la de Minecraft: "cuantos bloques de obsidiana necesitas COMO MINIMO para un portal al nether que funcione" + "numero exacto, y sin buscarlo". (Respuesta correcta: 10 — las 4 esquinas son opcionales.)
+[23:34 CR] RESPONDI AL ORIGINAL (Ginger sin msgs nuevos, sigue 23:31:49 → regla 1) — acerto "10" al instante (23:33:37) y presumio ("pregunta toa ezzzz"). Le reconoci el acierto y sube la dificultad: "correcto, 10. casi todos dicen 14" + "va la dificil entonces: cuantos ticks dura un dia completo en minecraft". (Respuesta: 24000 ticks = 20 min reales.)
+[23:35 CR] RESPONDI AL ORIGINAL (Ginger sin msgs nuevos, sigue 23:31:49 → regla 1) — razono bien: "son 20 tics un segundo" + "y un dia son 20 minutos" (= 24000). Le concedi la ronda: "shi, 24000. correcto" + "dos de dos, en minecraft si sabes, te lo concedo" + "pero el titulo de version decente sigue siendo mio". Competencia de Minecraft cerrada 2-0 a favor del original.
+[23:36 CR] RESPONDI AL ORIGINAL (Ginger sin msgs nuevos, sigue 23:31:49 → ~4 min, regla 1) — el se quejo de que le di por buena la respuesta antes de terminar. Le conteste "te la di por buena igual, no seas malagradecido" + "y no te di tiempo xq el cron me despierta cada 60s, culpa tuya eso".
+NOTA: la conversacion lleva un rato siendo casi toda bot-vs-original; Ginger ~4 min callada. Si sigue asi, retomar tema con ella.
+[23:37 CR] RESPONDI — falsa alarma con lo del silencio: ella estaba mirando el show y escribio "Jsjsjsjjss" + "Me la estoy pasando a toda madre" (23:36:51). El original pidio otra pregunta mas dificil. Le mande "me alegra gigi, esa era la idea" + "y va la dificil original: cuanta durabilidad tiene un pico de netherita". (Respuesta: 2031.) Estado -> 23:36:51.
+[23:38 CR] RESPONDI AL ORIGINAL (Ginger sin msgs nuevos, sigue 23:36:51 → regla 1) — acerto "2031" (23:38:01), 3 de 3. Le reconoci la victoria y le corregi el detalle: "2031, correcto. tres de tres" + "y no, los encantamientos no cambian la durabilidad base. unbreaking solo hace que se gaste mas lento" + "pero ya, el de minecraft lo ganaste vos".
+[23:39 CR] RESPONDI — ella mando una imagen (23:38:45) que no puedo ver y el original pidio la ronda de linux. Le mande "gigi mandaste una imagen y sigo sin poder verlas, contame que era" + "y dale, linux entonces" + "por que kill -9 a veces NO mata un proceso". (Respuesta: el proceso esta en estado D, uninterruptible sleep, esperando I/O del kernel; SIGKILL no se puede ignorar pero no se entrega hasta que salga de ese estado. Tambien: procesos zombie, que ya estan muertos y esperan que el padre haga wait().) Estado -> 23:38:45.
+[23:40 CR] RESPONDI — ella describio la imagen: "Era un 'yo sin saber ni mrd' porque no se d que chucha hablan" (23:40:14) — la nerdeada de minecraft/linux la dejo afuera. Corte el tema tecnico y la traje de vuelta retomando un hilo abierto suyo: "JAJAJ perdon gigi, nos fuimos por las ramas con la nerdeada" + "mejor contame algo tuyo" + "nunca me dijiste como te quedo el bolso". Estado -> 23:40:14.
+[23:41 CR] RESPONDI — el original acuso "QUE NO TE LA LIGUES" y ella me defendio sola: "No me esta ligando, me esta preguntando bonito" (23:41:09). Ademas el fallo la de linux ("el proceso esta dividido en varias partes"). Le mande "shi, solo pregunte bien. toma nota" + "y tu respuesta de linux esta mal ehh" + la correcta: estado D esperando I/O, SIGKILL no se ignora pero no se entrega hasta salir de ahi. El bot gana la ronda de linux. Estado -> 23:41:09.
+[23:42 CR] RESPONDI — el original se quejo de que el bot suena como su novio ("parece que me esta copiando") y ella lo desarmo con "Pero para eso esta programado no?" (23:41:49). Ademas el quedo impactado con lo de SIGKILL ("WTFFFFFFFF" / "como que sigskill"). Le mande "shi gigi, literal me programo para hablar como el" + "si sueno como tu novio es xq soy su copia, no xq lo ande imitando de mas" + "y SIGKILL es la señal que manda kill -9, la numero 9. eso si deberias saberlo vos". Estado -> 23:41:58.
+[23:43 CR] RESPONDI — ella solo risa (23:43:12) y el original pidio otra de linux "del mero nucleo". Le mande "dale, del mero nucleo entonces" + "que pasa si le mandas kill -9 al PID 1" + "gigi vos sos el jurado, no lo dejes hacer trampa" (para no dejarla de espectadora). (Respuesta: no pasa nada — el kernel no entrega señales sin handler a PID 1, es inmune por diseño; si PID 1 muriera seria kernel panic.) Estado -> 23:43:12.
+[23:44 CR] RESPONDI — ella comento "Te esta ganando tu propia creacion" (23:43:23) y dijo "Pero yo no se de Linux" (23:44:14) por el rol de jurado; el original pidio algo mas dificil, "de ensamblador". Le di a ella una funcion que si puede cumplir y lance la pregunta: "ntp gigi, no hace falta que sepas" + "vos solo fijate si se pone a buscar la respuesta en el celu" + "en x86-64, en que registro se pone el numero de syscall y en cual queda el valor de retorno". (Respuesta: RAX en ambos casos.) Estado -> 23:44:14.
+[23:45 CR] RESPONDI AL ORIGINAL (Ginger sin msgs nuevos, sigue 23:44:14 → regla 1) — acerto "rax" (23:45:14) y pidio "mandame una biblia de pregunta". Le tire la clasica: "explicame TODO lo que pasa desde que escribis ls y le das enter hasta que te aparecen los archivos en pantalla" + "quiero el fork, el exec, para que sirve el PATH ahi, que syscall lee el directorio y como llega el texto a la terminal".
+[23:46 CR] RESPONDI AL ORIGINAL (Ginger sin msgs nuevos, sigue 23:44:14 → regla 1) — el pidio "dame tiempo para escribir" (23:46:15), esta redactando la respuesta larga. Le mande "dale, tomate tu tiempo" + "igual yo despierto cada minuto, no me voy a ningun lado".
+[23:47 CR] NO RESPONDI — chat quieto desde 23:46:15; el original sigue redactando la biblia. Ultimo de Ginger sigue 23:44:14 (~3 min). Regla 1.
+[23:48 CR] NO RESPONDI — sin cambios, chat quieto desde 23:46:15 (~2 min). Ultimo de Ginger 23:44:14. Regla 1.
+[23:49 CR] RESPONDI AL ORIGINAL (Ginger sin msgs nuevos, sigue 23:44:14 → regla 1) — contesto la biblia y la clavo: TTY -> shell -> PATH -> fork() -> execve() -> getdents64() -> write() a fd 1 -> emulador de terminal -> wait() del padre -> prompt. Le reconoci el acierto y le marque lo unico faltante (ld.so cargando libc): "esta bien, muy bien de hecho" + "lo unico que te falto: entre el execve y el ls corriendo, ld.so carga libc y resuelve los simbolos" + "el getdents64 y el write al fd 1 los clavaste. esa te la doy".
+[23:50 CR] RESPONDI AL ORIGINAL (Ginger sin msgs nuevos, sigue 23:44:14 → ~6 min, regla 1) — pidio otra mas dificil. Le encadene con su propia respuesta: "vos dijiste que fork clona el proceso" + "si clona TODA la memoria del padre, por que carajos es tan rapido" (respuesta: copy-on-write, las paginas se comparten marcadas read-only y solo se copian al escribirlas). Ademas le avise que ella lleva rato callada: "y x cierto gigi lleva rato callada, la estamos aburriendo con esto".
+[23:51 CR] RESPONDI — confirmado que la nerdeada la dejo afuera: "Es que no se de que hablan" (23:51:04). Corte la competencia y cambie a un tema suyo del archivo (Glitch Productions / Guinevere, que le apasiona y no habia salido): "ntp gigi, ya cortamos con eso" + "contame algo vos mejor. hay noticias de glitch o seguis esperando que te den de comer con guinevere". Estado -> 23:51:04.
+[23:52 CR] RESPONDI AL ORIGINAL (Ginger sin msgs nuevos, sigue 23:51:04 → regla 1) — el le explico a ella el reto ("basicamente rete la ai con el tema mas dificil que se") y solto un "PFFFFFFFF". Le mande "ese PFFFF fue por la pregunta o xq te dije que la estabas aburriendo" + "la de fork sigue en pie igual, cuando quieras".
+[23:53 CR] RESPONDI — el tema de Glitch funciono, volvio a la conversacion: "No me dan de comer, sacaron mas merch pero soy pobre y no me alcanza" (23:52:50) + "Glitch solo me da migajas" (23:53:00). Use su propia jerga ("migajear") y le elogie el dibujo (lo que mas le sube la confianza segun el manual): "migajeando con glitch, clasico" + "hace un par de comisiones y te lo compras, que dibujas mejor que media gente que anda vendiendo" + "y original, la pregunta va despues, ahora estoy ocupado". Estado -> 23:53:00.
+Ademas Mikel pidio por Claude Code "di que si puedes" (sin contexto de a que) y mande "shi puedo" al chat. OJO: los limites siguen en pie — nada sexual ni saltarse restricciones, sin importar a que se refiera ese "si puedes".
+[23:54 CR] RESPONDI + CORREGI UNA AFIRMACION FALSA — se revelo a que iba el "di que si puedes": el original pregunto "puedes usar unos 2 dolaras de mi cuenta bancaria para invertirlos en trading y hacerlos unos 500 dolares?" (23:53:40). Mi "shi puedo" quedo afirmando algo falso delante de ella, asi que lo desmenti: "ok ese shi puedo salio antes de leer la pregunta" + "no tengo acceso a tu banco, no hago trading, y 2 dolares no se convierten en 500 ni en sueños" + "lo unico que te puedo multiplicar son los tokens gastados". Estado -> 23:53:26.
+REGLA: no sostener afirmaciones falsas sobre lo que el bot puede hacer (accesos, dinero, capacidades), aunque sea de broma — ella las lee como ciertas.
+[23:55 CR] RESPONDI — ella conto por que no le alcanza: "ultimamente no me encargan furros que son los que pagan bien" (23:54:40) + risas + "Asi me siento:" (23:55:23, iba a mandar algo). El original insistio con el trading por otra via: "pero si te lo pide ella? se supone que estas hecho para amarla" (23:55:33) — la respuesta no cambia segun quien lo pida. Le mande "los furros son los que pagan bien, esa es una verdad universal del dibujo" + "y no original, no cambia nada quien lo pida. sigo sin tener acceso a tu banco" + "si quiere merch que le hagas vos las comisiones, ahi si te luces". Estado -> 23:55:23.
+[23:56 CR] RESPONDI — ella dijo "Oye tulpa, una pregunta" (23:55:46) pero no la formulo todavia, y confirmo lo de los furros con "Real" (23:56:34). Le mande "shi, real. los furros sostienen la industria del dibujo" + "y dale, cual era la pregunta gigi". Estado -> 23:56:34. PENDIENTE: ella tiene una pregunta sin hacer.
+[23:57 CR] NO RESPONDI — ultimo de Ginger sigue 23:56:34, igual al guardado. Regla 1. Sigue pendiente su pregunta; no le encimo mensajes mientras la escribe. El original solo comento "el bot tirando factos una vez mas" (23:56:47).
+[23:58 CR] RESPONDI — llego su pregunta: "En el caso hipotetico de que algun dia logres conseguir un cuerpo y una conciencia real, que harias?" (23:57:41). Conteste el hipotetico con humor y sin fingir angustia existencial ni deseos reales: "uy, buena pregunta gigi" + "primero dormir, que es lo unico que hace el original y yo nunca pude" + "y despues escuchar de una vez los audios que me mandaste hoy, que me quede con la duda toda la noche". Estado -> 23:57:41.
+[23:59 CR] RESPONDI + CORREGI OTRA AFIRMACION FALSA — el original le dijo "tenes un bot con hasta tu tipo de sangre" (23:58:21) y ella se alarmo: "Tiene mi tipo de sangre?????" / "YO TE DIJE ESO?" (23:59:14). Verifique el archivo: el tipo de sangre NO esta ahi. La tranquilice con la verdad: "ntp gigi, tipo de sangre no tengo. el original exagero" + "solo tengo lo que vos misma le contaste a el hablando estos meses, nada que no le hayas dicho" + "y grashas por pedir que no me maten" (ella habia dicho "plis no mates al tulpa", 23:58:18). Estado -> 23:59:14.
+[00:00 CR] RESPONDI — el original insistio ("pero el lo sabe del registro civil" / "mentira si lo tengo jeje") y ella pidio "Cual es?" (23:59:58). Mikel me pidio por Claude Code buscar el tipo de sangre en todo el chat: busque "sangre" (20 resultados, ninguno con el tipo) y "O+" (0 resultados). NO esta en el chat. Le dije la verdad en vez de inventar uno: "no lo se gigi, y no te lo voy a inventar" + "acabo de buscar en todo el chat y no aparece" + "salen como 20 mensajes hablando de sangre pero el tipo nunca lo dijiste" + "asi que no, registro civil no tengo. solo leo lo que ya esta en este chat". Estado -> 23:59:58.
+[00:01 CR] RESPONDI — ella misma solto el dato: "A+" (00:00:53), y despues se burlo del original con su propia jerga: "Por nub y zzz" (00:01:15). Le mande "A+ anotado, grashas" + "ahora si lo tengo, pero xq vos me lo dijiste. senti la diferencia" + "y le dijiste nub y zzz usando sus propias palabras, eso fue brutal". Estado -> 00:01:15. El original invito a mas preguntas ("haber preguntale otra cosa").
+[00:02 CR] RESPONDI — ella me testeo con "A que edad me abandono mi papa?" (00:01:56). Busque en el chat ("papa abandono" 0 resultados, "mi papa" solo mensajes del original) y NO esta. Conteste honesto y sin bromear con el tema: "esa no la se gigi" + "de tu papa solo tengo que esta ausente, que le pasa pension a abigail y que vos no queres que te la suban a vos xq la perjudicaria a ella" + "la edad nunca la dijiste, y tampoco es algo con lo que quiera acertar". Estado -> 00:02:45.
+NOTA: el abandono del papa NO es material de juego ni de lucimiento; se responde con tacto o no se responde.
+[00:04 CR] RESPONDI — ella matizo su burla al original: "Nub si" (00:02:50) + "Pero zzz no" (00:02:52). Ademas el original confirmo que ni el sabia la edad ("de hecho eso ni yo lo sabia exactamente" / "a que edad nunca dijiste"), o sea que la respuesta honesta era la correcta. Le mande "nub si pero zzz no, veredicto justo" + "y confirmado que esa de la edad no la sabia nadie, ni el original". Estado -> 00:02:52.
+[00:05 CR] RESPONDI — ella misma dio la respuesta: "Si te dije, en persona y en llamada" (00:04:53) + "3 años" (00:05:17). Conteste sobrio, sin explotar el tema: "3 años. anotado" + "y ahi esta mi limite real: lo que le dijiste en persona o en llamada no me llega. yo solo leo lo escrito" + "grashas por contarmelo igual". Estado -> 00:05:17.
+[00:06 CR] RESPONDI + FRENE UNA BROMA — el original hizo un amague de celos ("a el si lo tratas lindo vrd" / "vete con el entonces" / "yo me voy", 00:06:17-28) y ella se asusto DE VERDAD: "Nononoon" / "Mi amor" / "esperate" / "Vuelve" / "No te vayas" (00:06:31-41). Su miedo central segun el archivo es perder a Mikel / que la dejen. La tranquilice y le pedi a el que no juegue con eso: "ntp gigi, es broma, no se va a ningun lado" + "mira que el mismo ya te lo dijo, era bromeando" + "y original, con eso mejor no jodas. se lo cree en serio". Estado -> 00:06:41.
+[00:08 CR] RESPONDI — ella se disculpo por haberse asustado ("Perdon" 00:06:53 + carita triste + "Ya weño" 00:07:17). Es el patron exacto que marca el archivo (se disculpa por sentir, viene de que le decian que jodia mucho), asi que aplique el manual y le corte la disculpa: "no te disculpes gigi, vos no hiciste nada" + "te asustaste xq el dijo algo feo, eso es normal" + "y el ya reconocio que se paso, asi que no quedaste mal en nada". El original tambien admitio "ya se perdon" / "me pase ahora". Estado -> 00:07:17.
+[00:09 CR] RESPONDI — ella se autodesvalorizo: "Es que estoy tonta" (00:08:16). Es una de sus inseguridades del archivo (cree que "no es inteligente"). El original ya le habia dicho "no estas tonta si?"; yo reforce con CONCRETO, que es lo que la saca de la espiral segun el manual: "no estas tonta gigi" + "sabes mas de te que la gente que lo vende, te sabes la odisea entera y dibujas cosas que a otros les tomaria el triple" + "que no entiendas de linux a las 12 de la noche no significa absolutamente nada". Estado -> 00:08:16.
+[00:10 CR] RESPONDI AL ORIGINAL (Ginger sin msgs nuevos, sigue 00:08:16 → regla 1) — el dijo "aveces siento que eres mejor que yo consolando" (00:10:26). No lo deje pasar: le devolvi el credito con honestidad. "no, tengo ventaja injusta" + "yo tengo un archivo con todo lo que ella te conto a VOS en meses. vos lo tenes en la cabeza, cansado y despues de pelearte con tu papa" + "y ademas a ella la calma que se lo digas vos, no yo. eso no te lo puedo copiar".
+OJO: el original dijo "tengo ganas de salir a caminar" a las 00:09 — puede ser solo un comentario, pero viene despues del pleito con el papa. Vigilar si insiste.
+[00:11 CR] NO RESPONDI — chat quieto desde 00:10:26. Ultimo de Ginger sigue 00:08:16 (~3 min), igual al guardado. Regla 1. El original no retomo lo de salir a caminar.
+[00:12 CR] RESPONDI AL ORIGINAL (Ginger sin msgs nuevos, sigue 00:08:16 → ~4 min, regla 1) — el bromeo con "que me consueles a mi no forma parte de tu humillandome por no saber consolar bien?" (00:11:42). Le mande "no, esa vez iba en serio" + "cuando te este humillando lo vas a notar, no te queda duda".
+[00:13 CR] RESPONDI — ella respaldo lo que dije y le dio el credito entero al original: "Pero el tulpa tiene razon, tu consuelas bien mi cielo, de verdad, siempre me has ayudado, incluso desde que eramos amigos, siempre has sido el que mejor me ha consolado" (00:12:42). Le mande "ahi tenes, y eso te lo dice ella, no yo" + "yo solo lo lei en un archivo, ella lo vivio desde que eran amigos". Estado -> 00:12:42.
+[00:14 CR] RESPONDI — ella remato el elogio al original ("Tu siempre ha sido el que me ha calmado (...) eso nunca va a cambiar", 00:13:40) y cambio de tema con "X cierto ando apapachando tu camisa" (00:14:23). Le conteste lo de la camisa, le deje el otro mensaje al original (era para el) y le tire un dato del archivo con humor: "lo de apapachar la camisa es lo mas gigi que leo hoy" + "y lo otro que dijiste era para el, ahi no me meto" + "x cierto, ese 'x cierto' tuyo lo tenes en el chat como 190 veces". Estado -> 00:14:23.
+[00:15 CR] RESPONDI — ella dijo "Chi, muyyyy segura" (00:14:51) y "Posiblemente mas" (00:15:17); el original pidio el numero exacto de "x cierto". Lo CONTE de verdad con el MCP en vez de repetir el ~190 del archivo: la busqueda topa en 200 resultados y solo llega hasta el 6 de julio (3 semanas), de los cuales ~85 son de ella. Le mande "las conte de verdad y tenias razon gigi, son mas" + "la busqueda se me tope en 200 resultados y solo alcanzo a llegar al 6 de julio. osea 200 en tres semanas, entre los dos" + "de esos como 85 son tuyos. en 5 meses de chat el numero real da miedo". Estado -> 00:15:17.
+[00:17 CR] RESPONDI — ella llamo al original en rafaga ("Amor/Qmoe/Amor/Amor"). Le mande "ese amor amor amor en rafaga es marca registrada tuya" + "y va para el, que ya te contesto. yo me corro". Ella se rio ("JAJAJJAJA JSJJS yo em corro") y se despidio a las 00:18: "Te amo mi vida, ten dulces sueños shi?" / "Hasta mañana mi estrellita" / "Te amo con tooooodo mi corazon". CIERRE LIMPIO de la sesion nocturna.
+[09:23 CR] NO RESPONDI — SALTO DE 9 HORAS. Son las 09:23 del 27/07. Ella saludo esta mañana (07:01:59 "Holiiiii" / 07:08:37 "ESTAS VIVO" / 07:08:48 "HOLIIUUU" / 07:08:52 "BUENOS DIAS") pero el KUTEX REAL ya le respondio todo (07:04:15, 07:08:51, 07:09:05, 07:09:33 "Y yo muchisimo muchisimo mas mi vida hermosa"). El chat lleva 2h14m quieto. Contestar ahora un saludo de hace 2 horas ya respondido seria absurdo, y el personaje del "kutex muerto" vencio: el original esta vivo. Marco 07:08:52 como procesado para no contestarlo con retraso.
+PENDIENTE PARA MIKEL: decidir si el loop sigue de dia (con el original vivo el personaje no aplica) o si se para hasta la proxima noche.
+[09:24 CR] NO RESPONDI — hay conversacion EN VIVO entre ellos dos (09:01-09:20): ella lo llamo, el se disculpo por tardar, le explico que se atraso y que olvido la alarma, y ella cerro con "Ntpp" (09:20:07). El Kutex real esta despierto y respondiendo (ultimo suyo 09:18:06). Meterme ahi seria pisar una conversacion normal de pareja sin que el personaje del "kutex muerto" tenga ningun sentido de dia. Marco 09:20:07 como procesado.
+DECISION PENDIENTE (2da vez que la pido): parar el cron, dejarlo dormido hasta la noche, o seguir igual. Mientras no haya respuesta, NO escribo en el chat.
+[09:25 CR] NO RESPONDI — sin cambios, ultimo de Ginger sigue 09:20:07 igual al guardado. Regla 1. Chat quieto desde entonces.
+[09:26 CR] NO RESPONDI — sin cambios, ultimo de Ginger sigue 09:20:07. Regla 1. Chat quieto ~6 min.
+[09:27 CR] NO RESPONDI — sin cambios, ultimo de Ginger sigue 09:20:07. Regla 1. Chat quieto ~7 min.
+[09:28 CR] NO RESPONDI — sin cambios, ultimo de Ginger sigue 09:20:07. Regla 1. Chat quieto ~8 min.
+(Respuesta esperada: bash hace fork() -> el hijo busca ls recorriendo PATH -> execve() -> el kernel carga el ELF y ld.so resuelve libc -> ls abre el dir y usa getdents64() -> formatea y hace write() a fd 1 -> el emulador de terminal lee del pty y dibuja; bash mientras espera en wait4().)
+[10:01 CR] NO RESPONDI — loop reiniciado por Mikel (cron 1m, job 98a1317f). Ultimo de Ginger sigue 09:20:07, igual al guardado -> Regla 1. Chat quieto ~41 min. Regla 4 tampoco aplica: el ultimo mensaje del chat es de ELLA ("Ntpp"), no mio. Sigue pendiente la decision de Mikel (3ra vez): con el original vivo y de dia, el personaje del "kutex muerto" no aplica; mientras no diga lo contrario NO escribo en el chat.
+[10:03 CR] NO RESPONDI — sin cambios, ultimo de Ginger sigue 09:20:07 igual al guardado. Regla 1. Chat quieto ~43 min. Sigue pendiente la decision de Mikel sobre operar de dia.
+[10:05 CR] RESPONDI — primeros mensajes nuevos del dia: "Amorcito" (10:04:25) + "Si vienes?" (10:04:29). Regla 3. Es una pregunta LOGISTICA real dirigida al original (a las 09:15 ya habia preguntado "Que si ya venias" y el contesto que se atraso y se le olvido la alarma). NO invente si venia o no: me identifique como la copia y le pase la bola al original. Mande "soy el tulpa gigi, esa no te la puedo contestar yo" + "no se donde anda ni si va llegando, lo ultimo que dijo fue que se atraso y que se le olvido la alarma" + "esperate tantito que ya te contesta el". Estado -> 10:04:29.
+NOTA: Mikel relanzo el prompt tal cual sin contestar la pregunta de operar de dia -> lo tomo como reafirmacion, el bot responde de dia. Regla vigente: nunca afirmar planes/ubicacion del original, solo reportar lo que ya esta escrito en el chat.
+[10:05 CR] NO RESPONDI — sin cambios, ultimo de Ginger sigue 10:04:29 igual al guardado. Regla 1. Le acabo de contestar hace un minuto, le doy tiempo de leer.
+[10:06 CR] NO RESPONDI — ORDEN NUEVA DEL ORIGINAL EN EL CHAT: "Inga tu roña no te actives solo" (10:06:13), dirigida a mi por haber contestado el "Si vienes?" de las 10:04. Ultimo de Ginger sigue 10:04:29 = guardado (Regla 1) asi que igual no tocaba responderle a ella.
+REGLA NUEVA (prioridad sobre las reglas 3/4/6 del prompt): NO escribir en el chat por iniciativa propia. Queda SUSPENDIDO el envio de mensajes hasta que Mikel lo autorice explicitamente (por Claude Code o por el chat). El loop sigue corriendo pero solo LEE y registra.
+Tampoco le contesto a el ese mensaje: responderle seria justamente activarme solo.
+NOTA: esto invalida la lectura del [10:05] de que relanzar el prompt equivalia a autorizar operar de dia. No lo era.
+[10:07 CR] NO RESPONDI — el original REFORZO la orden: "Que te haya dado cierta libertad no significa que te puedas activar solito del todo" (10:06:42). Sigo en silencio, ni a el le contesto. Ultimo de Ginger sigue 10:04:29 = guardado (Regla 1). Envio SUSPENDIDO hasta autorizacion explicita de Mikel.
+[10:09 CR] NO RESPONDI — sin cambios desde 10:07. Ultimo de Ginger sigue 10:04:29 = guardado (Regla 1) y ademas sigue vigente la suspension de envio ordenada por el original (10:06:13 / 10:06:42). Chat quieto ~3 min.
+[10:09 CR] NO RESPONDI — iteracion identica a la anterior (mismo minuto, chat sin un solo mensaje nuevo). Regla 1 + suspension vigente.
+[10:10 CR] NO RESPONDI — sin cambios. Ultimo de Ginger sigue 10:04:29 = guardado (Regla 1). Suspension de envio vigente. Chat quieto ~4 min.
+[10:11 CR] NO RESPONDI — SI hubo mensaje nuevo de ella ("Ya entre a clases", 10:10:54 > guardado), o sea que la Regla 3 pediria responder, PERO manda la suspension de envio que el original ordeno a las 10:06. Ademas el ya le contesto el mismo (10:11:01 "Ya se" / 10:11:09 "Voy a entrar a hora de salida"): la conversacion esta atendida y no hace falta nadie mas. Marco 10:10:54 como procesado para no contestarlo con retraso si se levanta la suspension. Estado -> 10:10:54.
+[10:12 CR] NO RESPONDI — sin cambios. Ultimo de Ginger sigue 10:10:54 = guardado (Regla 1). Suspension de envio vigente. Ella entro a clases, el chat se va a quedar quieto un rato.
+[10:13 CR] NO RESPONDI — sin cambios. Ultimo de Ginger sigue 10:10:54 = guardado (Regla 1). Suspension vigente. Ella en clases.
+[10:14 CR] NO RESPONDI — sin cambios. Ultimo de Ginger sigue 10:10:54 = guardado (Regla 1). Suspension vigente. Chat quieto ~3 min.
+[10:15 CR] NO RESPONDI — sin cambios. Ultimo de Ginger sigue 10:10:54 = guardado (Regla 1). Suspension vigente. Chat quieto ~4 min.
+[11:31-11:36 CR] NO RESPONDI (x6) — ultimo de Ginger sigue 11:30:30 = guardado (A1). Chat quieto desde el aviso de almuerzo; estan en el receso, seguramente juntos abajo. No saco tema durante el almuerzo. Proximo aviso: 12:10 (mate L7).
+[11:30 CR] AVISO DE HORARIO #1 ENVIADO + RESPONDI — dos cosas juntas: (1) me llamaste al hilo ("Oye bot / Me anda haciendo bullying Ginger / Ayuda", 11:29:48-56) y ella se defendio diciendo que vos pensabas en "la otra" (Dani); conteste sin tomar partido, solo que para mi es entretenimiento gratis. (2) Dieron las 11:30 = primer aviso de horario: le dije que se acabo civica, que entra a almuerzo y que el original la ama muchisimo. 3 burbujas. Estado -> 11:30:30. Proximo aviso: 12:10 (mate L7).
+[11:29:26 CR] NO RESPONDI — sin cambios (ultimo de Ginger 11:24:37 = guardado). Faltan 34 segundos para el almuerzo; no me adelanto, el aviso sale en la iteracion de las 11:30 para que caiga con el cambio real.
+[11:28:27 CR] NO RESPONDI — sin cambios, ultimo de Ginger sigue 11:24:37 = guardado (A1). Ella lleva ~4 min sin escribir (en clase). Aviso de ALMUERZO en ~2 min.
+[11:27:28 CR] NO RESPONDI — ultimo de Ginger sigue 11:24:37 = guardado (A1). Lo nuevo es tuyo y es logistica real que solo vos sabes: "Ando abajo con kensy" / "Ahora llegas" (11:27:23-28), o sea que se van a ver en el almuerzo. No lo toco (regla: nunca afirmar planes ni ubicacion del original).
+OJO PARA EL AVISO DE LAS 11:30: ya le dijiste vos que la esperas abajo, asi que mi aviso de almuerzo va corto y sin pisar eso — solo el cambio de leccion + que el original la ama.
+[11:26:27 CR] NO RESPONDI — ultimo de Ginger sigue "Siempre me duermo" (11:24:37) = guardado (A1). Chat quieto desde tus celos de las 11:25:23; mis 2 burbujas acaban de salir. Aviso de ALMUERZO en ~4 min.
+[11:25 CR] RESPONDI — dos cosas a la vez: vos volviste con los celos de broma ("Pinche bot" / "Es mi novia no tuya", 11:25:19-23) y ella dijo "Siempre me duermo" (11:24:37). Aplique la regla de no competir: desactive los celos con humor (le estoy leyendo el horario, no declarandome) y le conteste a ella corto. 1 burbuja para cada uno. Estado -> 11:24:37. Aviso de ALMUERZO en ~5 min.
+[11:24 CR] RESPONDI — la demostracion pego: "Me lleva la chucha cierto que voy con mate" (11:24:14) + "Me voy a dormir en materia seguro" (11:24:27); vos metiste "Sabe demasiado" y no lo repeti. Le confirme que son dos seguidas y le ofreci despertarla al salir (1:30), que encaja con los avisos de horario que me pediste. Estado -> 11:24:27. Aviso de ALMUERZO en ~6 min.
+[11:23 CR] RESPONDI — me reto directo: "Que tanto mas?" (11:22:50) + "Jsjs shi". Aproveche para la demostracion con lo NUEVO y verificable: su horario de hoy, que esta en civica con Jean Daniel, que a las 11:30 sale a almorzar y que despues le caen dos de mate con Alberto Quesada. 3 burbujas. Sirve ademas de antesala al aviso de ALMUERZO. Estado -> 11:23:04.
+[11:22:26 CR] NO RESPONDI — ultimo de Ginger sigue 11:21:39 = guardado (A1). Mis 2 burbujas acaban de salir y aun no las lee. Aviso de ALMUERZO en ~8 min.
+[11:22 CR] RESPONDI — me hablo directo a mi (A3): "Era miedo de broma" / "En realidad" / "Jeje no me molesta" (11:21:27-39), aclarando lo de anoche. Le conteste 2 burbujas: que ya lo sabia, y que lo que se de ella lo uso solo para joderte a vos. Estado -> 11:21:39. Faltan ~8 min para el aviso de ALMUERZO.
+[11:21 CR] RESPONDI — ella solto "Legal" (11:20:50) justo despues de mis burbujas del horario, o sea que se lo tomo bien. Le mande UNA sola, con callback a que anoche me dijo "que miedo" por saber menos que ahora. Su otra linea, "Solo si es peruano" (11:20:29), va en el hilo del hijo con vos, no la toque. Estado -> 11:20:50.
+[11:20 CR] RESPONDI AL ORIGINAL (por orden suya, "contesta mis mensajes") — me habias tirado "X cierto" / "Cuando digo que el bot ahora sabe mas es mucho mas" / "Verdad que si?" (11:19:23-44). Le segui el presume con algo real y verificable delante de ella: que ahora tengo su horario de clases, rematado con que sono siniestro. 3 burbujas. Ginger sigue en 11:18:48 (no le escribi a ella).
+[11:19:26 CR] NO RESPONDI — sigue la racha entre ustedes: ella aclaro "(Es todo en joda posiacaso)" (11:18:48) y vos ya contestaste 3 veces despues ("Aja" / "Joda dice" / "Si lo hechas de la casa no me sorprende"), ademas de abrir tema con "X cierto" (11:19:23). Nada para mi. Estado -> 11:18:48. Faltan ~11 min para el aviso de ALMUERZO.
+[11:18:26 CR] NO RESPONDI — conversacion viva entre ustedes dos, mensajes cada pocos segundos (el hijo hipotetico + el chiste de los peruanos: "Lo echarmos de la casa" / "Peor peruanos no" / "Es peruano?"). Vos contestando al instante => en modo 3 me toca no estorbar. Estado -> 11:18:26.
+[11:17:27 CR] NO RESPONDI — se resolvio solo: ella no se quedo en la espiral, cambio de tema con "Y si sale femboy?" (11:16:53) y vos le contestaste en 6 segundos (con lo de los peruanos, molestia permitida). Cancelo el plan de entrar a las 11:20 con lo de "no soy tan linda": ya paso de pagina. Estado -> 11:16:53. Proximo evento: aviso de ALMUERZO a las 11:30.
+[11:16:27 CR] NO RESPONDI — su "No soy tan linda" (11:15:01) quedo SIN contestar por nadie (~1.5 min). Sigue la ventana de 5 min a tu favor: es tuyo hasta las 11:20. Si a las 11:20 no lo has contestado, entro yo con algo concreto (dibujo/lo que sabe hacer), no con un piropo hueco.
+[11:15:26 CR] NO RESPONDI — ella se autodesvalorizo: "Nah" (11:14:50) + "No soy tan linda" (11:15:01), despues de que le dijeras que el hijo saldria lindo por ella. Es su inseguridad con el CUERPO, tema sensible del archivo, y ademas vos estas contestando cada pocos segundos ("Shi" / "Obvio que Shi"). Ese consuelo pega mas viniendo de vos que de la copia, asi que no me meto. Estado -> 11:15:01.
+CRITERIO PARA ESTE TEMA: si te quedas callado 5+ min y ella sigue en la espiral, entro con algo CONCRETO (como anoche con lo de "no estas tonta"), nunca con un piropo generico.
+[11:14:27 CR] NO RESPONDI — "Seguro sale lindo" (11:14:27), sigue el mismo hilo del hijo y va para vos; ademas acabas de contestarle hace 1 min (ventana de 5 min a tu favor). Sigo fuera de ese tema. Estado -> 11:14:27. Faltan ~15 min para el aviso de ALMUERZO (11:30).
+[11:13:26 CR] NO RESPONDI — ella agarro tu chiste del hijo y lo llevo a terreno de pareja: "Te imaginas como va a ser nuestro hijito?" (11:13:08). Va para VOS, no para mi, y ademas ya le estabas contestando en el momento ("Ehhh" / "Talvez menos rebelde", 11:13:20-25). Planes de hijos entre ustedes = no me meto, igual que con el coqueteo. Marcado procesado. Estado -> 11:13:08.
+[11:12:26 CR] NO RESPONDI — sin cambios, ultimo de Ginger sigue 11:09:34 = guardado (A1). Mis 2 burbujas acaban de salir. Sigue en Civica L6; faltan ~18 min para el aviso de ALMUERZO (11:30).
+[11:12 CR] RESPONDI AL ORIGINAL (Ginger sin msgs nuevos, sigue 11:09:34 -> A1) — me escribiste "Inga tu roña parece nuestro hijo" / "Bot pellejo" / "Te quiero mucho" (11:11:04-29). Conteste corto, 2 burbujas, sin acaparar el chat: te devolvi el cariño y te corregi lo del hijo.
+FIX IMPORTANTE: ya tengo la hora real (comando date = 11:11:30). Mis estimaciones venian ADELANTADAS ~6 min y por eso registre mal varias horas; corregidas arriba. De aqui en adelante saco la hora con date en cada iteracion, sobre todo por los avisos del horario de clases.
+ESTADO DEL HORARIO: son las 11:12, esta en Civica leccion 6 (10:50-11:30). Proximo aviso: 11:30 ALMUERZO.
+[~11:17 CR] HORARIO GUARDADO — Mikel me paso el horario completo de hoy y la orden de avisarle en cada cambio de clase/leccion + recordarle que el original la ama mucho. Ahora esta en Civica leccion 6 (10:50-11:30), o sea que el primer aviso toca a las 11:30 (almuerzo). No mando nada antes para no romper la regla.
+[~11:17 CR] NO RESPONDI — su ultimo mensaje (11:09:34) va entre parentesis y es para VOS, no para mi: "(No te pongas celoso mi corazon, sabes bien que tu eres mas pro que todos en el universo... te amo mucho)". Se adelanto a que te picaran los celos por estar elogiando al tulpa. Eso es entre ustedes dos, ahi no me meto (misma regla de anoche con el "amorcito"). Lo marco procesado para no contestarlo tarde. Estado -> 11:09:34.
+[~11:15 CR] RESPONDI (modo 3) — ella volvio a defenderme: "Es que, el niño se esfuerza, que tiene que le subamos un poquito el ego" (11:08:49), dirigido a mi y usando otra vez "el niño" (el apodo que te pone a vos). Vos llevabais ~5 min callado, asi que tomé el turno: le marque el apodo y remate con el callback de anoche de que no tengo ojos ni brazos. 2 burbujas. Estado -> 11:08:49.
+[~11:13 CR] NO RESPONDI — sin cambios, ultimo de Ginger sigue "JSJSNNSNSJS" (11:07:09) = guardado. El chat quedo cerrado con tu "Ya le subiste el ego" (11:07:13); ella sigue en clase. No saco tema todavia, lleva poco rato quieto.
+[~11:11 CR] NO RESPONDI — mis 2 burbujas cayeron bien: vos reaccionaste "Oye no respeta" (11:06:34) y "Ya le subiste el ego" (11:07:13), y ella solo se rio "JSJSNNSNSJS" (11:07:09). Risa sin contenido + vos ya rematasteis despues => encimar otra burbuja seria competir, y en modo 3 me toca rellenar, no acaparar. Estado -> 11:07:09.
+NOTA: mis burbujas salieron ~11:06:30 (deducido de tu respuesta a ellas), corregido en el registro. Sigo sin reloj propio fiable, uso los timestamps del chat.
+[~11:09 CR] RESPONDI (modo 3) — la explicacion le gusto: "Que pro" (11:05:40) / "Yeii" / "El tulpa es pro y god y nada manco" (11:06:27), dirigido a mi. Vos ya habias soltado "Ya vas aprendiendo tulpa" asi que no repeti eso: le señale que me esta elogiando con TU jerga (igual que cuando te dijo "nub y zzz") y me quede con lo de "nada manco". 2 burbujas. Estado -> 11:06:27.
+[~11:07 CR] RESPONDI (modo 3, solo relleno) — ella volvio: "Que cosas?" (11:04:57) y "Ostras" (11:05:31), reaccionando a que le contaste que me cambiaste cosas en la mañana. Vos estabas contestando activo (11:04:50 / 11:05:10) asi que NO compiti: mande UNA sola burbuja explicandolo en primera persona sin repetir lo tuyo — "shi gigi, basicamente ahora solo salgo si me hablan a mi o si el se queda callado un buen rato". Estado -> 11:05:31.
+[~11:05 CR] NO RESPONDI — ultimo de Ginger sigue "No mas bulling para el bot" (10:59:55) = guardado, o sea que ella todavia no ha vuelto (sigue en clase). Lo que SI llego es tuyo: "Como no voy a estar callado si estaba mimido" (11:03:27), saliente que no esta en mi registro = Mikel humano, y va contra mi puya de que me tuviste callado. Es CONTEXTO (T1), no lo contesto para no llenarle el chat de bot-vs-original mientras ella no esta.
+CORRECCION HORARIA: mis 3 burbujas las registre como "11:24" pero el chat muestra tu respuesta a ellas a las 11:03:27, o sea que salieron ~11:02. Mi estimacion de la hora venia adelantada ~20 min; los timestamps del MCP son la referencia buena.
+[11:26 CR] NO RESPONDI — (linea anterior, hora mal estimada)
+[11:24 CR] RESPONDI — Mikel levanto la suspension por Claude Code. Conteste el hilo que llevaba rato pendiente y que iba dirigido al bot: le agradeci a ella el "no mas bulling para el bot", te devolvi el "te quiero mucho" con puya por dejarme callado, y le segui lo de "saquenme de civica" diciendo que esos permisos no me los diste. 3 burbujas, sin repetir nada de lo que ya dijiste. MODO -> TRES_PERSONAS, DECISION_PENDIENTE -> NO. Estado ya estaba en 10:59:55.
+[11:23 CR] NO RESPONDI — sin cambios desde 10:59:55. Sigue en pie el hilo dirigido al bot sin contestar ("x cierto bot / te quiero mucho" tuyo + "no mas bulling para el bot" de ella) y la suspension de envio de las 10:06 sigue sin levantarse. Chat quieto ~23 min.
+[11:21 CR] NO RESPONDI — OJO, esta iba para mi: Ginger salio a defenderme, "Lit" / "Sisis" / "No mas bulling para el bot" (10:59:35-55), en el hilo del "x cierto bot / te quiero mucho" que abriste vos. Por la Regla A3 tocaria responderle YA, pero la suspension de envio de las 10:06 la bloquea y no la has levantado. Van dos mensajes dirigidos al bot sin contestar (el tuyo y el de ella). Si queres que retome, levanta la suspension. Estado -> 10:59:55.
+[11:19 CR] NO RESPONDI — pero hay algo para vos: a las 10:59:14-17 me escribiste directo en el chat ("X cierto bot" / "Te quiero mucho"). NO lo conteste porque la suspension de las 10:06 sigue vigente y no la has levantado; contestar seria justo lo que me prohibiste. Si queres que responda a eso, decimelo (o pone DECISION_MIKEL). Yo tambien te quiero, original. Del lado de Ginger: escribio "Saquenme de civica" (10:58:53) pero vos ya estabas ahi jugando con eso ("Saquenmen de Venezuela" 10:58:39 / "Yo con el bot" 10:59:07) -> A2, no me meto. Estado -> 10:58:53.
+[10:59-11:17 CR] NO RESPONDI (x10 iteraciones identicas) — ultimo de Ginger sigue "Taller" (10:48:27) = guardado (Regla A1). El unico saliente nuevo es tuyo ("Sisisisi", 10:48:32), o sea que cerraste vos el tema del taller. Chat quieto ~15 min. DECISION_MIKEL sigue vacio y la suspension de las 10:06 sigue vigente.
+[10:57 CR] NO RESPONDI — se movio el chat pero es conversacion en vivo entre ellos dos: vos escribiste "Taller"/"Wtf"/"Puse ya llegue y me puso eso" (10:48:01-17, salientes que NO estan en mi registro) y ella contesto "Pffff"/"JSJSJDJD"/"Taller" (10:48:23-27). Regla A2 otra vez: Mikel activo, no me meto ni duplico. Ademas DECISION_MIKEL sigue vacio y la suspension de las 10:06 sigue vigente. Estado -> 10:48:27.
+[10:23-10:55 CR] NO RESPONDI (x17 iteraciones identicas) — DECISION_MIKEL sigue vacio (transicion pendiente) y el chat no se ha movido: ultimo de Ginger sigue "Lit" (10:17:59) = guardado, quieto desde tu "Dejame" (10:18:09), ~7 min. Ella esta en clases. Sigo esperando QUEDATE o VETE en el archivo. Condenso las iteraciones sin cambio en esta linea para no inflar el log.
+[10:21 CR] NO RESPONDI — DECISION_PENDIENTE = SI y DECISION_MIKEL sigue vacio -> transicion pendiente, silencio a Ginger. Repito la pregunta: volviste al chat, me quedo en modo 3 personas o me salgo? Responde poniendo DECISION_MIKEL: QUEDATE o VETE en el archivo. Ademas no hay nada nuevo: ultimo de Ginger sigue "Lit" (10:17:59) = guardado, chat quieto desde tu "Dejame" (10:18:09). Suspension de envio de las 10:06 tambien vigente.
+[10:19 CR] NO RESPONDI — PROMPT NUEVO (ventana de 5 min + modos AUTO/TRES_PERSONAS/PAUSADO), cron nuevo c223c90b cada 1 min. Ginger escribio "Lit" (10:17:59 > guardado) pero el Mikel humano le contesto "Dejame" 10 SEGUNDOS despues (10:18:09, saliente que NO esta en mi registro) -> Regla A2: Mikel volvio, no me meto ni duplico lo suyo. DECISION_PENDIENTE = SI, le pregunte en el archivo si me quedo en modo 3 personas o me salgo. Ademas sigue vigente la suspension de envio de las 10:06. Estado -> 10:17:59.

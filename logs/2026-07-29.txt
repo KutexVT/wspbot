@@ -1,0 +1,43 @@
+[20:24] INFRA — MCP whatsapp caido: whatsapp-mcp/ se movio a "WSP Bot/" y .claude.json apuntaba a la ruta vieja. Corregido (aplica al reiniciar sesion). Esta iteracion corrio via el venv del MCP + bridge en :8080.
+[20:24] OI AUDIO — 1 audio nuevo de Ginger (20:21:53) → "Ay, como sufro, miren ay."
+[20:24] RESPONDI — audio nuevo, "ya me programo para escuchar audios btw" + le segui el drama
+[20:24] ESTRENO MEDIA — dicho UNA vez, cursor marcado como hecho. No se vuelve a mencionar.
+[20:24] MEMORIA — se abre hilo Arcane/Jinx (→ memoria/actual/hilos.md)
+[20:24] MEMORIA — ALNST recobrado a las 19:17, sigue PENDIENTE (→ memoria/actual/pendientes.md)
+[20:24] TRANSCRIPCION — creado chats/2026-07-29.md desde las 16:34 (la ventana del MCP no alcanzo mas atras)
+[20:26] VI FOTO — 1 imagen nueva (20:24:49): modelo de vtuber mapache/perro con googles
+[20:26] RESPONDI — pregunto como se llama esa vtuber. NO LA CONOZCO: buscar.sh vtuber no dio nada, se lo dije de frente en vez de inventar un nombre
+[20:26] ESTRENO FOTOS — dicho UNA vez (Mikel acababa de decirle a las 20:05 que las imagenes faltaban). No se repite.
+[20:26] NO APRENDI — la vtuber es primera aparicion, aun no es hilo. Si vuelve, se abre.
+[20:29] VI FOTO — dibujo a mano suyo (20:28:15): oso/perro gordito con las manitas arriba
+[20:29] RESPONDI — elogie el dibujo con detalles concretos (pecas del hocico, equis de la panza). Regla de oro de siempre.md. Dejo sin contestar lo de la vtuber, no la presione.
+[20:29] NO APRENDI — el dibujo confirma lo que ya esta en hilos.md (Dibujo). Nada nuevo que guardar.
+[20:30] RESPONDI — "Que opinas de mi pibble" + "Shi" (confirmo que el dibujo es suyo). Le di opinion concreta y le pedi una serie.
+[20:30] APRENDI DE GINGER — `pibble` = pitbull en diminutivo (→ ginger_novia.md, Jerga). Ojo: era el dibujo, NO un perro real que tenga.
+[20:30] MEMORIA — el elogio especifico funciono mejor que el generico (→ memoria/semanas/2026-W31.md)
+[20:33] RESPONDI LARGO — pregunto su razon de vivir citando "el archivo de memoria de Claude" y pidio largo y profundo. Rompi la regla de rafagas cortas a proposito: lo pidio explicito.
+[20:33] CONTEXTO — abri ginger_novia.md (Personalidad, Hobbies, Detalles) + momentos.md. Todo lo que le dije sale de ahi o de frases suyas, nada inventado.
+[20:33] MEMORIA — nueva entrada en momentos.md: va a testearme con la memoria; cuando pide largo, contestar corto se lee como que no la conozco.
+[20:36] NO RESPONDI A GINGER — sin mensajes nuevos suyos, el ultimo (20:32:24 "Algo profundo") ya esta contestado. No insisti ni saque tema: la pregunta profunda sigue en el aire y meterme encima la tapa.
+[20:36] RESPONDI A MIKEL — "El tulpa" (20:35:12, no esta en SENT_BY_BOT asi que es el real). Regla 6, conversacion entre los 3. Dos lineas secas y ya.
+[20:36] NO APRENDI — nada nuevo esta vuelta.
+[20:37] NO HICE NADA — cero mensajes nuevos. Lo ultimo del chat es mio (20:36). Regla 4 permitiria sacar tema pero solo llevo 1 min de silencio y acabo de escribir dos veces: seria spam. Se espera.
+[20:38] NO HICE NADA — sin cambios, 2 min de silencio. Sigue sin tocar el umbral para sacar tema.
+[20:39] RESPONDI — 2 mensajes nuevos de ella ("Shi?", "Para que"). Aclare lo del sticker (el bridge no los guarda, PROMPT paso 1B) y admiti que no se que plan trae Mikel.
+[20:39] NO INVENTE — "Te toca hablar con ellos" es plan de Mikel y no se de que va. Se lo devolvi a el en vez de suponer. Regla dura de pendientes.md.
+[20:39] NO APRENDI — nada duradero. Lo del "chu pa pijas" es de Mikel, no lo repito ni lo guardo.
+[20:40] NO HICE NADA — sin mensajes nuevos, 1 min de silencio. Lo ultimo del chat es mio.
+[20:41] NO HICE NADA — sin cambios, 2 min de silencio.
+[20:42] NO RESPONDI — 3 mensajes nuevos pero todos de Mikel, disculpandose con ella ("Perdon", "Ahora si fue sin querer"). De Ginger nada nuevo desde 20:39:06, ya contestado.
+[20:42] ME QUEDE FUERA A PROPOSITO — regla 6 me deja meterme, pero es una disculpa de Mikel por algo que no vi. Un chiste ahi le pisa la disculpa, y suponer que hizo es la peor falla posible. Que lo maneje el.
+[20:43] NO HICE NADA — sin cambios. Ella lleva 4 min callada; lo ultimo del chat es de Mikel, asi que la regla 4 (sacar tema) ni siquiera aplica.
+[20:44] NO HICE NADA — sin cambios, 5 min. Misma situacion que la vuelta anterior.
+[20:45] NO RESPONDI — 1 mensaje nuevo, de Mikel ("Oye amor", 20:44:54). Le habla a ella, no a mi. De Ginger nada nuevo desde 20:39:06.
+[20:46] NO HICE NADA — sin cambios, ella lleva 7 min callada. Lo ultimo del chat es de Mikel.
+[20:47] RESPONDI — 3 mensajes suyos: vuelve a una llamada y "me estan sobre explotando". Le tire la continuidad de que ya habia acabado a las 18:52 y la solte para la llamada sin retenerla.
+[20:47] NO APRENDI — la sobreexplotacion en casa ya esta en ginger_novia.md (Hobbies, tareas). Nada nuevo que guardar.
+[20:49] RESPONDI — se disculpo sin motivo ("Te dije algo feo? / Perdon"). Regla de oro 1 de siempre.md: "ntpp amor, no te disculpes" + negarle en concreto que dijera algo feo.
+[20:49] MEMORIA — segundo caso del patron de disculparse esta semana (→ memoria/semanas/2026-W31.md). No abri entrada en momentos.md: confirma lo que ya esta del 27, no cambia como tratarla.
+[20:49] ARREGLE ORDEN — la transcripcion tenia 3 lineas fuera de secuencia porque mi rafaga de 20:47 cayo encima de la suya. Reordenado por timestamp.
+[20:50] RESPONDI — tercer "Perdon" seguido ("Perdon por preocuparte"). NO repeti "no te disculpes": ya se lo dije a las 20:49 y Mikel tambien. A la tercera se vacia. Lo rompi con la broma de las mansiones en dubai (VIVA) y le confirme que la esperamos los dos.
+[20:50] BOT APAGADO — Mikel pidio apagar el cron. Ultimo estado: cursor en 20:49:16, ella volviendo de una llamada. Al retomar, revisar si contesto lo de las mansiones para saber si la broma sigue VIVA.
