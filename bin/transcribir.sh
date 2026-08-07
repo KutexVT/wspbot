@@ -46,13 +46,10 @@ mkdir -p "$BASE/chats" "$DESCRIPCIONES" "$TRANSCRIPCIONES"
 FILAS="$(consulta "
   select
     $TS_SQL,
-    case
-      when is_from_me = 0 then 'GINGER'
-      when sender = '$SENDER_TULPA' then 'TULPA'
-      else 'MIKEL'
-    end,
+    $ROL_SQL,
     coalesce(media_type,''),
     coalesce(id,''),
+    coalesce(filename,''),
     replace(replace(coalesce(content,''), char(10), ' '), char(9), ' ')
   from messages
   where chat_jid = '$JID' and substr(timestamp,1,10) = '$DIA'
@@ -73,7 +70,7 @@ TMP="$(mktemp "$SALIDA.XXXXXX")"
 
 n=0
 sin_resolver=0
-while IFS="$SEP" read -r ts rol media id texto; do
+while IFS="$SEP" read -r ts rol media id arch texto; do
   [ -n "$ts" ] || continue
   hora="${ts:11:8}"
 
@@ -91,6 +88,18 @@ while IFS="$SEP" read -r ts rol media id texto; do
         cuerpo="<foto: $(tr -d '\n' < "$DESCRIPCIONES/$id.txt")>"
       else
         cuerpo="<foto: sin describir - Message ID: $id>"
+        sin_resolver=$((sin_resolver + 1))
+      fi
+      ;;
+    sticker)
+      # Los stickers se describen por NOMBRE DE ARCHIVO, no por message_id: el nombre
+      # sale del hash del sticker, asi que el mismo sticker mandado veinte veces se
+      # describe una sola vez y las otras diecinueve se resuelven de la cache.
+      clave="${arch%.webp}"
+      if [ -n "$clave" ] && [ -s "$DESCRIPCIONES/$clave.txt" ]; then
+        cuerpo="<sticker: $(tr -d '\n' < "$DESCRIPCIONES/$clave.txt")>"
+      else
+        cuerpo="<sticker: sin describir - Message ID: $id>"
         sin_resolver=$((sin_resolver + 1))
       fi
       ;;

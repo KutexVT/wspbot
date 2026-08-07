@@ -3,10 +3,29 @@
 # No se ejecuta solo: se hace `source` desde los otros scripts.
 
 BASE="/home/kutex/WSP Bot"
-DB="$BASE/whatsapp-mcp/whatsapp-bridge/store/messages.db"
+DB="${WSP_DB:-$BASE/whatsapp-mcp/whatsapp-bridge/store/messages.db}"
 JID="${WSP_JID:-237799840162013@lid}"
-CURSOR="$BASE/nucleo/cursor.txt"
-LOCK="$BASE/nucleo/.lock"
+
+# Las rutas de estado se pueden desviar por entorno para probar los scripts sin tocar
+# nada real. Antes la unica forma de probar registrar.sh era dejarlo escribir en el
+# cursor y el log de produccion, asi que en la practica no se probaba:
+#   WSP_CURSOR=/tmp/wsp/cursor.txt WSP_LOGS=/tmp/wsp WSP_TRASPASO=/tmp/wsp/.traspaso \
+#     ./bin/registrar.sh --log "NO ME METI — prueba"
+CURSOR="${WSP_CURSOR:-$BASE/nucleo/cursor.txt}"
+LOCK="${WSP_LOCK:-$BASE/nucleo/.lock}"
+LOGS="${WSP_LOGS:-$BASE/logs}"
+
+# Traspaso de pulso.sh a registrar.sh. Aqui queda el timestamp del ultimo mensaje que
+# pulso.sh ALCANZO A IMPRIMIR, y de ahi lo lee registrar.sh para mover LAST_VISTO_TS.
+#
+# Por que un archivo y no consultar la base al cerrar: entre que pulso.sh imprime y el
+# modelo termina la vuelta pasan segundos, y en ese hueco entran mensajes que no vio
+# nadie. Si registrar.sh diera por visto "el ultimo de la base", se los comeria.
+TRASPASO="${WSP_TRASPASO:-$BASE/nucleo/.traspaso}"
+
+# Endpoint de salud del bridge. Ver /api/health en whatsapp-bridge/main.go.
+SALUD_URL="${WSP_SALUD_URL:-http://127.0.0.1:8080/api/health}"
+
 TRANSCRIPCIONES="$BASE/media/transcripciones"
 DESCRIPCIONES="$BASE/media/descripciones"
 
@@ -19,6 +38,18 @@ SENDER_TULPA="__tulpa__"
 # ("2026-07-29 20:49:16-06:00"). substr(...,1,19) los deja en la misma forma que usa el
 # cursor y ya vienen en hora local: NO se convierten ni se les resta nada.
 TS_SQL="substr(timestamp,1,19)"
+
+# Quien escribio cada mensaje, resuelto en SQL para que nadie tenga que deducirlo:
+#   GINGER = no es nuestro
+#   TULPA  = lo mandamos por la API (sender __tulpa__)
+#   MIKEL  = nuestro pero no de la API, o sea escrito por el desde el telefono
+# Estaba copiado en cuatro consultas entre pulso.sh y transcribir.sh; aqui se cambia
+# en un sitio si algun dia aparece un cuarto rol.
+ROL_SQL="case
+      when is_from_me = 0 then 'GINGER'
+      when sender = '$SENDER_TULPA' then 'TULPA'
+      else 'MIKEL'
+    end"
 
 morir() { echo "ERROR: $*" >&2; exit 1; }
 
@@ -41,4 +72,39 @@ SEP=$'\x1f'
 # Consulta a la base, con separador de campo explicito.
 consulta() {
   sqlite3 -separator "$SEP" "$DB" "$1"
+}
+
+# Pasa un timestamp de la base a segundos. Devuelve 0 si no se entiende, para que las
+# comparaciones nunca revienten con un cursor a medio escribir o editado a mano.
+a_segundos() {
+  date -d "$1" +%s 2>/dev/null || echo 0
+}
+
+# --- LOS DOS CURSORES, y por que son dos ---
+#
+#   LAST_VISTO_TS  — hasta aqui YA MIRE. Avanza SIEMPRE, cada vuelta, se conteste o no.
+#   LAST_GINGER_TS — hasta aqui ya le RESPONDI. Avanza solo cuando se responde.
+#
+# Con uno solo, las vueltas de "NO ME METI" no movian nada y el volcado de pulso.sh
+# crecia hasta chocar con el TOPE; a partir de ahi solo salian los mas recientes y los
+# viejos se caian de la ventana para no volver. Paso el 2026-08-06: el cursor clavado en
+# 13:38:41 durante 115 vueltas y el backlog llegando a 60 con el tope en 40. Si entre los
+# que se cayeron hay un mensaje de ella sin responder, no lo ve nadie nunca.
+#
+# leer_visto devuelve el de "ya mire". Dos salvaguardas:
+#   - Un cursor.txt viejo no tiene LAST_VISTO_TS: mientras no exista vale el de Ginger,
+#     asi que la primera vuelta tras el cambio se comporta igual que antes de el y no hay
+#     migracion que hacer.
+#   - Nunca puede quedar por detras del de Ginger. Si alguien edita el archivo a mano y
+#     los deja incoherentes, gana el mas nuevo de los dos.
+leer_visto() {
+  local v g
+  v="$(leer_cursor LAST_VISTO_TS)"
+  g="$(leer_cursor LAST_GINGER_TS)"
+  [ -n "$v" ] || v="$g"
+  [ -n "$v" ] || v="1970-01-01 00:00:00"
+  if [ -n "$g" ] && [ "$(a_segundos "$g")" -gt "$(a_segundos "$v")" ]; then
+    v="$g"
+  fi
+  printf '%s' "$v"
 }

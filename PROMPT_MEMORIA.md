@@ -10,6 +10,15 @@ justo lo que separa un patron de una casualidad. Con el dia entero delante si se
 ===============================================================================
 PASO 0 — MATERIAL
 ===============================================================================
+0. ANTES DE NADA: "/home/kutex/WSP Bot/bin/pulso.sh"
+
+   Si dice BRIDGE_CAIDO, el dia esta INCOMPLETO en la base y una transcripcion a medias
+   no se nota mirandola: parece un dia entero que simplemente tuvo poca conversacion. NO
+   hagas el pase. Cierra con
+     "/home/kutex/WSP Bot/bin/registrar.sh" --log "PASE ABORTADO — bridge caido"
+   y salite. El pase se hace UNA vez y lo que no se leyo ese dia no se vuelve a mirar:
+   ya paso tres veces (27, 28 y 29 de julio quedaron con dias parciales o vacios).
+
 1. Genera y lee la transcripcion completa del dia:
 
      "/home/kutex/WSP Bot/bin/transcribir.sh" <YYYY-MM-DD>

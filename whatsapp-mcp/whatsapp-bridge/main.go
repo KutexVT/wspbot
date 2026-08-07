@@ -14,6 +14,7 @@ import (
 	"path/filepath"
 	"reflect"
 	"strings"
+	"sync/atomic"
 	"syscall"
 	"time"
 
@@ -207,8 +208,12 @@ type SendMessageRequest struct {
 // so outgoing media reads back exactly like incoming media does.
 func mediaTypeFromPath(path string) string {
 	switch strings.ToLower(strings.TrimPrefix(filepath.Ext(path), ".")) {
-	case "jpg", "jpeg", "png", "gif", "webp":
+	case "jpg", "jpeg", "png", "gif":
 		return "image"
+	// Any .webp goes out as a sticker (see sendWhatsAppMessage), so it has to read
+	// back as one too or the local history disagrees with what was actually sent.
+	case "webp":
+		return "sticker"
 	case "mp4", "avi", "mov":
 		return "video"
 	case "ogg", "mp3", "m4a", "wav":
@@ -216,6 +221,41 @@ func mediaTypeFromPath(path string) string {
 	default:
 		return "document"
 	}
+}
+
+// Process start time and last received event, both exposed through /api/health.
+var startedAt = time.Now()
+var lastEventUnix atomic.Int64
+
+// HealthResponse is what /api/health answers. The bot polls this every minute to tell
+// "nothing is happening" apart from "nothing is reaching me" — two states that look
+// identical from the database alone, and used to be logged as the former.
+type HealthResponse struct {
+	Connected     bool  `json:"connected"`
+	LoggedIn      bool  `json:"logged_in"`
+	UptimeS       int64 `json:"uptime_s"`
+	LastEventAgoS int64 `json:"last_event_ago_s"`
+}
+
+// acquireLock takes an exclusive, non-blocking lock so only one bridge can ever run.
+//
+// WhatsApp invalidates the session when two clients connect with the same credentials
+// ("Got replaced stream error"): the second one gets in, the first one drops, and
+// sometimes the QR has to be scanned again. There is no supervisor process here — the
+// bridge is started by hand from a shell alias — so this lock is the only thing standing
+// between a second `wspbot` and a dead session.
+//
+// The returned file must stay open for the whole run: closing it releases the lock.
+func acquireLock() (*os.File, error) {
+	f, err := os.OpenFile("store/bridge.lock", os.O_CREATE|os.O_RDWR, 0644)
+	if err != nil {
+		return nil, err
+	}
+	if err := syscall.Flock(int(f.Fd()), syscall.LOCK_EX|syscall.LOCK_NB); err != nil {
+		f.Close()
+		return nil, fmt.Errorf("another whatsapp-client already holds store/bridge.lock")
+	}
+	return f, nil
 }
 
 // Function to send a WhatsApp message.
@@ -261,6 +301,7 @@ func sendWhatsAppMessage(client *whatsmeow.Client, recipient string, message str
 		fileExt := strings.ToLower(mediaPath[strings.LastIndex(mediaPath, ".")+1:])
 		var mediaType whatsmeow.MediaType
 		var mimeType string
+		var isSticker bool
 
 		// Handle different media types
 		switch fileExt {
@@ -275,6 +316,12 @@ func sendWhatsAppMessage(client *whatsmeow.Client, recipient string, message str
 			mediaType = whatsmeow.MediaImage
 			mimeType = "image/gif"
 		case "webp":
+			// A .webp is ALWAYS a sticker here. Nobody in this chat sends a .webp
+			// meaning a photo, and picking the extension as the trigger keeps the whole
+			// feature inside this file: no extra field in the JSON, and no change to the
+			// Python MCP layer — which would force a Claude Code restart and kill the
+			// bot's own session. To send a webp as a photo, convert it to png first.
+			isSticker = true
 			mediaType = whatsmeow.MediaImage
 			mimeType = "image/webp"
 
@@ -309,8 +356,29 @@ func sendWhatsAppMessage(client *whatsmeow.Client, recipient string, message str
 		fmt.Println("Media uploaded", resp)
 
 		// Create the appropriate message type based on media type
-		switch mediaType {
-		case whatsmeow.MediaImage:
+		switch {
+		case isSticker:
+			// Width and Height are not optional: without them the receiving client
+			// draws the sticker at some default size, or does not draw it at all. They
+			// are read from the WebP header rather than shelling out to ffprobe.
+			//
+			// No Caption field exists on a sticker — whatever needs saying goes in a
+			// separate message.
+			w, h, animated := webpSize(mediaData)
+			msg.StickerMessage = &waProto.StickerMessage{
+				Mimetype:          proto.String(mimeType),
+				URL:               &resp.URL,
+				DirectPath:        &resp.DirectPath,
+				MediaKey:          resp.MediaKey,
+				FileEncSHA256:     resp.FileEncSHA256,
+				FileSHA256:        resp.FileSHA256,
+				FileLength:        &resp.FileLength,
+				Width:             proto.Uint32(w),
+				Height:            proto.Uint32(h),
+				IsAnimated:        proto.Bool(animated),
+				MediaKeyTimestamp: proto.Int64(time.Now().Unix()),
+			}
+		case mediaType == whatsmeow.MediaImage:
 			msg.ImageMessage = &waProto.ImageMessage{
 				Caption:       proto.String(message),
 				Mimetype:      proto.String(mimeType),
@@ -321,7 +389,7 @@ func sendWhatsAppMessage(client *whatsmeow.Client, recipient string, message str
 				FileSHA256:    resp.FileSHA256,
 				FileLength:    &resp.FileLength,
 			}
-		case whatsmeow.MediaAudio:
+		case mediaType == whatsmeow.MediaAudio:
 			// Handle ogg audio files
 			var seconds uint32 = 30 // Default fallback
 			var waveform []byte = nil
@@ -351,7 +419,7 @@ func sendWhatsAppMessage(client *whatsmeow.Client, recipient string, message str
 				PTT:           proto.Bool(true),
 				Waveform:      waveform,
 			}
-		case whatsmeow.MediaVideo:
+		case mediaType == whatsmeow.MediaVideo:
 			msg.VideoMessage = &waProto.VideoMessage{
 				Caption:       proto.String(message),
 				Mimetype:      proto.String(mimeType),
@@ -362,7 +430,7 @@ func sendWhatsAppMessage(client *whatsmeow.Client, recipient string, message str
 				FileSHA256:    resp.FileSHA256,
 				FileLength:    &resp.FileLength,
 			}
-		case whatsmeow.MediaDocument:
+		case mediaType == whatsmeow.MediaDocument:
 			msg.DocumentMessage = &waProto.DocumentMessage{
 				Title:         proto.String(mediaPath[strings.LastIndex(mediaPath, "/")+1:]),
 				Caption:       proto.String(message),
@@ -423,7 +491,80 @@ func extractMediaInfo(msg *waProto.Message) (mediaType string, filename string, 
 			doc.GetURL(), doc.GetMediaKey(), doc.GetFileSHA256(), doc.GetFileEncSHA256(), doc.GetFileLength()
 	}
 
+	// Check for sticker message. Until this existed, stickers were dropped before ever
+	// reaching the database: extractMediaInfo returned an empty media type, and
+	// handleMessage discards anything with neither text nor media. Not one of the 142k
+	// stored messages was a sticker.
+	//
+	// whatsmeow already decrypts stickers through the image pipeline (classToMediaType
+	// maps StickerMessage to MediaImage), so storing them with their own media_type is
+	// all it takes to be able to download them later.
+	if stk := msg.GetStickerMessage(); stk != nil {
+		return "sticker", stickerFilename(stk.GetFileSHA256()),
+			stk.GetURL(), stk.GetMediaKey(), stk.GetFileSHA256(), stk.GetFileEncSHA256(), stk.GetFileLength()
+	}
+
 	return "", "", "", nil, nil, nil, 0
+}
+
+// Sticker filenames come from the file hash, not from the clock, for two reasons.
+//
+// Correctness: two stickers received within the same second would get the same
+// timestamp name, and downloadMedia short-circuits when the file already exists — so the
+// second one would silently return the first one's image.
+//
+// Cost: the same sticker arrives dozens of times. Hashing means it is stored and
+// downloaded exactly once, and the bot's cached description of it is reused instead of
+// looking at the same picture again on every send.
+func stickerFilename(sha []byte) string {
+	if len(sha) >= 4 {
+		return fmt.Sprintf("sticker_%x.webp", sha[:4])
+	}
+	return "sticker_" + time.Now().Format("20060102_150405") + ".webp"
+}
+
+// webpSize reads dimensions and the animation flag straight out of the WebP header.
+//
+// Layout: "RIFF" <4 byte size> "WEBP" <4 byte chunk id> <chunk payload>, where the chunk
+// id decides how the size is encoded:
+//
+//	VP8  (lossy)      14-bit width at offset 26, height at 28, little endian
+//	VP8L (lossless)   width-1 and height-1 packed as 14+14 bits in the LE uint32 at 21
+//	VP8X (extended)   24-bit width-1 at 24 and height-1 at 27; ANIM is bit 0x02 at 20
+//
+// Falls back to 512x512, which is what WhatsApp normalizes every sticker to anyway, so a
+// header this cannot parse still sends something that renders correctly.
+func webpSize(data []byte) (width, height uint32, animated bool) {
+	width, height = 512, 512
+
+	if len(data) < 30 || string(data[0:4]) != "RIFF" || string(data[8:12]) != "WEBP" {
+		return width, height, false
+	}
+
+	switch string(data[12:16]) {
+	case "VP8 ":
+		w := uint32(binary.LittleEndian.Uint16(data[26:28]) & 0x3FFF)
+		h := uint32(binary.LittleEndian.Uint16(data[28:30]) & 0x3FFF)
+		if w > 0 && h > 0 {
+			width, height = w, h
+		}
+	case "VP8L":
+		bits := binary.LittleEndian.Uint32(data[21:25])
+		w := (bits & 0x3FFF) + 1
+		h := ((bits >> 14) & 0x3FFF) + 1
+		if w > 0 && h > 0 {
+			width, height = w, h
+		}
+	case "VP8X":
+		animated = data[20]&0x02 != 0
+		// Los parentesis importan: en Go el + liga mas fuerte que el |, asi que sin
+		// ellos el +1 se sumaria solo al ultimo byte en vez de al valor entero.
+		w := (uint32(data[24]) | uint32(data[25])<<8 | uint32(data[26])<<16) + 1
+		h := (uint32(data[27]) | uint32(data[28])<<8 | uint32(data[29])<<16) + 1
+		width, height = w, h
+	}
+
+	return width, height, animated
 }
 
 // Handle regular incoming messages with media support
@@ -644,6 +785,11 @@ func downloadMedia(client *whatsmeow.Client, messageStore *MessageStore, message
 		waMediaType = whatsmeow.MediaAudio
 	case "document":
 		waMediaType = whatsmeow.MediaDocument
+	case "sticker":
+		// Not a typo: stickers travel through the image media pipeline. whatsmeow maps
+		// StickerMessage to MediaImage in both directions, so the decryption keys are
+		// derived the same way.
+		waMediaType = whatsmeow.MediaImage
 	default:
 		return false, "", "", "", fmt.Errorf("unsupported media type: %s", mediaType)
 	}
@@ -815,6 +961,28 @@ func startRESTServer(client *whatsmeow.Client, messageStore *MessageStore, port 
 		})
 	})
 
+	// Handler for health checks.
+	//
+	// Answering "is the port open?" is not enough: the process can be alive, listening
+	// and disconnected from WhatsApp at the same time, which is exactly the state left
+	// behind by a replaced stream. IsConnected and IsLoggedIn are different failures and
+	// need different fixes — a logged out session is not solved by restarting, it needs
+	// the QR scanned again — so both are reported separately.
+	http.HandleFunc("/api/health", func(w http.ResponseWriter, r *http.Request) {
+		last := lastEventUnix.Load()
+		ago := int64(-1)
+		if last > 0 {
+			ago = time.Now().Unix() - last
+		}
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(w).Encode(HealthResponse{
+			Connected:     client.IsConnected(),
+			LoggedIn:      client.IsLoggedIn(),
+			UptimeS:       int64(time.Since(startedAt).Seconds()),
+			LastEventAgoS: ago,
+		})
+	})
+
 	// Start the server
 	serverAddr := fmt.Sprintf(":%d", port)
 	fmt.Printf("Starting REST API server on %s...\n", serverAddr)
@@ -823,6 +991,11 @@ func startRESTServer(client *whatsmeow.Client, messageStore *MessageStore, port 
 	go func() {
 		if err := http.ListenAndServe(serverAddr, nil); err != nil {
 			fmt.Printf("REST API server error: %v\n", err)
+			// Fatal on purpose. A busy port means another bridge is already running,
+			// and two clients on one session make WhatsApp drop one of them. Dying here
+			// is better than staying connected as a zombie with no API: that is exactly
+			// the state where the bot keeps reasoning on a database nobody is feeding.
+			os.Exit(1)
 		}
 	}()
 }
@@ -840,6 +1013,15 @@ func main() {
 		logger.Errorf("Failed to create store directory: %v", err)
 		return
 	}
+
+	// Refuse to start if another bridge is already up, before touching the session.
+	lock, err := acquireLock()
+	if err != nil {
+		logger.Errorf("Refusing to start: %v", err)
+		logger.Errorf("Two clients on one session make WhatsApp drop one of them.")
+		return
+	}
+	defer lock.Close()
 
 	container, err := sqlstore.New(context.Background(), "sqlite3", "file:store/whatsapp.db?_foreign_keys=on", dbLog)
 	if err != nil {
@@ -877,6 +1059,11 @@ func main() {
 
 	// Setup event handling for messages and history sync
 	client.AddEventHandler(func(evt interface{}) {
+		// Stamped on every event, not just messages: /api/health reports how long ago
+		// anything at all arrived, which is what tells a quiet chat apart from a dead
+		// connection that has not noticed it is dead yet.
+		lastEventUnix.Store(time.Now().Unix())
+
 		switch v := evt.(type) {
 		case *events.Message:
 			// Process regular messages

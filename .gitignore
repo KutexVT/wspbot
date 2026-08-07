@@ -14,3 +14,6 @@ whatsapp-mcp/.git-upstream/
 whatsapp-mcp/whatsapp-bridge/store/*.db
 whatsapp-mcp/whatsapp-bridge/store/*.db.bak.*
 whatsapp-mcp/whatsapp-bridge/store/*.lock
+
+# Log del bridge: crece sin parar y no es historial de codigo.
+logs/bridge.log
