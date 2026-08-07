@@ -3,8 +3,9 @@
 Se elige por TEXTO. **No abras las imagenes**: la columna "cuando" es lo unico que hace
 falta para decidir, y abrirlas cuesta una vuelta entera.
 
-Uno de vez en cuando, no en cada mensaje. Un sticker cada dos por tres deja de ser
-gracioso y pasa a ser un tic.
+**Se manda uno SIEMPRE, al final de cada vez que se escribe** (ver PASO 4 del PROMPT). Por
+eso importa que la tabla crezca: con pocas filas se repiten los mismos. Si ninguna pega
+con el momento, se tira de los que ella ha mandado, que estan en el cache del bridge.
 
 Los archivos de esta tabla estan en `media/stickers/`. Se mandan con
 `mcp__whatsapp__send_file(recipient=..., media_path="<ruta>")`.
