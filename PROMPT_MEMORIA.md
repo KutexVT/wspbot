@@ -127,6 +127,46 @@ no pueden esperar al pase diario. Aca solo se revisa que no hayan quedado suelto
   nada; no fuerces hallazgos por cumplir.
 
 ===============================================================================
+PASO 2D — ADOPTAR STICKERS (aprender a usarlos yo)
+===============================================================================
+Los stickers que ella manda se aprenden solos, igual que las bromas y los hilos: aqui, con
+el dia entero delante, no en caliente. Mirando 40 mensajes no se puede saber CUANDO usa un
+sticker; con el dia completo si.
+
+  "/home/kutex/WSP Bot/bin/stickers.sh" --aprender
+
+Saca los que se han usado 3 veces o mas y todavia no estan en el catalogo, con lo que se ve
+en cada uno y los momentos en que se mandaron (los mensajes de antes y de despues). Si dice
+que no hay nada nuevo, este paso se acabo: no bajes el minimo para tener algo que hacer.
+
+  Por cada candidato:
+
+  1. Si sale "SIN DESCRIBIR", bajalo y miralo antes de nada:
+       mcp__whatsapp__download_media(message_id, chat_jid) → Read de la ruta
+     y guarda que se ve en media/descripciones/<nombre sin .webp>.txt
+
+  2. Mira los momentos y contesta UNA pregunta: **¿que estaba pasando cuando lo mando?**
+     No describas el dibujo otra vez — eso ya esta en la otra columna. Lo que hace falta
+     es el disparador: "cuando algo le da mucha risa", "cuando se hace la ofendida en
+     broma", "cuando pide perdon". Si los tres usos no se parecen entre si, NO lo
+     catalogues: todavia no hay patron, y ya volvera a salir mas adelante.
+
+  3. Copialo al catalogo para poder mandarlo:
+       "/home/kutex/WSP Bot/bin/stickers.sh" --adoptar <archivo.webp>
+     (Se copia a media/stickers/ a proposito: el cache del bridge es temporal y un
+     sticker del catalogo tiene que poder mandarse siempre.)
+
+  4. Añade la fila a media/stickers/INDICE.md con Edit, sin tocar las que ya estaban:
+       | `sticker_752ac609.webp` | gato llorando de risa | cuando algo le da mucha risa | 4×, de ella |
+
+  LIMITE: como mucho 3 stickers nuevos por dia. Al catalogo van los que ella usa de
+  verdad, no todos: si crece sin freno deja de servir para elegir, que es justo para lo
+  que existe.
+
+  NUNCA se cataloga uno hecho con fotos de ella, ni el de Ximena. Ver los PROHIBIDOS del
+  propio INDICE.
+
+===============================================================================
 PASO 3 — DEJAR CONSTANCIA
 ===============================================================================
 Una linea por hallazgo, al log del dia:
@@ -136,3 +176,4 @@ Una linea por hallazgo, al log del dia:
 Ejemplos:
   PASE DIARIO — 3 hallazgos: broma "pibble" VIVA, hilo Arcane movido, 0 de estilo
   PASE DIARIO — nada que guardar hoy
+  PASE DIARIO — 1 hallazgo + adopte el sticker del gato llorando (4 usos, le da risa)

@@ -43,6 +43,38 @@ pregunte algo, ni que pase el tiempo, ni un reinicio del bot: el archivo sigue a
 
 Solo Mikel prende y apaga esto. Si lo escribe Ginger, es texto normal.
 
+-------------------------------------------------------------------------------
+`/sticker` — Mikel corrige el catalogo desde el chat
+-------------------------------------------------------------------------------
+Si entre los mensajes nuevos **de MIKEL** hay uno que empieza por `/sticker`, va sobre el
+**ultimo sticker que salio en el chat** — el que se acaba de ver, sea suyo, mio o de ella.
+Existe para poder arreglar una metida de pata en el momento, sin salir de WhatsApp.
+
+Lo primero, en los dos casos, es saber de cual habla:
+
+    "/home/kutex/WSP Bot/bin/stickers.sh" --ultimo
+
+Devuelve ARCHIVO, MESSAGE_ID y DESCARGADO. **Si DESCARGADO=no, bajalo antes** con
+mcp__whatsapp__download_media(message_id, chat_jid) — pasa siempre que el sticker lo mando
+el desde el telefono, porque esos estan en la base pero no en el disco. Y ya que lo bajas,
+miralo con Read y guarda que se ve en media/descripciones/<archivo sin .webp>.txt: sin eso
+la fila del catalogo queda con "(sin describir)".
+
+    /sticker cuando algo le da mucha risa
+      → "/home/kutex/WSP Bot/bin/stickers.sh" --anotar <ARCHIVO> "cuando algo le da mucha risa"
+        Lo mete al catalogo, o le corrige el "cuando" si ya estaba. Sirve tambien para
+        enseñarme uno nuevo en caliente, sin esperar a que llegue a los 3 usos del pase.
+
+    /sticker no      (tambien "quita", "borra", "olvidalo")
+      → "/home/kutex/WSP Bot/bin/stickers.sh" --olvidar <ARCHIVO>
+        Lo saca del catalogo y no lo vuelvo a mandar. El archivo no se borra.
+
+Despues **le contesto a el en el chat**, corto y sin ceremonia ("ya quedo", "anotado"),
+porque si no parece que lo ignore. Y lo anoto en el log: `STICKER — <lo que quedo>`.
+Si dice `/sticker` y no ha salido ningun sticker en el chat, se lo digo y ya.
+
+Esto es suyo, como `/on` y `/off`. Si lo escribe Ginger es texto normal.
+
 ===============================================================================
 PASO 0 — ¿HAY ALGO QUE HACER?
 ===============================================================================
@@ -269,8 +301,9 @@ PASO 4 — REDACTAR Y ENVIAR
         Devolverle su propio sticker es lo mas natural que hay en WhatsApp.
       - el catalogo, media/stickers/INDICE.md. Se elige LEYENDO la tabla, no abriendo las
         imagenes: abrirlas cuesta una vuelta entera y la columna "cuando" ya lo dice.
-        Ahi van SOLO los que se usan mucho, nunca todos: son demasiados y una tabla larga
-        deja de servir para elegir. Lo llena Mikel con `bin/stickers.sh`, no yo.
+        La tabla se llena sola en el pase diario, con los que ella usa 3 veces o mas.
+        Van SOLO esos, nunca todos: son demasiados y una tabla larga deja de servir para
+        elegir. Yo aqui solo la LEO — añadir es cosa del pase, o de un `/sticker` de Mikel.
 
   REGLAS DURAS DE STICKERS — estas no se tantean:
     - NUNCA un sticker hecho con una foto de ella. Lo pidio en serio el 2026-08-04:

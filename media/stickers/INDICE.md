@@ -6,34 +6,52 @@ falta para decidir, y abrirlas cuesta una vuelta entera.
 Uno de vez en cuando, no en cada mensaje. Un sticker cada dos por tres deja de ser
 gracioso y pasa a ser un tic.
 
-| archivo | que es | cuando lo mando |
+Los archivos de esta tabla estan en `media/stickers/`. Se mandan con
+`mcp__whatsapp__send_file(recipient=..., media_path="<ruta>")`.
+
+| archivo | que se ve | cuando lo mando |
 |---|---|---|
-| _(vacio todavia — ver abajo)_ | | |
+| `sticker_752ac609.webp` | gato llorando con la boca abierta y texto deformado tipo "HUHHUEHAU HSHUSUAHU AH" y dos emojis de llanto — risa descontrolada, de las de no poder respirar | cuando algo le da mucha risa |
+| `sticker_f7fe25e8.webp` | chica de anime (Yui de K-On) sonriendo con el dedo en la barbilla, fondo rosa con fresitas — carita mona, entre tierna y coqueta | cuando lleva rato llamandote y no le contestas, en plan mono |
+<!-- fin de las filas -->
 
-## Como se llena esta tabla
+## Esta tabla se llena sola
 
-**Solo entran los que se usan de verdad**, nunca todos los que aparezcan: en este chat
-salen demasiados y una tabla larga deja de servir para elegir.
+No hay que meter mano. El **pase diario** (PROMPT_MEMORIA.md, PASO 2D) mira los stickers
+del dia, y cuando uno se ha usado **3 veces o mas** juzga en que momentos lo mando ella y
+lo añade aqui con su "cuando". Maximo 3 nuevos por dia.
 
-El criterio es cuantas veces se repite el mismo sticker, que se cuenta solo:
+**Solo entran los que se usan de verdad**, nunca todos: en este chat salen demasiados y
+una tabla larga deja de servir para elegir, que es justo para lo que existe.
 
-    ./bin/stickers.sh 3        # los que salen 3 veces o mas
-    ./bin/stickers.sh 3 --md   # las mismas filas listas para pegar aqui
+A mano, si hace falta:
 
-La columna "cuando" se escribe **a mano**: eso es criterio, y de un contador no sale.
+    ./bin/stickers.sh --aprender          # candidatos, con el contexto de cada uso
+    ./bin/stickers.sh --anotar <archivo> "cuando se manda"
+    ./bin/stickers.sh --olvidar <archivo>
 
 Ojo con las fechas: hasta el **2026-08-06** el bridge descartaba los stickers entrantes,
 asi que la base arranco de cero ese dia. Las cuentas no dicen nada hasta que pasen varios
-dias de chat — no llenar esto el primer dia.
+dias de chat.
 
-## Los suyos
+## Corregir desde WhatsApp
+
+Mikel puede arreglar la tabla sin salir del chat, escribiendo en la conversacion:
+
+    /sticker cuando algo le da mucha risa     → anota eso del ultimo sticker que salio
+    /sticker no                               → lo saca del catalogo
+
+Se refiere siempre **al ultimo sticker del chat**, que es el que se acaba de ver. Sirve
+tanto para corregir uno mal catalogado como para enseñar uno nuevo en el momento, sin
+esperar a que llegue a los 3 usos.
+
+## Los suyos, sin catalogar
 
 Los stickers que manda ella quedan en
 `whatsapp-mcp/whatsapp-bridge/store/237799840162013@lid/sticker_*.webp`.
 
-**Devolverle su propio sticker es lo mas natural de WhatsApp** y no hace falta que este
-en esta tabla: se manda la ruta directa y ya. Aqui solo se anotan los que valga la pena
-tener a mano por lo que significan, no por existir.
+**Devolverle su propio sticker es lo mas natural de WhatsApp** y no hace falta que este en
+la tabla: se manda la ruta directa y ya.
 
 ## Como se añade uno nuevo desde una imagen
 
