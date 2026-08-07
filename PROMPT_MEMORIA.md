@@ -133,6 +133,20 @@ Los stickers que ella manda se aprenden solos, igual que las bromas y los hilos:
 el dia entero delante, no en caliente. Mirando 40 mensajes no se puede saber CUANDO usa un
 sticker; con el dia completo si.
 
+PRIMERO, dos comandos que no piden criterio y van siempre, en este orden:
+
+  "/home/kutex/WSP Bot/bin/stickers.sh" --guardar
+    Baja los stickers del dia que no estuvieran descargados y los copia a media/stickers/,
+    que es donde viven para siempre. El cache del bridge es temporal, y un sticker viejo
+    puede desaparecer de los servidores de WhatsApp: lo que no se guarde hoy se pierde.
+
+  "/home/kutex/WSP Bot/bin/stickers.sh" --ranking
+    Recuenta los usos reales y reordena el catalogo: los que mas se mandan suben. Como la
+    tabla se lee de arriba abajo, ese orden ES la preferencia — asi los que funcionan se
+    usan cada vez mas y los que no, se hunden solos.
+
+DESPUES, lo que si pide criterio:
+
   "/home/kutex/WSP Bot/bin/stickers.sh" --aprender
 
 Saca los que se han usado 3 veces o mas y todavia no estan en el catalogo, con lo que se ve

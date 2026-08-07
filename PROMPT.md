@@ -305,14 +305,16 @@ PASO 4 — REDACTAR Y ENVIAR
 
       1. El catalogo: media/stickers/INDICE.md. Se elige LEYENDO la tabla, no abriendo las
          imagenes — abrirlas cuesta una vuelta entera y la columna "cuando" ya lo dice.
-         Busco el que pegue con el momento. La tabla se llena sola en el pase diario, con
-         los que ella usa 3 veces o mas; aqui solo la LEO.
-      2. Si ninguno del catalogo pega, uno de LOS SUYOS:
-           ls "/home/kutex/WSP Bot/whatsapp-mcp/whatsapp-bridge/store/237799840162013@lid/"sticker_*.webp
+         Busco el que pegue con el momento. **Esta ordenado por uso: si varios pegan, va
+         el de mas arriba.** La tabla se llena y se reordena sola en el pase diario; aqui
+         solo la LEO.
+      2. Si ninguno del catalogo pega, cualquiera de media/stickers/ — ahi estan TODOS los
+         que han pasado por el chat, catalogados o no, guardados para siempre:
+           ls "/home/kutex/WSP Bot/media/stickers/"sticker_*.webp
          Y para saber cual es cual sin abrirlos, sus descripciones ya guardadas:
-           head -c 200 media/descripciones/sticker_*.txt
-         Devolverle su propio sticker es lo mas natural que hay en WhatsApp, y ademas es
-         de donde sale la variedad mientras el catalogo sea corto.
+           head -c 200 "/home/kutex/WSP Bot/media/descripciones/"sticker_*.txt
+         Casi todos son suyos, y devolverle su propio sticker es lo mas natural que hay en
+         WhatsApp. De aqui sale la variedad mientras el catalogo sea corto.
       3. Si de verdad no hay ninguno que encaje, mando el que menos desentone. Repetir uno
          es mejor que cortar la costumbre.
 

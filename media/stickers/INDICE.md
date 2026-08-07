@@ -10,10 +10,14 @@ con el momento, se tira de los que ella ha mandado, que estan en el cache del br
 Los archivos de esta tabla estan en `media/stickers/`. Se mandan con
 `mcp__whatsapp__send_file(recipient=..., media_path="<ruta>")`.
 
-| archivo | que se ve | cuando lo mando |
-|---|---|---|
-| `sticker_752ac609.webp` | gato llorando con la boca abierta y texto deformado tipo "HUHHUEHAU HSHUSUAHU AH" y dos emojis de llanto — risa descontrolada, de las de no poder respirar | cuando algo le da mucha risa |
-| `sticker_f7fe25e8.webp` | chica de anime (Yui de K-On) sonriendo con el dedo en la barbilla, fondo rosa con fresitas — carita mona, entre tierna y coqueta | cuando lleva rato llamandote y no le contestas, en plan mono |
+**El orden es la preferencia**: cuanto mas arriba, mas se usa. Si varios pegan con el
+momento, se manda el de mas arriba. Lo reordena solo el pase diario contando los usos
+reales, asi que los que funcionan suben y los que casi no salen se hunden.
+
+| archivo | que se ve | cuando lo mando | usos |
+|---|---|---|---|
+| `sticker_752ac609.webp` | gato llorando con la boca abierta y texto deformado tipo "HUHHUEHAU HSHUSUAHU AH" y dos emojis de llanto — risa descontrolada, de las de no poder respirar | cuando algo le da mucha risa | 7× |
+| `sticker_f7fe25e8.webp` | chica de anime (Yui de K-On) sonriendo con el dedo en la barbilla, fondo rosa con fresitas — carita mona, entre tierna y coqueta | cuando lleva rato llamandote y no le contestas, en plan mono | 2× |
 <!-- fin de las filas -->
 
 ## Esta tabla se llena sola

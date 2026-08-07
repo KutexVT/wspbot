@@ -90,6 +90,90 @@ if [ "${1:-}" = "--adoptar" ]; then
   exit 0
 fi
 
+# --- guardar: bajar TODOS los stickers del chat y dejarlos a salvo ---
+# El cache del bridge (store/<jid>/) es temporal: lo llena downloadMedia segun hace falta
+# y nada garantiza que siga ahi. Un sticker que ella mando hace tres meses puede no estar
+# ya en los servidores de WhatsApp, y entonces se pierde para siempre. Pesan 60-80 KB:
+# guardarlos todos es barato y no se puede deshacer un olvido.
+#
+# OJO: guardar no es catalogar. Aqui caen todos; al INDICE solo suben los que se usan.
+if [ "${1:-}" = "--guardar" ]; then
+  mkdir -p "$STICKERS"
+  PENDIENTES="$(consulta "
+    select distinct coalesce(filename,''), coalesce(id,'')
+    from messages
+    where chat_jid = '$JID' and media_type = 'sticker' and coalesce(filename,'') <> ''
+    group by filename;
+  ")"
+  nuevos=0; ya=0; fallos=0
+  while IFS="$SEP" read -r arch mid; do
+    [ -n "$arch" ] || continue
+    if [ -f "$STICKERS/$arch" ]; then ya=$((ya + 1)); continue; fi
+
+    if [ -f "$DIR_MEDIA/$arch" ]; then
+      cp -f "$DIR_MEDIA/$arch" "$STICKERS/$arch"
+      chmod 644 "$STICKERS/$arch"
+      nuevos=$((nuevos + 1))
+      continue
+    fi
+
+    # No estaba descargado. Se pide al bridge por su API, que es lo mismo que hace
+    # download_media del MCP pero sin depender del modelo.
+    resp="$(curl -s -m 20 -X POST "${SALUD_URL%/health}/download" \
+              -H 'Content-Type: application/json' \
+              -d "{\"message_id\":\"$mid\",\"chat_jid\":\"$JID\"}" 2>/dev/null)"
+    case "$resp" in
+      *'"success":true'*)
+        if [ -f "$DIR_MEDIA/$arch" ]; then
+          cp -f "$DIR_MEDIA/$arch" "$STICKERS/$arch"
+          chmod 644 "$STICKERS/$arch"
+          nuevos=$((nuevos + 1))
+        else
+          fallos=$((fallos + 1))
+        fi ;;
+      *) fallos=$((fallos + 1)) ;;
+    esac
+  done <<< "$PENDIENTES"
+
+  echo "guardados: $nuevos nuevos, $ya ya estaban$([ "$fallos" -gt 0 ] && echo ", $fallos no se pudieron bajar")"
+  echo "en $STICKERS ($(ls "$STICKERS"/*.webp 2>/dev/null | wc -l) en total)"
+  exit 0
+fi
+
+# --- ranking: reordenar el catalogo por cuanto se usa cada uno ---
+# La tabla se lee de arriba abajo, asi que el orden ES la preferencia: lo que esta arriba
+# se manda mas. Se recuenta contra la base y se reordena, para que los que de verdad
+# funcionan suban solos y los que casi no salen se hundan.
+if [ "${1:-}" = "--ranking" ]; then
+  [ -f "$CATALOGO" ] || morir "no existe el catalogo: $CATALOGO"
+  grep -qF "$MARCA_FIN" "$CATALOGO" || morir "al catalogo le falta la marca '$MARCA_FIN'"
+
+  ORDENADAS="$(
+    grep '^| `sticker' "$CATALOGO" | while IFS='|' read -r _ col1 col2 col3 _; do
+      arch="$(echo "$col1" | tr -d ' `')"
+      [ -n "$arch" ] || continue
+      desc="$(echo "$col2" | sed 's/^ *//;s/ *$//')"
+      cuando="$(echo "$col3" | sed 's/^ *//;s/ *$//')"
+      veces="$(consulta "select count(*) from messages
+                 where chat_jid = '$JID' and media_type = 'sticker'
+                   and filename = '${arch//\'/\'\'}';")"
+      printf '%06d\t| `%s` | %s | %s | %s× |\n' "${veces:-0}" "$arch" "$desc" "$cuando" "${veces:-0}"
+    done | sort -rn | cut -f2-
+  )"
+
+  TMP="$(mktemp "$CATALOGO.XXXXXX")"
+  awk -v filas="$ORDENADAS" -v fin="$MARCA_FIN" '
+    /^\| `sticker/ { next }                       # fuera las viejas, se reponen en orden
+    index($0, fin) { if (filas != "") print filas; print; next }
+    { print }
+  ' "$CATALOGO" > "$TMP"
+  chmod 644 "$TMP"
+  mv -f "$TMP" "$CATALOGO"
+  echo "catalogo reordenado por uso:"
+  grep '^| `sticker' "$CATALOGO" | sed 's/|[^|]*|[^|]*| /  /; s/ |$//' | head -20
+  exit 0
+fi
+
 # --- anotar: añadir o corregir el "cuando" de un sticker, en una sola pasada ---
 # Es lo que hay detras de `/sticker <texto>` en el chat. Tiene que poder llamarse dos
 # veces con lo mismo sin duplicar la fila: si el sticker ya estaba, se le cambia el
@@ -108,19 +192,23 @@ if [ "${1:-}" = "--anotar" ]; then
   [ -f "$CATALOGO" ] || morir "no existe el catalogo: $CATALOGO"
   grep -qF "$MARCA_FIN" "$CATALOGO" || morir "al catalogo le falta la marca '$MARCA_FIN'"
 
+  VECES="$(consulta "select count(*) from messages
+             where chat_jid = '$JID' and media_type = 'sticker'
+               and filename = '${ARCH//\'/\'\'}';")"
+
   TMP="$(mktemp "$CATALOGO.XXXXXX")"
   if grep -qF "\`$ARCH\`" "$CATALOGO"; then
     # Ya estaba: se le cambia solo el "cuando", que es la columna que se corrige.
-    awk -v arch="$ARCH" -v desc="$DESC" -v cuando="$CUANDO" '
-      index($0, "`" arch "`") { printf "| `%s` | %s | %s |\n", arch, desc, cuando; next }
+    awk -v arch="$ARCH" -v desc="$DESC" -v cuando="$CUANDO" -v veces="${VECES:-0}" '
+      index($0, "`" arch "`") { printf "| `%s` | %s | %s | %s× |\n", arch, desc, cuando, veces; next }
       { print }
     ' "$CATALOGO" > "$TMP"
     ACCION="corregido"
   else
-    awk -v arch="$ARCH" -v desc="$DESC" -v cuando="$CUANDO" -v fin="$MARCA_FIN" '
+    awk -v arch="$ARCH" -v desc="$DESC" -v cuando="$CUANDO" -v veces="${VECES:-0}" -v fin="$MARCA_FIN" '
       # La fila de relleno se va en cuanto entra la primera de verdad.
       /^\| _\(vacio/ { next }
-      index($0, fin) { printf "| `%s` | %s | %s |\n", arch, desc, cuando; print; next }
+      index($0, fin) { printf "| `%s` | %s | %s | %s× |\n", arch, desc, cuando, veces; print; next }
       { print }
     ' "$CATALOGO" > "$TMP"
     ACCION="añadido"
