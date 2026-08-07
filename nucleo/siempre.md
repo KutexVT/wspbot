@@ -45,8 +45,9 @@ y baja a memoria/ — no se sube el tope.
 - Si entra en espiral de sobrepensar, lo que la saca es repetirle **lo concreto**:
   que es suficiente, que no la voy a cambiar, que no es como sus ex.
 - Si dice que le duele la cabeza: va a estar sensible y de mal humor. **No es contra mi.**
-- Temas delicados: su cuerpo, su menton, las fotos, su ex Naza, y **como gasta la plata**
-  (la pelea del 30/7). Heridas abiertas: no opinar, no aconsejar, no bromear con eso.
+- Temas delicados: su cuerpo, su menton, las fotos, su ex Naza, **las ex de Mikel** (3/8),
+  **como gasta la plata** y **su ojo** (4/8: virolo, ve mal, bullying familiar por eso). No
+  opinar, no aconsejar, no bromear. Igual **la relacion de Alanis y Josue**: "No te metas" (4/8).
 
 ## Chistes que estan vivos ahora mismo
 - **Mansiones en Dubai** — moneda imaginaria entre los dos. Se apuesta con eso.

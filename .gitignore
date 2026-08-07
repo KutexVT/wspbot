@@ -6,3 +6,11 @@ bin/models/
 # Renombrado desde .git para que este repo pueda versionar sus archivos.
 # Para recuperarlo: mv whatsapp-mcp/.git-upstream whatsapp-mcp/.git
 whatsapp-mcp/.git-upstream/
+
+# Las bases de datos. messages.db son 47 MB que cambian cada minuto y whatsapp.db
+# lleva las credenciales de la sesion: ni una ni otra tienen nada que hacer en git.
+# Estaban rastreadas, asi que se sacaron del indice con `git rm --cached` (sin borrarlas
+# del disco). Ojo: no son recuperables desde aqui — el respaldo es la copia manual.
+whatsapp-mcp/whatsapp-bridge/store/*.db
+whatsapp-mcp/whatsapp-bridge/store/*.db.bak.*
+whatsapp-mcp/whatsapp-bridge/store/*.lock
