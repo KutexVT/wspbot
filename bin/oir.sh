@@ -10,35 +10,41 @@
 # Si le pasas el message_id, guarda el resultado en media/transcripciones/<id>.txt y la
 # proxima vez lo devuelve de ahi sin volver a transcribir. Sin eso, el loop que corre cada
 # minuto re-transcribiria el mismo audio en cada vuelta.
+#
+# --- POR QUE ESTE ARCHIVO DESCONFIA TANTO DE SU PROPIO MOTOR ---
+#
+# El 2026-08-14 a las 23:07 pacman subio ggml de 0.19 a 0.20 y el paquete venia sin
+# backends, asi que whisper-cli empezo a abortar. Hasta ahi, un fallo normal. El problema
+# fue lo que hizo este script con eso: whisper escupia el backtrace de gdb por **stdout**
+# (no por stderr, asi que el 2>/dev/null no lo filtraba), la sustitucion de comando lo
+# capturaba como si fuera texto, nadie miraba el codigo de salida — y se cacheaba.
+# Resultado: en chats/2026-08-14.md quedo GINGER "diciendo" un volcado de gdb, y como la
+# cache manda, ese texto falso se servia para siempre.
+#
+# De ahi las tres reglas que ya no se tocan:
+#   1. Se mira SIEMPRE el codigo de salida del motor.
+#   2. La salida se valida ANTES de usarse (por si un dia falla sin devolver error).
+#   3. No se escribe cache si la validacion no paso. Mejor sin transcripcion que con una
+#      inventada: un hueco se nota, una cita falsa no.
 
 set -uo pipefail
 
 BASE="/home/kutex/WSP Bot"
-MODELO="$BASE/bin/models/ggml-small.bin"
 CACHE="$BASE/media/transcripciones"
+ASR="$BASE/bin/asr.py"
+PY="$BASE/bin/venv-asr/bin/python"
 
-# El limite ya no es el largo del audio sino el TIEMPO DE RELOJ que puede costar la
-# transcripcion, que es lo que de verdad importa dentro de una vuelta de 1 minuto.
-#
-# Se transcribe por trozos seguidos y se para al agotar el presupuesto, asi que un audio
-# largo devuelve lo que dio tiempo a sacar en vez de quedarse en los primeros 3 minutos
-# pasara lo que pasara. El 2026-08-06 ella mando uno de casi 10 minutos y se perdieron 7
-# sin que nadie se enterara.
-#
-# Medido en esta maquina (Ryzen, whisper.cpp con ggml-small en CPU): 102 s de audio en
-# 22 s de reloj, o sea unas 4,6 veces mas rapido que el tiempo real. Con 90 s de
-# presupuesto entran unos 7 minutos de audio, mas del doble que antes.
-# El presupuesto se mira DESPUES de cada pasada, nunca a mitad de una, asi que el techo
-# real es PRESUPUESTO mas lo que dure el ultimo trozo: con estos numeros, unos 115 s en
-# el peor caso. Por eso el trozo es de 2 minutos y no de 3 — cuanto mas corto, menos se
-# pasa de la cuenta, a cambio de unas pocas pasadas mas.
-MAX_SEG=1800        # 30 min: tope de cordura, no de rendimiento
-TROZO_SEG=120       # cuanto audio entra en cada pasada de whisper
-PRESUPUESTO=90      # segundos de reloj como mucho, sumando todas las pasadas
+# Motor por defecto. Los dos estan instalados y se cambia solo aqui:
+#   parakeet  → NVIDIA Parakeet TDT 0.6B v3 (ONNX int8). ~30x tiempo real en CPU y no
+#               alucina en silencios: su decoder emite un "blank" y el silencio sale vacio.
+#   whisper   → faster-whisper. Mas robusto con ruido y acento, pero alucina en las pausas
+#               ([Musica] [Musica]...) y es mas lento. Modelos: small, large-v3-turbo.
+MOTOR="${WSP_ASR_MOTOR:-parakeet}"
+MODELO_WHISPER="${WSP_ASR_MODELO:-large-v3-turbo}"
 
-# Medido: 4 y 8 hilos tardan lo mismo y 16 tarda MAS (27 s contra 22). whisper.cpp
-# escala mal pasados unos pocos, y ademas conviene dejarle CPU al resto del sistema.
-HILOS="${WSP_HILOS:-8}"
+# Presupuesto de TIEMPO DE RELOJ, no de duracion de audio: lo que importa es que quepa en
+# una vuelta del bot, que es de 1 minuto. El motor emite segmentos hasta agotarlo y corta.
+PRESUPUESTO="${WSP_ASR_PRESUPUESTO:-90}"
 
 if [ $# -eq 0 ]; then
   echo "uso: oir.sh <archivo.ogg> [message_id]" >&2
@@ -62,86 +68,59 @@ if [ -n "$MSG_ID" ]; then
   fi
 fi
 
-# --- el binario cambia de nombre entre versiones del paquete ---
-WHISPER=""
-for cand in whisper-cli whisper-cpp whisper main; do
-  if command -v "$cand" >/dev/null 2>&1; then
-    WHISPER="$(command -v "$cand")"
-    break
-  fi
-done
-
-if [ -z "$WHISPER" ]; then
-  echo "ERROR: whisper no esta instalado. Corre:  sudo pacman -S whisper-cpp" >&2
+if [ ! -x "$PY" ]; then
+  echo "ERROR: falta el entorno de transcripcion en $PY" >&2
+  echo "       recrealo con:  uv venv bin/venv-asr && uv pip install 'onnx-asr[cpu]' faster-whisper" >&2
   exit 2
 fi
 
-if [ ! -f "$MODELO" ]; then
-  echo "ERROR: falta el modelo en $MODELO" >&2
-  echo "       bajalo de https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.bin" >&2
+if [ ! -f "$ASR" ]; then
+  echo "ERROR: falta $ASR" >&2
   exit 2
 fi
 
-if ! command -v ffmpeg >/dev/null 2>&1; then
-  echo "ERROR: falta ffmpeg" >&2
-  exit 2
-fi
-
-# --- opus de whatsapp → wav 16kHz mono, que es lo unico que come whisper.cpp ---
+# --- transcribir ---
+# La salida va a un fichero, NO directo a una variable: asi se puede mirar el codigo de
+# salida y revisar el contenido antes de dar nada por bueno.
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
-WAV="$TMP/audio.wav"
+SALIDA="$TMP/salida.txt"
 
-dur="$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$AUDIO" 2>/dev/null | cut -d. -f1)"
-dur="${dur:-0}"
+if [ "$MOTOR" = "whisper" ]; then
+  "$PY" "$ASR" "$AUDIO" --motor whisper --modelo "$MODELO_WHISPER" \
+        --presupuesto "$PRESUPUESTO" >"$SALIDA"
+else
+  "$PY" "$ASR" "$AUDIO" --motor parakeet --presupuesto "$PRESUPUESTO" >"$SALIDA"
+fi
+ESTADO=$?
 
-# Una sola conversion aunque haya varios trozos: whisper acepta offset y duracion sobre
-# el mismo archivo, asi que trocear no cuesta ni un ffmpeg de mas.
-ffmpeg -nostdin -v error -i "$AUDIO" -t "$MAX_SEG" -ar 16000 -ac 1 -c:a pcm_s16le "$WAV" 2>/dev/null
-
-if [ ! -s "$WAV" ]; then
-  echo "ERROR: ffmpeg no pudo convertir el audio" >&2
-  exit 3
+# REGLA 1 — el codigo de salida manda. 134 es el SIGABRT que dio el ggml roto.
+if [ "$ESTADO" -ne 0 ]; then
+  echo "ERROR: el motor de transcripcion ($MOTOR) fallo con codigo $ESTADO. No se cachea nada." >&2
+  exit 4
 fi
 
-[ "$dur" -gt "$MAX_SEG" ] 2>/dev/null && dur="$MAX_SEG"
+TEXTO="$(tr -s '[:space:]' ' ' < "$SALIDA" | sed 's/^ *//;s/ *$//')"
 
-# --- transcribir por trozos hasta que se acabe el audio o el presupuesto ---
-# El corte entre trozos es seco, sin solape: puede partir una palabra justo en la
-# juntura. Con solape saldrian palabras repetidas, y eso confunde mas que una silaba
-# perdida.
-TEXTO=""
-cubierto=0
-ini_reloj=$(date +%s)
-
-while [ "$cubierto" -lt "$dur" ]; do
-  # -l es es obligatorio: sin idioma fijo, los audios cortos a veces los detecta como
-  # portugues. -nt sin timestamps, -np sin banner de progreso.
-  trozo="$("$WHISPER" -m "$MODELO" -f "$WAV" -l es -nt -np -t "$HILOS" \
-             -ot "$((cubierto * 1000))" -d "$((TROZO_SEG * 1000))" 2>/dev/null \
-           | tr -s '[:space:]' ' ' | sed 's/^ *//;s/ *$//')"
-  [ -n "$trozo" ] && TEXTO="${TEXTO:+$TEXTO }$trozo"
-  cubierto=$((cubierto + TROZO_SEG))
-  [ "$cubierto" -gt "$dur" ] && cubierto="$dur"
-
-  # Se comprueba DESPUES de la pasada: la primera se hace siempre, valga lo que valga.
-  # Si no, un audio largo en una maquina cargada podria no devolver nada.
-  [ $(( $(date +%s) - ini_reloj )) -ge "$PRESUPUESTO" ] && break
-done
+# REGLA 2 — validar el contenido aunque el codigo diga que todo fue bien.
+# Defensa en profundidad: si un motor vuelve a morirse escupiendo un volcado por stdout
+# con codigo 0, esto lo caza igual. Son marcas que jamas apareceran en una nota de voz.
+case "$TEXTO" in
+  *"GDB supports auto-downloading"*|*ggml_*|*libwhisper*|*"Inferior 1"*|*__libc_start_main*|*"Traceback (most recent call last)"*)
+    echo "ERROR: el motor devolvio un volcado tecnico en vez de texto. No se cachea nada." >&2
+    echo "       primeros 200 caracteres: ${TEXTO:0:200}" >&2
+    exit 5 ;;
+esac
 
 if [ -z "$TEXTO" ]; then
   # Distinguir "no se entendio" de "fallo el proceso" importa: el bot no debe leer un
-  # error como si ella hubiera mandado un audio en silencio.
+  # error como si ella hubiera mandado un audio en silencio. Aqui el motor SI termino
+  # bien (codigo 0), asi que el audio esta de verdad mudo.
   echo "[audio sin habla reconocible]"
   exit 0
 fi
 
-# El aviso de recorte va DELANTE del texto, no detras. Pegado al final se lee cuando ya
-# te formaste la idea de lo que dijo, que es justo cuando ya no sirve de nada.
-if [ "$cubierto" -lt "$dur" ]; then
-  TEXTO="[SOLO LOS PRIMEROS $((cubierto / 60)) MIN de un audio de $((dur / 60))m$((dur % 60))s] $TEXTO"
-fi
-
+# REGLA 3 — solo se cachea lo que paso las dos comprobaciones de arriba.
 if [ -n "$MSG_ID" ]; then
   mkdir -p "$CACHE"
   printf '%s\n' "$TEXTO" > "$CACHE/$MSG_ID.txt"

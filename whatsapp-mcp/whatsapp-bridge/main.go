@@ -202,6 +202,23 @@ type SendMessageRequest struct {
 	Recipient string `json:"recipient"`
 	Message   string `json:"message"`
 	MediaPath string `json:"media_path,omitempty"`
+	// QuotedID is the WhatsApp message ID being replied to (the messages.id column).
+	// Empty means a plain message, which keeps the exact wire format it always had.
+	QuotedID string `json:"quoted_id,omitempty"`
+}
+
+// MarkReadRequest is the body of /api/markread. The IDs are picked by the caller
+// (pulso.sh) with SQL: the scripts own the queries in this project, and that keeps the
+// endpoint from having to know anything about cursors.
+type MarkReadRequest struct {
+	ChatJID    string   `json:"chat_jid"`
+	MessageIDs []string `json:"message_ids"`
+}
+
+type MarkReadResponse struct {
+	Success bool   `json:"success"`
+	Message string `json:"message"`
+	Marked  int    `json:"marked"`
 }
 
 // Maps a file extension to the same media_type vocabulary extractMediaInfo stores,
@@ -235,6 +252,10 @@ type HealthResponse struct {
 	LoggedIn      bool  `json:"logged_in"`
 	UptimeS       int64 `json:"uptime_s"`
 	LastEventAgoS int64 `json:"last_event_ago_s"`
+	// ReadReceipts is the account-wide privacy setting, "all" or "none". It is here
+	// because MarkRead silently degrades to read-self when it is "none" (see
+	// receipt.go): the blue ticks would never appear and no error would say why.
+	ReadReceipts string `json:"read_receipts"`
 }
 
 // acquireLock takes an exclusive, non-blocking lock so only one bridge can ever run.
@@ -258,10 +279,115 @@ func acquireLock() (*os.File, error) {
 	return f, nil
 }
 
+// buildQuoteContext assembles the ContextInfo that turns a message into a reply.
+//
+// The non-obvious part is QuotedMessage. The receiving phone draws the quoted bubble
+// from the quotedMessage carried in this payload, NOT from its own local copy looked up
+// by stanzaID — that is precisely why WhatsApp reply-spoofing works at all. So sending
+// StanzaID + Participant with a nil QuotedMessage gives an empty or broken quote on her
+// side, and we have to rebuild the original from what the database kept.
+//
+// The rebuild is faithful for text (the 95% case). For media the thumbnail is lost, so
+// a quoted photo shows a generic box instead of a preview; everything else lines up.
+func buildQuoteContext(client *whatsmeow.Client, messageStore *MessageStore,
+	chat types.JID, quotedID string) (*waProto.ContextInfo, error) {
+
+	row, err := messageStore.GetQuotedInfo(quotedID, chat.String())
+	if err == sql.ErrNoRows {
+		return nil, fmt.Errorf("message %s is not in the local database for chat %s", quotedID, chat)
+	} else if err != nil {
+		return nil, fmt.Errorf("could not read quoted message %s: %v", quotedID, err)
+	}
+
+	// Who sent the message being quoted.
+	//
+	// For incoming messages the sender column holds the user part with no server, so the
+	// chat's own server is the right one to glue on.
+	//
+	// For our own messages the column is useless: three different values live in there
+	// (the phone number, the LID, and the literal "__tulpa__" for anything sent through
+	// this API), so rebuilding a JID from it would invent one. The store is the only
+	// authority for who we are.
+	var participant types.JID
+	if row.IsFromMe {
+		if chat.Server == types.HiddenUserServer {
+			participant = client.Store.GetLID().ToNonAD()
+		} else {
+			participant = client.Store.GetJID().ToNonAD()
+		}
+	} else {
+		participant = types.JID{User: row.Sender, Server: chat.Server}
+	}
+	if participant.IsEmpty() {
+		return nil, fmt.Errorf("could not work out the sender of %s", quotedID)
+	}
+
+	quoted := &waProto.Message{}
+	directPath := extractDirectPathFromURL(row.URL)
+	switch row.MediaType {
+	case "":
+		quoted.Conversation = proto.String(row.Content)
+	case "image":
+		quoted.ImageMessage = &waProto.ImageMessage{
+			Caption:       proto.String(row.Content),
+			Mimetype:      proto.String("image/jpeg"),
+			URL:           proto.String(row.URL),
+			DirectPath:    proto.String(directPath),
+			MediaKey:      row.MediaKey,
+			FileSHA256:    row.FileSHA256,
+			FileEncSHA256: row.FileEncSHA256,
+			FileLength:    proto.Uint64(row.FileLength),
+		}
+	case "audio":
+		quoted.AudioMessage = &waProto.AudioMessage{
+			Mimetype:      proto.String("audio/ogg; codecs=opus"),
+			PTT:           proto.Bool(true),
+			URL:           proto.String(row.URL),
+			DirectPath:    proto.String(directPath),
+			MediaKey:      row.MediaKey,
+			FileSHA256:    row.FileSHA256,
+			FileEncSHA256: row.FileEncSHA256,
+			FileLength:    proto.Uint64(row.FileLength),
+		}
+	case "sticker":
+		quoted.StickerMessage = &waProto.StickerMessage{
+			Mimetype:      proto.String("image/webp"),
+			URL:           proto.String(row.URL),
+			DirectPath:    proto.String(directPath),
+			MediaKey:      row.MediaKey,
+			FileSHA256:    row.FileSHA256,
+			FileEncSHA256: row.FileEncSHA256,
+			FileLength:    proto.Uint64(row.FileLength),
+		}
+	case "video":
+		quoted.VideoMessage = &waProto.VideoMessage{
+			Caption:       proto.String(row.Content),
+			Mimetype:      proto.String("video/mp4"),
+			URL:           proto.String(row.URL),
+			DirectPath:    proto.String(directPath),
+			MediaKey:      row.MediaKey,
+			FileSHA256:    row.FileSHA256,
+			FileEncSHA256: row.FileEncSHA256,
+			FileLength:    proto.Uint64(row.FileLength),
+		}
+	default:
+		// Documents and anything we do not model: quote the text we have. The bubble
+		// shows the caption rather than a file card, which beats not replying at all.
+		quoted.Conversation = proto.String(row.Content)
+	}
+
+	return &waProto.ContextInfo{
+		StanzaID:      proto.String(quotedID),
+		Participant:   proto.String(participant.String()),
+		QuotedMessage: quoted,
+	}, nil
+}
+
 // Function to send a WhatsApp message.
 // Returns the server-assigned message ID and timestamp so the caller can store the
 // message locally: WhatsApp does not echo back messages we send ourselves.
-func sendWhatsAppMessage(client *whatsmeow.Client, recipient string, message string, mediaPath string) (bool, string, string, time.Time) {
+func sendWhatsAppMessage(client *whatsmeow.Client, recipient string, message string, mediaPath string,
+	ctxInfo *waProto.ContextInfo) (bool, string, string, time.Time) {
 	if !client.IsConnected() {
 		return false, "Not connected to WhatsApp", "", time.Time{}
 	}
@@ -366,6 +492,7 @@ func sendWhatsAppMessage(client *whatsmeow.Client, recipient string, message str
 			// separate message.
 			w, h, animated := webpSize(mediaData)
 			msg.StickerMessage = &waProto.StickerMessage{
+				ContextInfo:       ctxInfo,
 				Mimetype:          proto.String(mimeType),
 				URL:               &resp.URL,
 				DirectPath:        &resp.DirectPath,
@@ -380,6 +507,7 @@ func sendWhatsAppMessage(client *whatsmeow.Client, recipient string, message str
 			}
 		case mediaType == whatsmeow.MediaImage:
 			msg.ImageMessage = &waProto.ImageMessage{
+				ContextInfo:   ctxInfo,
 				Caption:       proto.String(message),
 				Mimetype:      proto.String(mimeType),
 				URL:           &resp.URL,
@@ -408,6 +536,7 @@ func sendWhatsAppMessage(client *whatsmeow.Client, recipient string, message str
 			}
 
 			msg.AudioMessage = &waProto.AudioMessage{
+				ContextInfo:   ctxInfo,
 				Mimetype:      proto.String(mimeType),
 				URL:           &resp.URL,
 				DirectPath:    &resp.DirectPath,
@@ -421,6 +550,7 @@ func sendWhatsAppMessage(client *whatsmeow.Client, recipient string, message str
 			}
 		case mediaType == whatsmeow.MediaVideo:
 			msg.VideoMessage = &waProto.VideoMessage{
+				ContextInfo:   ctxInfo,
 				Caption:       proto.String(message),
 				Mimetype:      proto.String(mimeType),
 				URL:           &resp.URL,
@@ -432,6 +562,7 @@ func sendWhatsAppMessage(client *whatsmeow.Client, recipient string, message str
 			}
 		case mediaType == whatsmeow.MediaDocument:
 			msg.DocumentMessage = &waProto.DocumentMessage{
+				ContextInfo:   ctxInfo,
 				Title:         proto.String(mediaPath[strings.LastIndex(mediaPath, "/")+1:]),
 				Caption:       proto.String(message),
 				Mimetype:      proto.String(mimeType),
@@ -443,8 +574,15 @@ func sendWhatsAppMessage(client *whatsmeow.Client, recipient string, message str
 				FileLength:    &resp.FileLength,
 			}
 		}
-	} else {
+	} else if ctxInfo == nil {
+		// No quote: keep the exact same wire format as always. A Conversation cannot
+		// carry a ContextInfo, which is why the reply case needs the other type.
 		msg.Conversation = proto.String(message)
+	} else {
+		msg.ExtendedTextMessage = &waProto.ExtendedTextMessage{
+			Text:        proto.String(message),
+			ContextInfo: ctxInfo,
+		}
 	}
 
 	// Send message
@@ -465,27 +603,29 @@ func extractMediaInfo(msg *waProto.Message) (mediaType string, filename string, 
 
 	// Check for image message
 	if img := msg.GetImageMessage(); img != nil {
-		return "image", "image_" + time.Now().Format("20060102_150405") + ".jpg",
+		return "image", mediaFilename("image", img.GetFileSHA256(), ".jpg"),
 			img.GetURL(), img.GetMediaKey(), img.GetFileSHA256(), img.GetFileEncSHA256(), img.GetFileLength()
 	}
 
 	// Check for video message
 	if vid := msg.GetVideoMessage(); vid != nil {
-		return "video", "video_" + time.Now().Format("20060102_150405") + ".mp4",
+		return "video", mediaFilename("video", vid.GetFileSHA256(), ".mp4"),
 			vid.GetURL(), vid.GetMediaKey(), vid.GetFileSHA256(), vid.GetFileEncSHA256(), vid.GetFileLength()
 	}
 
 	// Check for audio message
 	if aud := msg.GetAudioMessage(); aud != nil {
-		return "audio", "audio_" + time.Now().Format("20060102_150405") + ".ogg",
+		return "audio", mediaFilename("audio", aud.GetFileSHA256(), ".ogg"),
 			aud.GetURL(), aud.GetMediaKey(), aud.GetFileSHA256(), aud.GetFileEncSHA256(), aud.GetFileLength()
 	}
 
 	// Check for document message
 	if doc := msg.GetDocumentMessage(); doc != nil {
+		// El nombre que puso quien lo mando se respeta: es informacion suya, no nuestra.
+		// Solo se inventa uno cuando el mensaje no trae ninguno.
 		filename := doc.GetFileName()
 		if filename == "" {
-			filename = "document_" + time.Now().Format("20060102_150405")
+			filename = mediaFilename("document", doc.GetFileSHA256(), "")
 		}
 		return "document", filename,
 			doc.GetURL(), doc.GetMediaKey(), doc.GetFileSHA256(), doc.GetFileEncSHA256(), doc.GetFileLength()
@@ -507,20 +647,35 @@ func extractMediaInfo(msg *waProto.Message) (mediaType string, filename string, 
 	return "", "", "", nil, nil, nil, 0
 }
 
-// Sticker filenames come from the file hash, not from the clock, for two reasons.
+// Media filenames come from the file hash, not from the clock, for two reasons.
 //
-// Correctness: two stickers received within the same second would get the same
-// timestamp name, and downloadMedia short-circuits when the file already exists — so the
-// second one would silently return the first one's image.
+// Correctness: two files received within the same second would get the same timestamp
+// name, and downloadMedia short-circuits when the file already exists — so the second one
+// would silently return the first one's content. Asking for one audio and getting a
+// different one back, with no error, is the worst kind of bug: the transcription looks
+// perfectly fine and belongs to somebody else's message.
 //
-// Cost: the same sticker arrives dozens of times. Hashing means it is stored and
-// downloaded exactly once, and the bot's cached description of it is reused instead of
-// looking at the same picture again on every send.
-func stickerFilename(sha []byte) string {
+// Cost: the same file arrives many times (stickers especially). Hashing means it is
+// stored and downloaded exactly once, and the bot's cached description or transcription
+// is reused instead of processing the same content again.
+//
+// 2026-08-16: this used to apply to stickers only, and the rest kept the clock. It cost
+// 21k historical audios and 755 recent ones sharing names — one single name was shared by
+// 478 different audios. Now every media type goes through here.
+//
+// Four bytes are enough: measured over the 35k media rows in this database, 29,824 distinct
+// hashes produce 29,824 distinct 4-byte prefixes, i.e. zero collisions. Files that DO share
+// a hash are the same file forwarded again, and sharing a name is correct for those.
+func mediaFilename(prefix string, sha []byte, ext string) string {
 	if len(sha) >= 4 {
-		return fmt.Sprintf("sticker_%x.webp", sha[:4])
+		return fmt.Sprintf("%s_%x%s", prefix, sha[:4], ext)
 	}
-	return "sticker_" + time.Now().Format("20060102_150405") + ".webp"
+	// Sin hash no hay nada mejor que el reloj. Pasa en ~200 filas de 35k.
+	return prefix + "_" + time.Now().Format("20060102_150405") + ext
+}
+
+func stickerFilename(sha []byte) string {
+	return mediaFilename("sticker", sha, ".webp")
 }
 
 // webpSize reads dimensions and the animation flag straight out of the WebP header.
@@ -664,6 +819,39 @@ func (store *MessageStore) GetMediaInfo(id, chatJID string) (string, string, str
 	).Scan(&mediaType, &filename, &url, &mediaKey, &fileSHA256, &fileEncSHA256, &fileLength)
 
 	return mediaType, filename, url, mediaKey, fileSHA256, fileEncSHA256, fileLength, err
+}
+
+// QuotedRow is everything needed to rebuild a message we are about to quote.
+type QuotedRow struct {
+	Sender        string
+	Content       string
+	IsFromMe      bool
+	MediaType     string
+	URL           string
+	MediaKey      []byte
+	FileSHA256    []byte
+	FileEncSHA256 []byte
+	FileLength    uint64
+}
+
+// GetQuotedInfo reads back a message so it can be quoted. It returns sql.ErrNoRows when
+// the ID is not in the database, and the caller must treat that as fatal: sending a
+// quote for an ID we do not have is exactly how a reply ends up pointing at nothing.
+func (store *MessageStore) GetQuotedInfo(id, chatJID string) (*QuotedRow, error) {
+	var q QuotedRow
+	var mediaType, url sql.NullString
+	err := store.db.QueryRow(
+		`SELECT sender, content, is_from_me, media_type, url, media_key, file_sha256, file_enc_sha256, file_length
+		 FROM messages WHERE id = ? AND chat_jid = ?`,
+		id, chatJID,
+	).Scan(&q.Sender, &q.Content, &q.IsFromMe, &mediaType, &url,
+		&q.MediaKey, &q.FileSHA256, &q.FileEncSHA256, &q.FileLength)
+	if err != nil {
+		return nil, err
+	}
+	q.MediaType = mediaType.String
+	q.URL = url.String
+	return &q, nil
 }
 
 // MediaDownloader implements the whatsmeow.DownloadableMessage interface
@@ -869,8 +1057,31 @@ func startRESTServer(client *whatsmeow.Client, messageStore *MessageStore, port 
 
 		fmt.Println("Received request to send message", req.Message, req.MediaPath)
 
+		// A quote is rebuilt from the database (see buildQuoteContext). A quoted_id we
+		// cannot resolve is a hard 404 and never a quiet fallback to an unquoted
+		// message: replying anyway would read as if the bot ignored what it answered,
+		// and nothing downstream would notice.
+		var ctxInfo *waProto.ContextInfo
+		if req.QuotedID != "" {
+			chatJID := req.Recipient
+			if !strings.Contains(chatJID, "@") {
+				chatJID = chatJID + "@s.whatsapp.net"
+			}
+			parsed, err := types.ParseJID(chatJID)
+			if err != nil || parsed.User == "" || parsed.Server == "" {
+				http.Error(w, fmt.Sprintf("Invalid recipient JID: %q", req.Recipient), http.StatusBadRequest)
+				return
+			}
+			ctxInfo, err = buildQuoteContext(client, messageStore, parsed, req.QuotedID)
+			if err != nil {
+				http.Error(w, err.Error(), http.StatusNotFound)
+				return
+			}
+			fmt.Println("Quoting", req.QuotedID)
+		}
+
 		// Send the message
-		success, message, msgID, msgTime := sendWhatsAppMessage(client, req.Recipient, req.Message, req.MediaPath)
+		success, message, msgID, msgTime := sendWhatsAppMessage(client, req.Recipient, req.Message, req.MediaPath, ctxInfo)
 		fmt.Println("Message sent", success, message)
 
 		// Store our own outgoing message: WhatsApp never echoes it back to us, so
@@ -968,11 +1179,88 @@ func startRESTServer(client *whatsmeow.Client, messageStore *MessageStore, port 
 	// behind by a replaced stream. IsConnected and IsLoggedIn are different failures and
 	// need different fixes — a logged out session is not solved by restarting, it needs
 	// the QR scanned again — so both are reported separately.
+	// Handler for sending read receipts — the blue double check on her side.
+	//
+	// Which IDs to mark is decided by the caller (pulso.sh) with SQL, the same way every
+	// other query in this project lives in the scripts. This endpoint only validates.
+	http.HandleFunc("/api/markread", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != http.MethodPost {
+			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+			return
+		}
+
+		var req MarkReadRequest
+		if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+			http.Error(w, "Invalid request format", http.StatusBadRequest)
+			return
+		}
+		if req.ChatJID == "" {
+			http.Error(w, "chat_jid is required", http.StatusBadRequest)
+			return
+		}
+		if len(req.MessageIDs) == 0 {
+			http.Error(w, "message_ids is required", http.StatusBadRequest)
+			return
+		}
+		// A single receipt node carries every ID, so an unbounded list would build one
+		// huge stanza after a long silence. The caller caps this too; this is the floor.
+		if len(req.MessageIDs) > 200 {
+			http.Error(w, "too many message_ids (max 200)", http.StatusBadRequest)
+			return
+		}
+
+		chat, err := types.ParseJID(req.ChatJID)
+		// ParseJID accepts almost anything: a string with no "@" comes back as an empty
+		// User with the whole string as Server, and no error. Checking the parts is the
+		// only way to reject junk before sending a receipt into the void.
+		if err != nil || chat.User == "" || chat.Server == "" {
+			http.Error(w, fmt.Sprintf("Invalid chat_jid: %q", req.ChatJID), http.StatusBadRequest)
+			return
+		}
+
+		ids := make([]types.MessageID, 0, len(req.MessageIDs))
+		for _, id := range req.MessageIDs {
+			if id != "" {
+				ids = append(ids, types.MessageID(id))
+			}
+		}
+		if len(ids) == 0 {
+			http.Error(w, "message_ids is required", http.StatusBadRequest)
+			return
+		}
+
+		// EmptyJID as the sender is correct rather than a shortcut: whatsmeow only
+		// attaches a participant when the chat server is not a DM one, and this chat is
+		// @lid (types.HiddenUserServer), so the argument is ignored. See receipt.go.
+		// It also sidesteps the sender column not storing a server.
+		err = client.MarkRead(context.Background(), ids, time.Now(), chat, types.EmptyJID)
+
+		w.Header().Set("Content-Type", "application/json")
+		if err != nil {
+			w.WriteHeader(http.StatusInternalServerError)
+			json.NewEncoder(w).Encode(MarkReadResponse{
+				Success: false,
+				Message: fmt.Sprintf("Error marking read: %v", err),
+			})
+			return
+		}
+		json.NewEncoder(w).Encode(MarkReadResponse{
+			Success: true,
+			Message: fmt.Sprintf("Marked %d message(s) as read in %s", len(ids), chat),
+			Marked:  len(ids),
+		})
+	})
+
 	http.HandleFunc("/api/health", func(w http.ResponseWriter, r *http.Request) {
 		last := lastEventUnix.Load()
 		ago := int64(-1)
 		if last > 0 {
 			ago = time.Now().Unix() - last
+		}
+		// Cached client-side by whatsmeow, so this costs no round trip per poll.
+		readReceipts := ""
+		if client.IsLoggedIn() {
+			readReceipts = string(client.GetPrivacySettings(context.Background()).ReadReceipts)
 		}
 		w.Header().Set("Content-Type", "application/json")
 		json.NewEncoder(w).Encode(HealthResponse{
@@ -980,6 +1268,7 @@ func startRESTServer(client *whatsmeow.Client, messageStore *MessageStore, port 
 			LoggedIn:      client.IsLoggedIn(),
 			UptimeS:       int64(time.Since(startedAt).Seconds()),
 			LastEventAgoS: ago,
+			ReadReceipts:  readReceipts,
 		})
 	})
 

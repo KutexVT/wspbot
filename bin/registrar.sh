@@ -14,7 +14,13 @@
 #
 # LAST_VISTO_TS ("hasta aqui ya mire") se mueve SIEMPRE y solo, sin bandera, con lo que
 # dejo pulso.sh en el traspaso. Es lo que impide que el volcado crezca sin fin en las
-# vueltas en las que no se contesta nada. Ver comun.sh para por que son dos cursores.
+# vueltas en las que no se contesta nada.
+#
+# LAST_LEIDO_TS ("hasta aqui le marque el doble check azul") va igual: sin bandera, con lo
+# que dejo pulso.sh. Solo aparece en el traspaso cuando el acuse de lectura salio de
+# verdad, asi que un fallo de red deja el cursor quieto y la vuelta siguiente reintenta.
+#
+# Ver comun.sh para por que son tres cursores y no uno.
 #
 # Por que existe este script: antes esto eran de tres a seis ediciones sueltas del
 # modelo, y entre una y otra el chat seguia moviendose. Si la iteracion siguiente
@@ -44,9 +50,14 @@ done
 # el log y ya. Es la proteccion estructural contra cerrar una vuelta a ciegas.
 V_NUEVO=""
 G_TRASPASO=""
+L_NUEVO=""
 if [ -f "$TRASPASO" ]; then
   V_NUEVO="$(sed -n 's/^VISTO=//p' "$TRASPASO" | head -1)"
   G_TRASPASO="$(sed -n 's/^VISTO_GINGER=//p' "$TRASPASO" | head -1)"
+  # LEIDO solo aparece cuando pulso.sh consiguio mandar el acuse de lectura. Si el
+  # marcado se salto (mudo) o fallo (el curl, o un bridge sin /api/markread), la clave
+  # no esta y el cursor se queda quieto: la vuelta siguiente reintenta los mismos IDs.
+  L_NUEVO="$(sed -n 's/^LEIDO=//p' "$TRASPASO" | head -1)"
 fi
 
 if [ "$TS" = "visto" ]; then
@@ -82,6 +93,8 @@ G_FINAL="$(leer_cursor LAST_GINGER_TS)"
 [ -n "$TS" ] && G_FINAL="$TS"
 V_FINAL="$(leer_visto)"
 [ -n "$V_NUEVO" ] && V_FINAL="$V_NUEVO"
+L_FINAL="$(leer_cursor LAST_LEIDO_TS)"
+[ -n "$L_NUEVO" ] && L_FINAL="$L_NUEVO"
 
 # El cursor se reescribe entero de una sola vez, con tmp+mv porque el rename es atomico:
 # la vuelta siguiente ve el estado viejo o el nuevo, nunca uno partido. Las dos claves
@@ -91,7 +104,8 @@ TMP="$(mktemp "$CURSOR.XXXXXX")"
 {
   [ -n "$G_FINAL" ] && printf 'LAST_GINGER_TS=%s\n' "$G_FINAL"
   [ -n "$V_FINAL" ] && printf 'LAST_VISTO_TS=%s\n'  "$V_FINAL"
-  [ -f "$CURSOR" ] && grep -v -e '^LAST_GINGER_TS=' -e '^LAST_VISTO_TS=' "$CURSOR"
+  [ -n "$L_FINAL" ] && printf 'LAST_LEIDO_TS=%s\n'  "$L_FINAL"
+  [ -f "$CURSOR" ] && grep -v -e '^LAST_GINGER_TS=' -e '^LAST_VISTO_TS=' -e '^LAST_LEIDO_TS=' "$CURSOR"
 } > "$TMP"
 chmod 644 "$TMP"
 mv -f "$TMP" "$CURSOR"
@@ -141,4 +155,4 @@ fi
 flock -u 9
 exec 9>&-
 
-echo "registrado en $(basename "$LOG")${TS:+ — respondido hasta $TS}${V_NUEVO:+ — visto hasta $V_NUEVO}"
+echo "registrado en $(basename "$LOG")${TS:+ — respondido hasta $TS}${V_NUEVO:+ — visto hasta $V_NUEVO}${L_NUEVO:+ — leido hasta $L_NUEVO}"

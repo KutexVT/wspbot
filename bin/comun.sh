@@ -23,6 +23,15 @@ LOGS="${WSP_LOGS:-$BASE/logs}"
 # nadie. Si registrar.sh diera por visto "el ultimo de la base", se los comeria.
 TRASPASO="${WSP_TRASPASO:-$BASE/nucleo/.traspaso}"
 
+# Mapa de numeros de cita a message_id, reescrito entero por pulso.sh en cada vuelta y
+# leido por responder.sh. Existe para que el modelo escriba `--citar 3` en vez de copiar
+# 32 caracteres hexadecimales a mano: copiar uno mal cita el mensaje equivocado, y eso se
+# ve en el telefono de ella sin que aqui salte nada. Mismo razonamiento que `--ts visto`.
+#
+# Lleva EPOCA= y caduca (ver WSP_CITA_TTL en responder.sh): un numero resuelto contra un
+# mapa de hace media hora apunta a otra conversacion.
+CITAS="${WSP_CITAS:-$BASE/nucleo/.citas}"
+
 # Endpoint de salud del bridge. Ver /api/health en whatsapp-bridge/main.go.
 SALUD_URL="${WSP_SALUD_URL:-http://127.0.0.1:8080/api/health}"
 
@@ -107,4 +116,22 @@ leer_visto() {
     v="$g"
   fi
   printf '%s' "$v"
+}
+
+# --- EL TERCER CURSOR ---
+#
+#   LAST_LEIDO_TS — hasta aqui le MARQUE sus mensajes como leidos (el doble check azul).
+#
+# Hace falta separado y no se puede colgar de LAST_VISTO_TS por el mudo: estando en /off
+# el de "ya mire" sigue avanzando (`--ts visto`), asi que si el marcado dependiera de el,
+# todo lo que entre durante un /off de dos horas no se marcaria nunca — y al volver ella
+# veria lo nuevo en azul y lo viejo en gris.
+#
+# El fallback a leer_visto no es cosmetico: sin el, la primera vuelta despues de estrenar
+# esto intentaria marcar como leidos los 73 mil mensajes historicos del chat.
+leer_leido() {
+  local l
+  l="$(leer_cursor LAST_LEIDO_TS)"
+  [ -n "$l" ] || l="$(leer_visto)"
+  printf '%s' "$l"
 }

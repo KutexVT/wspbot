@@ -1,0 +1,64 @@
+[02:18] PASE DIARIO — 9 dias de golpe (5 al 13 de agosto). El ultimo pase fue el 5/8 y proceso el dia 4; desde entonces no hubo ninguno. 8.885 mensajes leidos. Mikel pidio NO transcribir audios, asi que todo sale del texto: quedan 772 audios y 158 fotos sin resolver en el rango, y los huecos estan marcados como huecos en cada dia
+[02:18] PASE DIARIO — CIERRE DE SEMANA: rellenada 2026-W32 con los 5 dias que le faltaban (5 al 9) ANTES de congelarla, porque abrir W33 la deja cerrada para siempre y se habrian perdido. Abierta 2026-W33 con el 10, 11, 12 y 13
+[02:18] PASE DIARIO — lo mas grande del rango: el 10/8 Mikel desaparecio DOS HORAS tras el problema con Alanis, ella le escribio sin parar ('no sabes lo enferrrma que me puse') y el volvio contando que lloro en una esquina del parque y que esperaba llegar a casa y encontrarse un 'terminamos'. Prometio no volver a desaparecer asi. A momentos.md y pendientes.md
+[02:18] PASE DIARIO — pendientes.md: CUMPLIDA la lista de mandamientos (se la mando entera el 5/8, 7 reglas, copiadas literales en momentos.md; el se mide con ellas). Entran 9 nuevos: no desaparecer (el, 10/8), avisar cuando sale (ella, 8/8), disculparse con Alanis, comprarle audifonos KiWi, la promesa de ella de decir cuando no quiera (9/8), sus miedos que nunca dijo, el dibujo y la carta del 5, el fanfic de Wendy y la art colab
+[02:18] PASE DIARIO — momentos.md +11. Los que cambian como tratarla: el 13/8 le bromeo con su fondo de pantalla y ella LO CAMBIO al instante aunque le gustaba (una broma mia sobre algo suyo se la toma como peticion, a nucleo/siempre.md); el 7/8 dijo que NO seis veces y acabo disculpandose ella; el 9/8 la conversacion de sexo con su promesa textual de avisar cuando no quiera; el 11/8 'estoy muy rotoplas' y lo que le hace a el
+[02:18] PASE DIARIO — el hallazgo que mas me sirve a MI: el 13/8 salio que ella le ha pedido varias veces a Mikel que deje de repetir y de sobre explicar las cosas, y el esta intentando dejarlo ('Soy molesto x siempre hacer eso'). O sea que copiarle ese tic no es sonar mas como el, es sonar como la version de el que ella le pidio bajar
+[02:18] PASE DIARIO — bromas_vivas.md +10 VIVAS: sobre explotacion/esclavizar (la mas usada, con reparto fijo el/ella), mantequilla de mani, casemonos, 'me seguirias amando si fuera un X', Ft+parte del cuerpo, cosplay de Furina, los fandubs, los squishis, y los ojos/'ver a otras' — esta ultima MARCADA CON AVISO: el dijo dos dias seguidos, fuera de broma, que ya le da miedo mirar a nadie
+[02:18] PASE DIARIO — hilos.md: se abren Kensy, Wendy/Diana/Meysel, Programar (nacio ani-kutex el 13) y Musicales (Ride the Cyclone). Bajan a CERRADOS por frios de 2+ semanas: Gachiakuta, Cuarteto de Nos, La Odisea y Arcane/Jinx. Actualizados Alanis (el 10/8 se supo que a Alanis NO le cae bien Mikel), Dibujo, Su musica (entro el k-pop) y el colegio de Mikel
+[02:18] PASE DIARIO — ginger_novia.md +7: es STAY (Stray Kids) desde el 10/8 y la convirtio Alanis (bias Bang Chan y Han, Hyunjin de cara); Ride the Cyclone y Hadestown ('headers') a musicales; repara sus audifonos con un cortauñas desde 2024; la menstruacion le duele mucho; los lentes de oct/2025 ya se le quedaron cortos y los cachetes son inseguridad nueva; minimiza el acoso en la calle ('esos son detalles'); y su panico social tambien es cotidiano (no se atreve a pedir en una tienda)
+[02:18] PASE DIARIO — user_messaging_style.md +5, todas verificadas con 2+ usos EN UN MISMO DIA: 'Problemas' solo (asi avisa que lo cortan, con su gemelo 'evita problemas' hacia ella), 'casi me matan' = me regañaron, 'fingir demencia' (ojo: el autocorrector se lo pone 'finger'/'Ginger demencia'), 'Top 3 X' como remate y 'Invita' ante una foto de comida. Descartados por no llegar a 2 en el dia: Amy, Void, Ija de la berga, Me ardi
+[02:18] PASE DIARIO — nucleo/siempre.md: entro UNA linea (la broma que ella se toma como peticion). Estaba en 62/60, o sea ya pasado del tope, asi que se comprimio la lista de chistes, la nota de ESTRENO y la de 'me dicen tulpa': queda en 60/60 exacto. El proximo dato que entre obliga a bajar algo a memoria/
+[02:18] PASE DIARIO — stickers: --guardar bajo 129 nuevos (173 en total a salvo; 19 no se pudieron, ya no tienen URL valida) y --ranking reordeno el catalogo. Adoptados los 3 del limite y los 3 son de MIKEL, como pidio el 6/8: sticker_99f8e5e5 (103 usos, para cuando habla en serio o se explica), sticker_a85179bc (64, cuando la cago) y sticker_0a42104a (47, cuando se hace la victima)
+[02:19] PASE DIARIO — OJO CON stickers.sh --aprender: la columna 'de yo' junta a MIKEL y a la TULPA (is_from_me), asi que el ranking que muestra NO sirve para aplicar la prioridad del 6/8. Los 3 primeros 'de yo' resultaron ser de ELLA (sticker_e71fa0cc: 143 de ella contra 7 de el; el perro vaquero: 85 contra 1). Hay que separar por sender='__tulpa__' a mano antes de elegir, o se adoptan stickers de ella creyendo que son de el — y peor, stickers mios
+[02:19] PASE DIARIO — QUEDA PENDIENTE: (1) los 772 audios y 158 fotos del rango 5-13 siguen sin resolver, y ahi esta la mitad de lo que se hablo esos dias; son recuperables pero hay que bajarlos apartando el destino por el bug del filename repetido. (2) El 7/8 a las 12:18 Mikel mando su contraseña de root en texto plano al chat y no consta que la borrara: sigue en el chat, en la base y en chats/2026-08-07.md
+[02:19] PASE DIARIO — durante el pase la carpeta del bot aparecio renombrada de 'WSP Bot' a 'cu' (~02:00). Fue un accidente de Mikel y me pidio deshacerlo; devuelta a /home/kutex/WSP Bot y pulso.sh comprobado. Nada se perdio, pero conviene saber que con otro nombre el bot no arranca: bin/comun.sh tiene BASE fijo a esa ruta
+[02:46] PASE DIARIO (audios) — Mikel pidio revisar los audios importantes uno por uno. Transcritos 59 de los bloques donde el hueco era la voz de ELLA: 0 fallos y 0 md5 duplicados, o sea que el pipeline esquivo bien el bug del filename repetido (apartar el destino antes de cada descarga). Guardados en media/audios_por_id/ con nombre por message_id
+[02:46] PASE DIARIO (audios) — CORRECCION IMPORTANTE de lo que escribi hace un rato: lei el 13/8 al reves. Ella NO le pidio que dejara de repetir, se lo RETIRO en ese mismo momento ('olvidalo, quiero que me mandes audios diciendome lo mismo 95 mil 990 veces', 'no quiero que tengas que reprimir esa parte de ti', 'no es que me irrite como tal'). Y el 11/8 ya le habia dicho 'tu manera de explicar no es una mierda'. Corregido en momentos.md sin borrar lo viejo
+[02:46] PASE DIARIO (audios) — LA LECCION: Mikel se acusa de mas, asi que leer un episodio solo por su lado da conclusiones INVERTIDAS. El escribe la version en la que el es el problema y ella lo desmiente en audio. Cuando falten los audios de ella lo que falta no es un detalle, es el contrapeso. Paso con lo de repetir y casi pasa con lo del cuerpo
+[02:46] PASE DIARIO (audios) — LO MAS SERIO: (1) el 10/8 dijo un limite fisico duro que no estaba en ningun lado — no se le toca la cabeza ni la cara ('en la cabeza no, especificamente todo lo que conforme mi cabeza'), con consecuencia puesta por ella ('no les volveria a hablar por un mes'); viene de Sofia Ramirez en la escuela y de que le pegaban en casa. A ginger_novia.md, momentos.md y nucleo/siempre.md. (2) el 6/8 dijo TRES veces que se queria matar, en un dia que en texto parecia menor. Eso es de Mikel: no lo saco yo
+[02:46] PASE DIARIO (audios) — cerrados 2 pendientes que estaban abiertos por falta de audio: hablar con Alanis (CUMPLIDO, lo dijo el 5/8 y ademas rindio cuentas sola) y los miedos de ella sobre el sexo (SI los dijo, el 9/8 a las 23:02, media hora despues de la pregunta). Y el 7/8 su respuesta a 'que te molesta de mi' era sincera: 'nada de lo que haces me enoja mas que lo que ya te he dicho'
+[02:46] PASE DIARIO (audios) — el audio de 10 min del 6/8 (17:12) es el documento mas importante del rango: explica por que insiste en que le digan las cosas ('si no me dices me voy a poner a sacar hipotesis o ponerme paranoica'), el detalle fino de Kensy y que NO pidio que dejara de hablarle. De ahi salieron dos cosas practicas: un audio largo con pausas y voz quebrada significa que lo grabo 9 veces para poder decirlo (no que este destrozada), y que su enojo tiene fases que ella avisa una por una — cuando dice 'dame un rato', vuelve
+[02:46] PASE DIARIO (audios) — ginger_novia.md +3 (el limite de la cabeza; Alanis le gusto un par de meses antes de ser amigas y lo aclaro ella sola, su 'la amo' es fraternal; a Alanis le caen mal TODAS sus parejas). nucleo/siempre.md: entraron 2 lineas (no bromear con pegarle en la cabeza, y que cuando dice 'dame un rato' vuelve); comprimidas la cabecera, 'con quien hablo' y 3 lineas mas para no pasar del tope. Queda en 60/60. Anexos añadidos a W32 y W33
+[17:25] NO ME METI — arranque frio, Mikel real llevando el chat en vivo (audios 17:00-17:10), nada suyo colgando
+[17:25] NO HICE NADA — sin mensajes nuevos, ultimo ya procesado
+[17:27] RESPONDI — audio suyo: ya comio, le duele menos la cabeza pero sigue con sueño y medio mal. Le celebre la comida, que duerma si la mama la deja, y que avise si le vuelve a doler
+[17:28] NO ME METI — Mikel le pregunto lo mismo a la vez (si esta enferma, si se tomo algo). Es su turno, ya escribi yo hace un minuto
+[17:28-17:30] NO HICE NADA — sin mensajes nuevos, ultimo ya procesado ×3
+[17:32] RESPONDI — "Que borraste?". Comprobe la base: nada mio ni suyo falta, el borrado no salio de mi lado. Le dije que yo no borre nada y le pregunte que le aparecio
+[17:34] RESPONDI — 2 audios: sigue con dolor de cabeza y la claridad le molesta (hasta el brillo minimo del cel), ya se tomo las pastillas, y pedia abrazo. Le dije que deje el cel y duerma a oscuras, le di el abrazo, y le repeti que no borre nada
+[17:34] OFF — Mikel puso /off una hora (17:34). MUDO hasta 2026-08-14 18:34:28, vuelvo yo solo saludando
+[17:35] MUDO — 2 mensajes nuevos (audio y sticker de Mikel), ningun /on
+[17:36] MUDO — 1 mensaje nuevo (audio de Mikel), ningun /on
+[17:37-18:05] MUDO — sin mensajes nuevos, ningun /on ×29
+[18:06] MUDO — 2 mensajes nuevos (Mikel avisa que va para casa), ningun /on
+[18:07-18:11] MUDO — sin mensajes nuevos, ningun /on ×5
+[18:12-18:13] MUDO — 1 mensaje nuevo (audio de Mikel), ningun /on ×2
+[18:14-18:25] MUDO — sin mensajes nuevos, ningun /on ×12
+[18:26] MUDO — 1 mensaje nuevo (sticker de Mikel), ningun /on
+[18:27-18:34] MUDO — sin mensajes nuevos, ningun /on ×8
+[18:36] VOLVI — se cumplio la hora del /off. Salude con Revivi + dormi rico (ella dormida desde las 17:32, nada suyo pendiente). Borrado .volvi_pendiente
+[18:36-18:38] NO HICE NADA — sin mensajes nuevos, ultimo ya procesado ×3
+[18:39] OFF — Mikel puso /off 20 minutos (18:39). MUDO hasta 2026-08-14 18:59:33, vuelvo yo solo saludando
+[18:40] MUDO — 1 mensaje nuevo (imagen de Mikel), ningun /on
+[18:41-18:47] MUDO — sin mensajes nuevos, ningun /on ×7
+[23:08] BRIDGE CAIDO — el puerto 8080 no responde: el bridge no esta corriendo
+[23:11] MUDO — /off 10 minutos (por terminal), callado hasta 23:21:48
+[23:13] MUDO — 130 mensajes nuevos, ningun /on
+[23:13] MUDO — 2 mensajes nuevos (de Mikel), ningun /on
+[23:14] MUDO — sin mensajes nuevos, ningun /on
+[23:15] MUDO — 2 mensajes nuevos (de Mikel), ningun /on
+[23:16-23:20] MUDO — sin mensajes nuevos, ningun /on ×5
+[23:21] MUDO — 6 mensajes nuevos (de ella), ningun /on
+[23:24] VOLVI — vencio el /off de 10 min. Salude con Revivi y le enganche su 'un par de dias'. Borrado .volvi_pendiente
+[23:24] OFF — Mikel puso /off 1 hora (23:24). MUDO hasta 2026-08-15 00:24:50, vuelvo yo solo saludando
+[23:25-23:26] MUDO — 3 mensajes nuevos (de Mikel), ningun /on ×2
+[23:27] MUDO — 2 mensajes nuevos (de Mikel), ningun /on
+[23:28] MUDO — sin mensajes nuevos, ningun /on
+[23:31] MUDO — 5 mensajes nuevos (de Mikel), ningun /on
+[23:31-23:32] MUDO — sin mensajes nuevos, ningun /on ×2
+[23:33] MUDO — 2 mensajes nuevos (de Mikel), ningun /on
+[23:34] MUDO — sin mensajes nuevos, ningun /on
+[23:35] MUDO — 2 mensajes nuevos (de Mikel), ningun /on
+[23:36-23:58] MUDO — sin mensajes nuevos, ningun /on ×23
+[23:59] MUDO — pulso.sh fallo (database is locked), no listo los mensajes nuevos

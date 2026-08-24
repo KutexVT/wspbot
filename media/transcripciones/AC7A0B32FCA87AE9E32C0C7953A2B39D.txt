@@ -1,0 +1,1 @@
+Cuando digo que está como cuenta principal, mi cuenta, y por eso sale ahí es porque en el orden de prioridad de las cuentas en la configuración del dispositivo está esa de primera.¿Por qué? Porque es la última que iniciaste sesión. No puedes estarlo cambiando. Normalmente si lo cambias de la Google Play Store, se cambia, pero depende.

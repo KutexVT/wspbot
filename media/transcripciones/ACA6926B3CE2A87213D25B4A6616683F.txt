@@ -1,0 +1,1 @@
+No me la vas a creer, ya alguien programó esto Un programa de No es Cli es Tui para leer manga en la terminal Solo funciona en inglés y en japonés Lo puede adaptar para que funcione en español Lo subieron al Reddit de Rost

@@ -99,10 +99,23 @@ fi
 # OJO: guardar no es catalogar. Aqui caen todos; al INDICE solo suben los que se usan.
 if [ "${1:-}" = "--guardar" ]; then
   mkdir -p "$STICKERS"
+  # El id NO se puede dejar al azar. Con 'group by filename' a secas, SQLite elige una fila
+  # cualquiera del grupo, y los mensajes SALIENTES guardan en url el literal
+  # "https://a.whatsapp.net" — un placeholder de 22 caracteres, sin path. Con eso
+  # extractDirectPathFromURL() del bridge no encuentra ".net/", devuelve la basura entera y
+  # whatsmeow acaba pidiendo un host que no existe: "lookup a.whatsapp.net: no such host".
+  # No es un fallo de red ni del DNS, es la url de ese mensaje.
+  #
+  # Como el nombre sale del hash del contenido, CUALQUIER mensaje con el mismo filename
+  # sirve para bajar el mismo sticker: basta con quedarse con uno que tenga url de verdad.
+  # Medido el 2026-08-16: 40 stickers elegian un id malo y 34 tenian alternativa buena.
   PENDIENTES="$(consulta "
-    select distinct coalesce(filename,''), coalesce(id,'')
-    from messages
-    where chat_jid = '$JID' and media_type = 'sticker' and coalesce(filename,'') <> ''
+    select filename, id from (
+      select coalesce(filename,'') as filename, coalesce(id,'') as id
+      from messages
+      where chat_jid = '$JID' and media_type = 'sticker'
+        and coalesce(filename,'') <> '' and coalesce(url,'') like '%.net/%'
+    )
     group by filename;
   ")"
   nuevos=0; ya=0; fallos=0

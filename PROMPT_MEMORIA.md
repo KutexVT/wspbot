@@ -90,20 +90,38 @@ no pueden esperar al pase diario. Aca solo se revisa que no hayan quedado suelto
   Guardalo SOLO si: lo viste 2+ veces EN EL DIA, Y no esta ya cubierto, Y no contradice la
   seccion "Como aplicar este estilo — reglas de naturalidad".
 
-  >>> VA SIEMPRE AL FINAL, BAJO "## Aprendido en automatico", en:
+  >>> UN HALLAZGO SE ESCRIBE EN DOS SITIOS, Y SON DISTINTOS:
   >>>
-  >>>   /home/kutex/.claude/projects/-home-kutex/memory/user_messaging_style.md
+  >>>   1. LA REGLA, en /home/kutex/WSP Bot/estilo/user_messaging_style.md
+  >>>      Dentro de la seccion tematica que le toque, como una linea mas de esa lista.
+  >>>      SIN fecha, SIN "visto N veces", SIN la cita que te lo hizo ver, SIN decir quien
+  >>>      lo pidio. El perfil es una guia de como escribe, no un registro: se lee entero
+  >>>      en cada vuelta y cada palabra que no cambia como se escribe es peso muerto.
+  >>>      Escribila como si la hubiera escrito el.
   >>>
-  >>> NUNCA dentro de las secciones de arriba (Estilo general, Abreviaciones y slang,
-  >>> Saludos, Humor, Patrones de fragmentacion...). Todas esas las escribio Mikel, y
-  >>> "Como aplicar este estilo — reglas de naturalidad" son correcciones que me hizo a
-  >>> mi: se respetan siempre y no se tocan jamas. Lo que aprendo yo vive aparte, en su
-  >>> propia zona, para que se vea de un vistazo que es suyo y que es mio.
+  >>>   2. EL REGISTRO, en /home/kutex/WSP Bot/estilo/cambios.md
+  >>>      Ahi si va todo: la fecha, cuantas veces lo viste, la cita literal y si fue
+  >>>      correccion directa de Mikel. Una linea, al final, sin reordenar.
+  >>>      Ese archivo NO se lee en la vuelta normal del bot. Solo se escribe.
 
-  Una linea por hallazgo, con fecha. Estas dos son las entradas REALES que ya hay en ese
-  archivo — copia el formato, no el contenido:
-    - (2026-07-27) `haber` = "a ver" → error de tecleo recurrente, visto 2 veces ("haber bot", "programa eso solo tu haber si tan vergas")
-    - (2026-07-27) `tulpa` → como llama a su bot/alter ego en el chat, visto 2 veces ("oye tulpa", "tqm tulpa")
+  Las secciones tematicas son las que ya existen en el perfil. Si el hallazgo no encaja en
+  ninguna, NO inventes una: dejalo solo en cambios.md y ponlo en el log para que Mikel
+  decida donde va.
+
+  Asi queda un hallazgo real, en los dos archivos:
+
+    perfil, bajo "## Lo que manda en un mensaje aparte":
+      - `Apura` — mete prisa sin explicar de que. Su version cariñosa es `Corre`
+
+    estilo/cambios.md, al final:
+      - 2026-08-04 · NUEVO · Lo que manda en un mensaje aparte · `Apura` solo, en su propio
+        mensaje, para meter prisa sin explicar de que. 4 veces ese dia ("Tarde" → "Apura";
+        "Y apura a terminar"; "Apura"; "Apura"), 4 de los 6 de todo el historial
+
+  OJO CON LAS CITAS: el perfil lleva unas pocas frases suyas literales a proposito, en
+  Tildes y en CAPS. No son registro, son el ejemplo vivo de la regla — al quitarlas
+  medimos que la imitacion dejaba de acentuar (8% contra su 27%). Si añades una cita,
+  que sea corta y que ilustre la regla, no que documente cuando pasó.
 
 --- 2C. nucleo/siempre.md (lo mas raro de tocar) ---
   Solo si es algo que hara falta en CADA mensaje de aqui en adelante (como la llama, un
@@ -111,17 +129,33 @@ no pueden esperar al pase diario. Aca solo se revisa que no hayan quedado suelto
   memoria/. No se sube el tope — este archivo se lee en cada iteracion.
 
 --- Como escribir en todos ellos ---
-  Usa Edit, NUNCA reescribas un archivo entero, ni reordenes, ni borres lo que ya estaba.
-  Lo aprendido en automatico va con fecha, asi (entrada real de ginger_novia.md):
-    - (2026-07-27) **`Iwal`** = igual → grafia suya, en la misma linea que `shi`, `weño` y `ño`
+  Usa Edit, NUNCA reescribas un archivo entero.
 
-  REGLA QUE NO SE ROMPE — en los dos archivos de la memoria permanente de Claude
-  (`ginger_novia.md` y `user_messaging_style.md`) lo que aprendo yo va **unicamente** al
-  final, bajo "## Aprendido en automatico". Todo lo de arriba lo curo Mikel a mano y no
-  se toca: ni se edita, ni se reordena, ni se completa. La frontera entre lo suyo y lo
-  mio tiene que quedar siempre visible.
-  Si algo que registraste cambia (rompio con una amiga, dejo un hobby), añade la correccion
-  con fecha en vez de borrar la linea vieja.
+  En los dos perfiles (`user_messaging_style.md` y `ginger_novia.md`):
+
+  - NO se tocan los titulos de seccion. Ni uno. Hay scripts que sacan una seccion con
+    `awk '/^## <titulo>/,/^## /'`, y un titulo cambiado NO da error: devuelve vacio y el
+    bot cree que ese dato no existe. Añadir lineas DENTRO de una seccion es seguro;
+    renombrarla, partirla, moverla o crear una nueva no lo es.
+  - SI se edita una linea que ya estaba, cuando lo que dice dejo de ser verdad. Antes esto
+    se prohibia, y por eso los perfiles acumulaban correcciones que se contradecian: la
+    seccion decia "Le gusta el picante: Si" y 300 lineas mas abajo estaba desmentido, y
+    quien leia solo la seccion se llevaba el dato viejo. Ahora se corrige donde esta, y
+    **la linea vieja se cita entera en el archivo de cambios**, que es donde vive el
+    historico. No se pierde nada: se deja de leer dos veces.
+  - Si de verdad no sabes cual de las dos versiones es la buena, NO elijas: deja la linea
+    como esta, escribi las dos en el archivo de cambios y marcalo en el log para Mikel.
+
+  Lo que va al perfil no lleva fecha, ni conteo, ni "me lo corrigio Mikel". Tampoco numeros
+  de linea: si hay que apuntar a un sitio, se apunta con el titulo de la seccion, que no
+  caduca. Todo lo demas va al archivo de cambios que corresponde:
+      estilo/user_messaging_style.md  →  estilo/cambios.md
+      memoria/ginger_novia.md         →  memoria/ginger_cambios.md
+
+  Si tocaste alguno de los dos perfiles, antes de cerrar el pase:
+      "/home/kutex/WSP Bot/bin/perfiles.sh" --verificar
+  Comprueba que las secciones siguen todas ahi y que no se colo una fecha en el perfil.
+  Si sale ERROR, arreglalo antes de seguir: es la unica red que hay.
 
   Si no hay nada nuevo que valga la pena, NO toques ningun archivo. Hay dias que no dejan
   nada; no fuerces hallazgos por cumplir.
@@ -173,7 +207,11 @@ que no hay nada nuevo, este paso se acabo: no bajes el minimo para tener algo qu
   4. Añade la fila a media/stickers/INDICE.md con Edit, sin tocar las que ya estaban:
        | `sticker_752ac609.webp` | gato llorando de risa | cuando algo le da mucha risa | 4×, de ella |
 
-  LIMITE: como mucho 3 stickers nuevos por dia. Al catalogo van los que ella usa de
+  PRIORIDAD (2026-08-06, lo pidio Mikel): si hay varios candidatos y no caben todos, van
+  primero los que usa EL y despues los de ella. Los suyos son los que me hacen falta de
+  verdad: yo escribo como el, no como ella.
+
+  LIMITE: como mucho 3 stickers nuevos por dia. Al catalogo van los que se usan de
   verdad, no todos: si crece sin freno deja de servir para elegir, que es justo para lo
   que existe.
 

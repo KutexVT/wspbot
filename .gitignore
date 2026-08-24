@@ -17,3 +17,29 @@ whatsapp-mcp/whatsapp-bridge/store/*.lock
 
 # Log del bridge: crece sin parar y no es historial de codigo.
 logs/bridge.log
+bin/venv-asr/
+__pycache__/
+
+# Sesiones del psicologo: consultas privadas de Mikel sobre la relacion.
+# No se versionan nunca, ni aunque el repo pase a privado.
+memoria/psico/
+
+# El prompt del psicologo cita episodios y temas privados suyos (peso, ex, salud mental).
+# Mientras el repo sea PUBLICO no tiene nada que hacer en git. Sacar de aqui el dia que
+# pase a privado, si se quiere versionar.
+PROMPT_PSICOLOGO.md
+
+# La ficha de Ginger: gustos, familia, SALUD e historial de una tercera persona.
+# Mismo criterio que PROMPT_PSICOLOGO.md — mientras el repo sea PUBLICO no tiene nada
+# que hacer en git. Vive aqui porque el bot la lee desde aqui; la memoria de Claude
+# la ve por un symlink.
+memoria/ginger_novia.md
+# Y su registro de cambios, que lleva las citas literales de donde salio cada dato.
+memoria/ginger_cambios.md
+
+# Indice del linter de estilo: se regenera desde la base en 0,5s con
+# `bin/estilo.sh --reconstruir`. Versionarlo seria versionar una copia de la DB.
+estilo/indice/
+# Corridas y bancos del test de estilo: son resultados de experimento, no codigo.
+estilo/corridas/
+estilo/banco/

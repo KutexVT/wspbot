@@ -12,7 +12,10 @@
 set -uo pipefail
 
 BASE="/home/kutex/WSP Bot"
-CLAUDE_MEM="/home/kutex/.claude/projects/-home-kutex/memory"
+# La ficha de Ginger y el perfil de estilo vivian en la memoria de Claude; desde el
+# 2026-08-24 viven aqui, en el repo, y alla quedan symlinks. Un solo archivo real.
+FICHA_GINGER="$BASE/memoria/ginger_novia.md"
+PERFIL_ESTILO="$BASE/estilo/user_messaging_style.md"
 
 if [ $# -eq 0 ]; then
   echo "uso: buscar.sh <termino>" >&2
@@ -72,7 +75,7 @@ seccion "VIGENTE (nucleo)" "$BASE/nucleo/siempre.md" "$BASE/nucleo/cursor.txt"
 seccion "VIGENTE (memoria actual)" "$BASE"/memoria/actual/*.md
 
 # 2. Memoria permanente curada por Mikel.
-seccion "PERMANENTE (memoria de Claude)" "$CLAUDE_MEM/ginger_novia.md" "$CLAUDE_MEM/user_messaging_style.md"
+seccion "PERMANENTE (ficha de ella + perfil de estilo)" "$FICHA_GINGER" "$PERFIL_ESTILO"
 
 # 3. Historial semanal, de la semana mas reciente hacia atras.
 mapfile -t semanas < <(ls -1r "$BASE"/memoria/semanas/*.md 2>/dev/null || true)

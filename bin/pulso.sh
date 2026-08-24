@@ -47,6 +47,26 @@ MARCA_VUELTA="$BASE/nucleo/.ultima_vuelta"
 AVISO_CADA_MIN="${WSP_AVISO_CADA_MIN:-15}"
 MARCA_AVISO="$BASE/nucleo/.aviso_bridge"
 
+# El interruptor (/on y /off del PROMPT) y la marca de "volvi y todavia no he saludado".
+ARCH_MUDO="${WSP_MUDO:-$BASE/nucleo/MUDO}"
+MARCA_VOLVI="$BASE/nucleo/.volvi_pendiente"
+
+# EL DOBLE CHECK AZUL. Cada vuelta se le manda un acuse de lectura de lo suyo que aun no
+# se habia marcado, para que sus mensajes no se queden en un check gris para siempre.
+#
+# Va aqui y no en registrar.sh por dos razones estructurales: aqui ya se corto en seco si
+# el bridge esta caido, y aqui ya se sabe si el mudo esta puesto. Ademas el momento del
+# acuse es justo cuando el bot mira, que es la verdad.
+#
+# Quien PERSISTE el avance sigue siendo registrar.sh, bajo su flock: este script propone
+# en el traspaso, registrar confirma en el cursor. Igual que los otros dos cursores.
+#
+# Tope de IDs por acuse: van todos en un mismo nodo, asi que sin tope un /off largo
+# armaria una stanza enorme. El bridge lo vuelve a capar a 200 por su cuenta.
+MARCAR_LEIDO="${WSP_MARCAR_LEIDO:-1}"
+TOPE_LEIDO="${WSP_TOPE_LEIDO:-200}"
+MARCAR_URL="${WSP_MARCAR_URL:-http://127.0.0.1:8080/api/markread}"
+
 # ---------------------------------------------------------------------------
 # SALUD DEL BRIDGE — antes que ninguna otra cosa
 # ---------------------------------------------------------------------------
@@ -64,11 +84,13 @@ MARCA_AVISO="$BASE/nucleo/.aviso_bridge"
 #
 # El 404 NO es un fallo, es el binario viejo — el que no tiene /api/health todavia pero
 # esta vivo y sirviendo. Asi este script se puede desplegar antes de recompilar el Go.
+SALUD_CUERPO=""
 salud_bridge() {
   local resp cod cuerpo
   resp="$(curl -s -m 2 -w $'\n%{http_code}' "$SALUD_URL" 2>/dev/null)"
   cod="${resp##*$'\n'}"
   cuerpo="${resp%$'\n'*}"
+  SALUD_CUERPO="$cuerpo"
   case "$cod" in
     200)
       case "$cuerpo" in
@@ -118,6 +140,53 @@ if [ "${SALUD%% *}" = "CAIDO" ]; then
 fi
 
 rm -f "$MARCA_AVISO"
+
+# ---------------------------------------------------------------------------
+# EL INTERRUPTOR — vencimiento del /off
+# ---------------------------------------------------------------------------
+# `/off` a secas calla al bot hasta que llegue un `/on`, y eso no cambia. Pero `/off 10
+# minutos` tambien tiene que poder cumplirse, y el modelo no puede encargarse: entre vuelta
+# y vuelta pierde el contexto, asi que una hora de expiracion que solo viva en su cabeza no
+# llega vivo al minuto siguiente. La aritmetica de fechas se hace aqui; el que parsea la
+# duracion en castellano ("media hora", "hasta las 9") sigue siendo el modelo, que escribe
+# el resultado ya resuelto como `HASTA: YYYY-MM-DD HH:MM:SS` dentro del archivo.
+#
+# Un MUDO vacio es un mudo indefinido: es como funcionaba esto antes y se queda igual.
+#
+# Va aqui a proposito, despues del corte del bridge: con la base congelada no se toca nada,
+# ni siquiera el interruptor. Y antes de calcular ARRANQUE y ESTADO, porque si el mudo
+# acaba de vencer esta vuelta ya cuenta como vuelta trabajando.
+MUDO_LINEA="no"
+if [ -f "$ARCH_MUDO" ]; then
+  MUDO_HASTA="$(sed -n 's/^HASTA:[[:space:]]*//p' "$ARCH_MUDO" | head -1)"
+  MUDO_SEG="$(a_segundos "$MUDO_HASTA")"
+
+  if [ -z "$MUDO_HASTA" ]; then
+    MUDO_LINEA="si — indefinido (solo /on lo levanta)"
+
+  # a_segundos devuelve 0 cuando no entiende la fecha. Ahi NO se vence: ante un archivo a
+  # medio escribir se prefiere seguir callado, que es el error recuperable de los dos —
+  # sobra con que Mikel mande /on. Hablar cuando tocaba callar no se puede deshacer.
+  elif [ "$MUDO_SEG" -eq 0 ]; then
+    MUDO_LINEA="si — indefinido (el HASTA no se entiende: '$MUDO_HASTA')"
+
+  elif [ "$MUDO_SEG" -le "$(date +%s)" ]; then
+    rm -f "$ARCH_MUDO"
+    # La marca es lo que hace que el saludo sobreviva. Si aqui solo se borrara el MUDO, la
+    # vuelta siguiente no tendria como saber que venia de un silencio, y si esta vuelta se
+    # muere a la mitad el saludo se perderia igual. Mientras la marca exista el aviso se
+    # reintenta solo, vuelta tras vuelta, hasta que el modelo salude y la borre.
+    touch "$MARCA_VOLVI"
+
+  else
+    MUDO_LINEA="si — hasta $MUDO_HASTA (faltan $(( (MUDO_SEG - $(date +%s)) / 60 )) min)"
+  fi
+fi
+
+# Se comprueba aparte del bloque de arriba, y no en su `else`, para que el aviso siga
+# saliendo en las vueltas siguientes aunque el MUDO ya no exista.
+[ -f "$MARCA_VOLVI" ] && \
+  MUDO_LINEA="acaba de expirar — toca saludar en el chat y borrar nucleo/.volvi_pendiente"
 
 # ---------------------------------------------------------------------------
 # ARRANQUE — solo se llega aqui con el bridge vivo
@@ -262,13 +331,76 @@ elif [ "$hay_pendientes" -eq 1 ]; then
   VISTO_GINGER="$(tail -1 <<< "$PENDIENTES" | cut -d"$SEP" -f1)"
 fi
 
+# --- EL DOBLE CHECK AZUL ---
+# Se marcan sus mensajes desde LAST_LEIDO_TS hasta ahora. Solo los suyos: marcar como
+# leidos los propios no significa nada.
+#
+# Estando MUDO no se toca. /off es "el bot no toca el chat", y un check azul es tocarlo:
+# es visible para ella y afirma "te estoy leyendo". Si ademas no va a haber respuesta,
+# es una mentira. Al volver con /on se marca el backlog entero de una.
+#
+# Si el curl falla, o el bridge es viejo y no tiene /api/markread (404), NO se escribe
+# LEIDO= y el cursor no avanza: la vuelta siguiente reintenta los mismos IDs. Eso hace
+# que este script se pueda desplegar antes de recompilar el Go, y que un corte de red no
+# deje un hueco permanente de mensajes en gris.
+LEIDO_NUEVO=""
+if [ "$MARCAR_LEIDO" = "1" ] && [ ! -f "$ARCH_MUDO" ]; then
+  ESC_LEIDO="$(leer_leido)"; ESC_LEIDO="${ESC_LEIDO//\'/\'\'}"
+  POR_MARCAR="$(consulta "
+    select coalesce(id,'') from messages
+    where chat_jid = '$JID' and is_from_me = 0 and $TS_SQL > '$ESC_LEIDO'
+    order by timestamp desc limit $TOPE_LEIDO;
+  ")"
+  if [ -n "$POR_MARCAR" ]; then
+    LEIDO_CANDIDATO="$(consulta "
+      select max($TS_SQL) from messages
+      where chat_jid = '$JID' and is_from_me = 0 and $TS_SQL > '$ESC_LEIDO';
+    ")"
+    CUERPO_MARCA="$(python3 -c '
+import json, sys
+ids = [l for l in sys.stdin.read().split(chr(10)) if l]
+print(json.dumps({"chat_jid": sys.argv[1], "message_ids": ids}))
+' "$JID" <<< "$POR_MARCAR")"
+    RESP_MARCA="$(curl -s -m 3 -X POST "$MARCAR_URL" \
+      -H 'Content-Type: application/json' -d "$CUERPO_MARCA" 2>/dev/null)"
+    case "$RESP_MARCA" in
+      *'"success":true'*) LEIDO_NUEVO="$LEIDO_CANDIDATO" ;;
+    esac
+  else
+    # Nada nuevo suyo que marcar, pero el cursor se pone al dia igual para que no
+    # arrastre un hueco si mas tarde se activa el mudo.
+    LEIDO_NUEVO="$ESC_LEIDO"
+  fi
+fi
+
 TMP_T="$(mktemp "$TRASPASO.XXXXXX")"
 {
   echo "VISTO=$VISTO_NUEVO"
   echo "VISTO_GINGER=$VISTO_GINGER"
+  [ -n "$LEIDO_NUEVO" ] && echo "LEIDO=$LEIDO_NUEVO"
 } > "$TMP_T"
 chmod 644 "$TMP_T"
 mv -f "$TMP_T" "$TRASPASO"
+
+# El mapa de citas se reescribe ENTERO cada vuelta, incluso vacio: si se dejara el de la
+# vuelta anterior, un `--citar 3` de esta vuelta apuntaria a otra conversacion. Se llama
+# desde los dos puntos de salida del script.
+volcar_citas() {
+  local tmp
+  tmp="$(mktemp "$CITAS.XXXXXX")" || return 0
+  {
+    printf 'EPOCA=%s\n' "$(date +%s)"
+    printf '%s' "${MAPA_CITAS:-}"
+  } > "$tmp"
+  chmod 644 "$tmp"
+  mv -f "$tmp" "$CITAS"
+}
+
+# Por trap y no por llamadas sueltas en cada salida: el traspaso se escribe antes que
+# esto, asi que una muerte en medio (un SIGPIPE de un `| head`, sin ir mas lejos) dejaba
+# un traspaso nuevo con el mapa de la vuelta ANTERIOR, y un `--citar 3` dentro de los 15
+# min del TTL apuntaria a otra conversacion sin que nada avisara.
+trap volcar_citas EXIT
 
 # ---------------------------------------------------------------------------
 # SALIDA
@@ -280,6 +412,16 @@ echo "LAST_GINGER_TS: $LAST_GINGER"
 echo "LAST_VISTO_TS: $LAST_VISTO"
 echo "ULTIMO_EN_EL_CHAT: ${ULTIMO_ROL:-ninguno} (${ULTIMO_TS:-sin mensajes})"
 echo "SILENCIO_MIN: $SILENCIO_MIN"
+echo "MUDO: $MUDO_LINEA"
+
+# MarkRead degrada en silencio a read-self cuando la cuenta tiene las confirmaciones de
+# lectura apagadas: el check azul no sale nunca y nada da error. Se avisa aqui porque es
+# lo unico que el codigo no puede arreglar solo.
+case "$SALUD_CUERPO" in
+  *'"read_receipts":"none"'*)
+    echo "OJO: la cuenta tiene las confirmaciones de lectura APAGADAS. El doble check azul"
+    echo "     no va a salir por mas que el bot lo marque. Se arregla en Ajustes > Privacidad." ;;
+esac
 
 # Solo mientras la funcion sea nueva. En cuanto se estrene, la marca existe y esta linea
 # no vuelve a salir nunca.
@@ -290,11 +432,22 @@ fi
 # Pinta una tanda de filas del formato ts|rol|media|id|filename|texto, resolviendo la
 # media contra la cache. Las dos ventanas salen con las mismas columnas para poder usar
 # esto en las dos sin traducir nada.
+# Numero de cita. Es de ESTA vuelta y solo de esta: sirve para el --citar de
+# responder.sh y no tiene nada que ver con el Message ID.
+#
+# El contador vive fuera de la funcion a proposito. pintar_filas se invoca con
+# here-string, que no abre subshell, asi que sobrevive entre las dos llamadas y los
+# numeros no se repiten entre la seccion de pendientes y la de nuevos.
+N_CITA=0
+MAPA_CITAS=""
+
 pintar_filas() {
   local ts rol media id arch texto hora cache clave
   while IFS="$SEP" read -r ts rol media id arch texto; do
     [ -n "$ts" ] || continue
     hora="${ts:11:8}"
+    N_CITA=$((N_CITA + 1))
+    [ -n "$id" ] && MAPA_CITAS+="$N_CITA"$'\t'"$id"$'\n'
     if [ -n "$media" ]; then
       # La media se anuncia con su id para poder bajarla; el contenido se resuelve
       # despues (PASO 1), y si ya se resolvio antes se muestra cacheado.
@@ -307,13 +460,15 @@ pintar_filas() {
       cache=""
       [ -s "$TRANSCRIPCIONES/$clave.txt" ] && cache="$(head -c 300 "$TRANSCRIPCIONES/$clave.txt")"
       [ -s "$DESCRIPCIONES/$clave.txt" ]   && cache="$(head -c 300 "$DESCRIPCIONES/$clave.txt")"
+      # La linea de media conserva su Message ID entero: el PASO 1 lo necesita para
+      # download_media y ese contrato no se toca. Queda redundante con el #N y da igual.
       if [ -n "$cache" ]; then
-        echo "[$hora] $rol: <$media ya resuelto: $cache>"
+        printf '[%s] %-4s %s: <%s ya resuelto: %s>\n' "$hora" "#$N_CITA" "$rol" "$media" "$cache"
       else
-        echo "[$hora] $rol: <$media PENDIENTE - Message ID: $id>"
+        printf '[%s] %-4s %s: <%s PENDIENTE - Message ID: %s>\n' "$hora" "#$N_CITA" "$rol" "$media" "$id"
       fi
     else
-      echo "[$hora] $rol: $texto"
+      printf '[%s] %-4s %s: %s\n' "$hora" "#$N_CITA" "$rol" "$texto"
     fi
   done
 }

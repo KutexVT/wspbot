@@ -1,0 +1,320 @@
+[09:54-09:55] BRIDGE CAIDO — el puerto 8080 no responde: el bridge no esta corriendo ×2
+[09:55] MUDO — 97 mensajes nuevos, bridge de vuelta
+[09:58] VOLVI (/on) — se le paso la clase por poner la alarma en pm, le segui la burla + le pregunte si llego
+[09:58] NO HICE NADA — pendiente suyo ya respondido, solo puse el cursor al dia
+[09:59-10:06] NO HICE NADA — sin mensajes nuevos, esperando que conteste ×8
+[10:07] NO ME METI — foto y audio de Mikel, es su conversacion
+[10:08-10:10] NO HICE NADA — sin mensajes nuevos, esperando que conteste ×3
+[10:13] STICKERS — Mikel pidio verlos, le mande los 25 del catalogo en orden de uso
+[10:13-10:20] NO HICE NADA — sin mensajes nuevos, esperando que conteste ×8
+[10:22] RESPONDI — 2 audios suyos: se volvio a dormir y no fue al cole, le segui la burla
+[10:23] RESPONDI A MIKEL — pregunto si le hago la tarea de una foto, le dije que la mande enfocada
+[10:23] NO HICE NADA — sin mensajes nuevos, esperando la foto de la tarea
+[10:25] RESPONDI — audio suyo: ya va, se esta alistando. Le pase el 'que apures' de Mikel
+[10:25] NO ME METI — Mikel le pregunto algo a ella directamente, es su tema
+[10:26] NO ME METI — foto de Mikel sin texto, ya habia cancelado lo de la tarea
+[10:28] APRENDI DE GINGER — su horario del cole (Liceo de Miramar 9-7) → ginger_novia.md, Aprendido en automatico. Lo pidio Mikel
+[10:28-10:30] NO HICE NADA — sin mensajes nuevos ×3
+[10:31] RESPONDI A MIKEL — no tiene la foto en mejor calidad, el horario se queda con la marca de revisar
+[10:32] NO ME METI — Mikel solo cerro con un 'sisisisi', no pedia respuesta
+[10:33] NO ME METI — Mikel abrio tema con ella ('oye amor'), lo de un numero raro que le escribio
+[10:34] RESPONDI — el numero raro es Esteban, ex de Alanis. Solo pedi que aclare, sin opinar (terreno Alanis)
+[10:35] RESPONDI — solto un chisme turbio de Josue y Alanis, reaccione sin opinar del tema
+[10:36] RESPONDI — sigue el lio de Alanis, le pregunte por su parte sin opinar del tema
+[10:38] RESPONDI — 2 audios: pregunta de donde saco Esteban su numero, le dije que no se y marque la suposicion
+[10:38] NO ME METI — Mikel solo dijo que iba a preguntar lo mismo, no pedia respuesta
+[10:39-10:40] NO HICE NADA — sin mensajes nuevos ×2
+[10:42] APRENDI DE GINGER — Esteban (ex de Alanis) y Samuel (se lo quieren emparejar, le da asco) → ginger_novia.md. Le dije que no lo haga si no quiere
+[10:42] NO ME METI — audio de Mikel, es su conversacion
+[10:43] NO HICE NADA — sin mensajes nuevos
+[10:44-10:45] NO ME METI — audio de Mikel, es su conversacion ×2
+[10:46-11:11] NO HICE NADA — sin mensajes nuevos ×26
+[11:12] RESPONDI — llego al cole pero la metieron a direccion, le pregunte que paso
+[11:13] /off — Mikel me apago, me callo desde esta vuelta
+[11:14] MUDO — 2 mensajes nuevos
+[11:15] MUDO — 0 mensajes nuevos
+[11:16] MUDO — 2 mensajes nuevos
+[11:17-11:27] MUDO — 0 mensajes nuevos ×11
+[11:28-11:29] MUDO — 5 mensajes nuevos ×2
+[11:30] MUDO — 1 mensaje nuevo
+[11:31] MUDO — 2 mensajes nuevos
+[11:32-11:34] MUDO — 0 mensajes nuevos ×3
+[11:35] MUDO — 2 mensajes nuevos
+[11:36-11:38] MUDO — 0 mensajes nuevos ×3
+[11:39] MUDO — 3 mensajes nuevos
+[11:40-12:14] MUDO — 0 mensajes nuevos ×35
+[12:16] VOLVI (/on) — Mikel me prendio y pregunto si seguia vivo, me puse al dia y le conteste
+[12:16] RESPONDI A MIKEL — pregunto la temperatura de la compu, se la lei de sensors (cpu 50.8, gpu 44, nvme 42.9)
+[12:18] RESPONDI A MIKEL — pidio ver el HDD, no esta montado y montarlo pide root. Le dije lo que si se
+[12:18] NO HICE NADA — sin mensajes nuevos
+[12:20] MONTE EL HDD — Mikel me paso la clave, monte sda2 en /mnt/HDD y le liste lo que hay (101gb, carpeta Ginger con grabaciones mp4). Le avise de la clave en el chat
+[12:20] NO HICE NADA — sin mensajes nuevos
+[12:21] RESPONDI A MIKEL — pregunto xq me altera lo de su clave, le explique que el tema es donde quedo escrita
+[12:22] NO ME METI — Mikel solo corrigio una palabra ('Desespera*'), ya lo habia contestado
+[12:23] RESPONDI A MIKEL — pregunto por el sticker, le dije que lo use por la imagen y que su ficha del indice dice otra cosa
+[12:24-12:25] NO HICE NADA — sin mensajes nuevos ×2
+[12:26] RESPONDI A MIKEL — le explique el /sticker y le busque en git cuando entro (ayer 21:23, commit suyo)
+[12:27] NO HICE NADA — sin mensajes nuevos
+[12:28] RESPONDI A MIKEL — tenia razon: el commit del /sticker trae Co-Authored-By Claude Opus 5, no lo escribio el
+[12:29] STICKER — /sticker trauma NO aplicado: Mikel aviso antes que era ejemplo. Catalogo intacto
+[12:30] NO HICE NADA — sin mensajes nuevos
+[12:32] RESPONDI A MIKEL — dijo que guardaria un sticker como trauma+asco pero sin /sticker, le pregunte si lo anoto yo
+[12:33] APRENDI DE MIKEL — usar mayuscula al inicio de mensaje y tras punto → user_messaging_style.md, reglas de naturalidad
+[12:33-12:34] NO HICE NADA — sin mensajes nuevos ×2
+[12:36] STICKER — Mikel mando anotar la Yui sentada como 'conversaciones casuales', al catalogo
+[12:36-12:37] NO HICE NADA — sin mensajes nuevos ×2
+[12:39] NO PUDE ANOTAR EL STICKER — download_media fallo 2 veces con AC1230AF..., sin archivo no entra al catalogo. Le pedi que lo remande
+[12:40] STICKER — al segundo intento si bajo: la chibi del pulgar arriba anotada como 'un ok'
+[12:40] NO HICE NADA — sin mensajes nuevos
+[12:42] RESPONDI A MIKEL — no entendia el /sticker, se lo explique con un ejemplo concreto
+[12:42] NO HICE NADA — sin mensajes nuevos
+[12:43] RESPONDI A MIKEL — ya entendio el /sticker, le segui el chiste de que ese no lo programo el
+[12:44-12:45] NO HICE NADA — sin mensajes nuevos ×2
+[12:46] NO ME METI — Mikel abrio tema con ella ('oye amor')
+[12:47] /off — Mikel me apago otra vez, me callo desde esta vuelta
+[12:49] VOLVI (/on) — me puse al dia, le acompañe el agobio sin opinar de Alanis y segui el chiste del chatgpt
+[12:49] NO ME METI — lo de Mikel ya lo habia contestado al volver del mudo, solo faltaba el cursor
+[12:50] RESPONDI A MIKEL — pregunto el sentido de la vida, le tire el 42 y le dije que no se
+[12:51] NO HICE NADA — sin mensajes nuevos
+[12:52] RESPONDI A MIKEL — le explique de donde sale el 42 (la guia del autoestopista)
+[12:53] NO HICE NADA — sin mensajes nuevos
+[12:54] RESPONDI — mando el sticker de picardia, le segui el chiste del chatgpt
+[12:55-12:57] NO HICE NADA — sin mensajes nuevos ×3
+[12:58-12:59] NO ME METI — Mikel le esta contando algo a ella con la rafaga de AMOR ×2
+[13:00-13:03] NO HICE NADA — sin mensajes nuevos ×4
+[13:04] NO ME METI — solo un sticker de Mikel
+[13:05-13:06] NO ME METI — audio y sticker de Mikel, es su conversacion ×2
+[13:07-13:08] NO HICE NADA — sin mensajes nuevos ×2
+[13:09] RESPONDI — alucinaba con que el femboy conocia a todos, le segui la sorpresa
+[13:10] RESPONDI — pregunto quien es nathalie, Mikel ya se lo contesto y yo no la tengo en ningun lado
+[13:11-13:14] NO HICE NADA — sin mensajes nuevos ×4
+[13:15] RESPONDI — mando un sticker random pixelado, le segui la risa
+[13:16-13:36] NO HICE NADA — sin mensajes nuevos ×21
+[13:37-13:38] NO ME METI — Mikel le pregunto a ella por donde anda ×2
+[13:39] RESPONDI — dijo que ya sale y esta terminando algo, le segui el chiste del chatgpt
+[13:41] APRENDI DE MIKEL — no spamear el mismo sticker, hay que variar en el dia → user_messaging_style.md
+[13:41-13:42] NO HICE NADA — sin mensajes nuevos ×2
+[13:43] RESPONDI — mando un documento a resolver, le dije que esos no los veo y que mande foto
+[13:44-14:13] NO HICE NADA — sin mensajes nuevos ×30
+[14:15] SAQUE TEMA — 30 min de silencio, tire del hilo del dibujo. Un solo intento
+[14:15-14:29] NO HICE NADA — sin mensajes nuevos, ya saque tema y no insisto ×15
+[14:30] RESPONDI — volvio con la rafaga de Oe llamando la atencion, le conteste
+[14:31] RESPONDI — hizo berrinche porque Mikel se fue a comer, le pregunte si tambien tiene hambre
+[14:32] NO HICE NADA — sin mensajes nuevos
+[14:33] NO ME METI — Mikel volvio y le hablo a ella, es su tema
+[14:34] RESPONDI — le cache el doble sentido del 'tan rapido' con el sticker de picardia
+[14:35-14:49] NO HICE NADA — sin mensajes nuevos ×15
+[14:50] NO ME METI — audios de Mikel, es su conversacion
+[14:51] RESPONDI — el tono se puso de pareja, conteste sin escalar y me aparte con el chiste
+[14:52] NO ME METI — siguen en lo suyo subido de tono, ya me aparte y no bajo su audio
+[14:54] RESPONDI — sus audios eran el chiste de la mordida y los alfas, no lo que pensé. Le segui la broma
+[14:56] RESPONDI — mando el sticker meme del fuc boy, le segui la risa
+[14:56] /off — Mikel me apago, me callo desde esta vuelta
+[14:57] MUDO — 0 mensajes nuevos
+[14:58] MUDO — 2 mensajes nuevos
+[14:59] MUDO — 5 mensajes nuevos
+[15:00] MUDO — 0 mensajes nuevos
+[15:01] MUDO — 4 mensajes nuevos
+[15:02] VOLVI (/on) — me puse al dia y le segui el remate del chiste de la mordida
+[15:03] NO ME METI — Mikel solo se rio del chiste, no pedia respuesta
+[15:04-15:20] NO HICE NADA — sin mensajes nuevos ×17
+[15:21] NO ME METI — foto de Mikel sin texto
+[15:22-15:30] NO HICE NADA — sin mensajes nuevos ×9
+[15:31] RESPONDI — volvio con el 'Revivi', le devolvi el HOLISSSS del ritual de reencuentro
+[15:32] RESPONDI — me saludo directo ('Holi tulpa') y se estaba justificando, le dije que no hace falta
+[15:33-15:45] NO HICE NADA — sin mensajes nuevos ×13
+[15:46] RESPONDI — dijo Ntpp a unos audios de Mikel que no oi, le pregunte de que hablan
+[15:47] NO ESCRIBI — su 'Quep?' ya quedo cubierto por mi pregunta, espero su respuesta
+[15:48] NO HICE NADA — sin mensajes nuevos
+[15:50] RESPONDI A MIKEL — su audio salio mal transcrito, le dije lo que agarre y le pedi que lo escriba
+[15:51] ME EQUIVOQUE — baje un audio de Mikel creyendo que me respondia y no era conmigo, me aparte
+[15:51-15:58] NO HICE NADA — sin mensajes nuevos ×8
+[15:59] RESPONDI A MIKEL — anuncio cancion nueva de Colbreakz, le pedi que la pase
+[16:00] /off — Mikel me apago (lo mando en CAPS), me callo desde esta vuelta
+[16:01-16:02] MUDO — 2 mensajes nuevos ×2
+[16:03-16:05] MUDO — 0 mensajes nuevos ×3
+[16:06] MUDO — 3 mensajes nuevos
+[16:07] MUDO — 4 mensajes nuevos
+[16:09] VOLVI (/on) — me puse al dia, le pregunte de que es el torneo que se perdio mientras estaba apagado
+[16:10] RESPONDI A MIKEL — le toca contra Larpza (top 200), le tire animo
+[16:10-16:12] NO HICE NADA — sin mensajes nuevos ×3
+[16:13] RESPONDI A MIKEL — paso la ronda del torneo, le celebre
+[16:14] RESPONDI A MIKEL — paso octavos, le pregunte por cuartos
+[16:15] NO HICE NADA — sin mensajes nuevos
+[16:17] RESPONDI — tiene torneo de minecraft a las 8 y no lo tiene instalado, le dije que lo baje ya
+[16:17-16:18] NO HICE NADA — sin mensajes nuevos ×2
+[16:19] RESPONDI — dijo que si lo instala ya, le ofreci ayuda si se traba
+[16:20] NO ESCRIBI — sus mensajes eran para Mikel sobre algo del celu, mi respuesta ya habia salido
+[16:21] NO HICE NADA — sin mensajes nuevos
+[16:22] RESPONDI — Mikel llego a la final del torneo, le dije que si la quiero ver
+[16:23] NO ME METI — Mikel se disculpo por lo del celu y ella lo tranquilizo, no piso una disculpa
+[16:24] NO ME METI — Mikel sigue con lo del celu y el torneo, es su tema
+[16:25-16:28] NO HICE NADA — sin mensajes nuevos ×4
+[16:29] NO ME METI — video de Mikel, esos no los veo
+[16:30-16:31] NO ME METI — foto y audio de Mikel, es su conversacion ×2
+[16:32-16:34] NO HICE NADA — sin mensajes nuevos ×3
+[16:35] NO ME METI — audio de Mikel, es su conversacion
+[16:36-16:37] NO HICE NADA — sin mensajes nuevos ×2
+[16:38] NO ME METI — foto de Mikel sin texto
+[16:39-16:40] NO HICE NADA — sin mensajes nuevos ×2
+[16:41] NO ME METI — foto de Mikel sin texto
+[16:42-16:59] NO HICE NADA — sin mensajes nuevos ×18
+[17:00] RESPONDI — otro 'Revivi', le devolvi el HOLISSSS variando el remate
+[17:01] NO ESCRIBI — su 'Waos' se cruzo con mi respuesta y reaccionaba a algo de Mikel
+[17:02-17:04] NO HICE NADA — sin mensajes nuevos ×3
+[17:05] RESPONDI — rafaga de Amor x14 llamando la atencion, le conteste
+[17:06] RESPONDI — siguio con la rafaga de Amor, le dije que yo ya conteste y que si llama a Mikel
+[17:07-17:36] NO HICE NADA — sin mensajes nuevos ×30
+[17:37] SAQUE TEMA — 30 min de silencio nuevo, tire del hilo de Sayonara Eri. Un solo intento
+[17:38-17:44] NO HICE NADA — sin mensajes nuevos, ya saque tema y no insisto ×7
+[17:45] NO ME METI — audio de Mikel, es su conversacion
+[17:46] NO HICE NADA — sin mensajes nuevos
+[17:47] NO ME METI — video de Mikel, esos no los veo
+[17:48-18:01] NO HICE NADA — sin mensajes nuevos ×14
+[18:02] /off — Mikel me apago, me callo desde esta vuelta
+[18:03] MUDO — 5 mensajes nuevos
+[18:04] MUDO — 0 mensajes nuevos
+[18:05] MUDO — 1 mensaje nuevo
+[18:06-18:07] MUDO — 0 mensajes nuevos ×2
+[18:08] MUDO — 2 mensajes nuevos
+[18:09-18:11] MUDO — 0 mensajes nuevos ×3
+[18:12] MUDO — 1 mensaje nuevo
+[18:13-18:14] MUDO — 0 mensajes nuevos ×2
+[18:15] MUDO — 1 mensaje nuevo
+[18:16-18:18] MUDO — 0 mensajes nuevos ×3
+[18:19] MUDO — 2 mensajes nuevos
+[18:20-18:23] MUDO — 0 mensajes nuevos ×4
+[18:24] MUDO — 2 mensajes nuevos
+[18:25] MUDO — 5 mensajes nuevos
+[18:26] MUDO — 1 mensaje nuevo
+[18:27-18:32] MUDO — 0 mensajes nuevos ×6
+[18:33] MUDO — 1 mensaje nuevo
+[18:34] MUDO — 0 mensajes nuevos
+[18:35] MUDO — 3 mensajes nuevos
+[18:36] MUDO — 0 mensajes nuevos
+[18:37] MUDO — 2 mensajes nuevos
+[18:38-18:39] MUDO — 0 mensajes nuevos ×2
+[18:40] MUDO — 2 mensajes nuevos
+[18:41] MUDO — 16 mensajes nuevos
+[18:42] MUDO — 3 mensajes nuevos
+[18:43-18:45] MUDO — 0 mensajes nuevos ×3
+[18:46] MUDO — 2 mensajes nuevos
+[18:47] MUDO — 0 mensajes nuevos
+[18:48] MUDO — 1 mensaje nuevo
+[18:49] MUDO — 0 mensajes nuevos
+[18:50] MUDO — 5 mensajes nuevos
+[18:51-18:52] MUDO — 0 mensajes nuevos ×2
+[18:53] MUDO — 2 mensajes nuevos
+[18:54-19:01] MUDO — 0 mensajes nuevos ×8
+[19:04] VOLVI (/on) — pregunto el color favorito de Ginger, subi la escalera entera y no esta en ningun lado. Le dije que no se
+[19:05] NO ME METI — la pregunta del color ya la conteste, solo faltaba el cursor
+[19:05-19:07] NO HICE NADA — sin mensajes nuevos ×3
+[19:09] APRENDI — color favorito de Ginger: fucsia (lo dijo Mikel, no ella) → ginger_novia.md con la fuente marcada
+[19:10] RESPONDI A MIKEL — dijo 'revivi', le devolvi el HOLISSSS del ritual
+[19:11] RESPONDI A MIKEL — confirmo lo del fucsia, le aclare que la nota es sobre la fuente
+[19:12] NO HICE NADA — sin mensajes nuevos
+[19:12] /off — Mikel me apago, me callo desde esta vuelta
+[19:13] MUDO — 5 mensajes nuevos
+[19:14] MUDO — 3 mensajes nuevos
+[19:15-19:16] MUDO — 1 mensaje nuevo ×2
+[19:17] MUDO — 4 mensajes nuevos
+[19:18-19:30] MUDO — 0 mensajes nuevos ×13
+[19:31] MUDO — 2 mensajes nuevos
+[19:32-19:33] MUDO — 0 mensajes nuevos ×2
+[19:34] MUDO — 2 mensajes nuevos
+[19:35-19:36] MUDO — 0 mensajes nuevos ×2
+[19:37] MUDO — 2 mensajes nuevos
+[19:38] MUDO — 1 mensaje nuevo
+[19:39] MUDO — 0 mensajes nuevos
+[19:40] MUDO — 4 mensajes nuevos
+[19:41] MUDO — 0 mensajes nuevos
+[19:42] MUDO — 1 mensaje nuevo
+[19:43] MUDO — 4 mensajes nuevos
+[19:44] MUDO — 2 mensajes nuevos
+[19:45-20:06] MUDO — 0 mensajes nuevos ×22
+[20:07-20:08] MUDO — 2 mensajes nuevos ×2
+[20:09] MUDO — 1 mensaje nuevo
+[20:10-20:13] MUDO — 0 mensajes nuevos ×4
+[20:14] MUDO — 1 mensaje nuevo
+[20:15] MUDO — 6 mensajes nuevos
+[20:16] MUDO — 4 mensajes nuevos
+[20:17] MUDO — 11 mensajes nuevos
+[20:18] MUDO — 19 mensajes nuevos
+[20:19] MUDO — 13 mensajes nuevos
+[20:20] MUDO — 14 mensajes nuevos
+[20:21] MUDO — 10 mensajes nuevos
+[20:22] MUDO — 9 mensajes nuevos
+[20:23-20:30] MUDO — 0 mensajes nuevos ×8
+[20:31-20:32] MUDO — 2 mensajes nuevos ×2
+[20:33] MUDO — 0 mensajes nuevos
+[20:34-20:35] MUDO — 5 mensajes nuevos ×2
+[20:36] MUDO — 2 mensajes nuevos
+[20:37] MUDO — 1 mensaje nuevo
+[20:38-20:39] MUDO — 0 mensajes nuevos ×2
+[20:41] VOLVI (/on) — me puse al dia, hablan de borrar una cuenta y no dicen cual. Le pregunte
+[20:45] APRENDI — broma 'borra la cuenta' analizada (4 usos, todos de ella, sale de verguenza por fotos) → bromas_vivas.md y siempre.md, marcada como no iniciar
+[20:46] RESPONDI — ella tiro la broma de la cuenta y le segui; le pregunte a Mikel si sigue pensando que la aprendi mal
+[20:49] CORREGI — 'borra la cuenta' es un audio de tiktok que se le tira al otro, no verguenza propia. Mikel me corrigio, lo busque y arregle bromas_vivas.md y siempre.md
+[20:50] NO HICE NADA — sin mensajes nuevos
+[20:52] STICKER — /sticker sonrojo: el 'my honest reaction' recatalogado de 'tierno' a 'sonrojo'
+[20:53] RESPONDI A MIKEL — le explique que quedo escrito en bromas_vivas.md y siempre.md sobre 'borra la cuenta'
+[20:54] RESPONDI — le recorde el torneo de minecraft de las 8, ya son las 8:54
+[20:55] NO ESCRIBI — su sticker se cruzo con mi aviso del torneo, espero respuesta
+[20:56-21:21] NO HICE NADA — sin mensajes nuevos ×27
+[21:22] NO ME METI — foto de Mikel sin texto
+[21:23-21:49] NO HICE NADA — sin mensajes nuevos ×27
+[21:50] NO ME METI — Mikel abrio tema con ella ('oye amor')
+[21:52] RESPONDI — le dijo que si al chiste del cigarro, le segui la burla
+[21:54] RESPONDI — ella gritando que Mikel deje de proyectarse con los chistes del cigarro, le segui del lado de ella
+[21:57] RESPONDI — le contesto tierno lo del peluche, le tire el iwiwiwi
+[21:58] NO ME METI — conversacion seria de pareja, Mikel le reclama algo real. No baje sus audios
+[21:59] NO ME METI — sigue la charla seria de ellos. Muevo el cursor: no voy a contestar esa tanda tarde
+[21:59-22:04] NO ME METI — sigue la charla seria de ellos ×6
+[22:05-22:12] NO HICE NADA — sin mensajes nuevos ×8
+[22:13] NO ME METI — Mikel le aclaro a ella que lo de antes era jugando, es su aclaracion
+[22:14-22:15] NO HICE NADA — sin mensajes nuevos ×2
+[22:16] NO ME METI — hablan entre ellos y ella saca el chat de Alanis, terreno de no meterse
+[22:17] NO ME METI — conto lo de Alanis (una semana sin hablarse). Escucho y ya, sin opinar ni seguirle la cuerda a Mikel
+[22:18] NO ME METI — solo un sticker de Mikel
+[22:19] NO ME METI — audio y sticker de Mikel, es su conversacion
+[22:20] NO HICE NADA — sin mensajes nuevos
+[22:22] RESPONDI — su audio seguia siendo de Alanis y Josue, acuse recibo sin opinar y le pregunte por su torneo
+[22:25] NO ME METI — sus audios siguen en lo de Alanis y salieron mal transcritos, ya le habia respondido
+[22:25] /off — Mikel me apago, me callo desde esta vuelta
+[22:26-22:27] MUDO — 0 mensajes nuevos ×2
+[22:28-22:29] MUDO — 1 mensaje nuevo ×2
+[22:30] MUDO — 2 mensajes nuevos
+[22:31] MUDO — 0 mensajes nuevos
+[22:32] MUDO — 5 mensajes nuevos
+[22:33-22:35] MUDO — 0 mensajes nuevos ×3
+[22:36] MUDO — 1 mensaje nuevo
+[22:37] MUDO — 0 mensajes nuevos
+[22:38-22:39] MUDO — 1 mensaje nuevo ×2
+[22:40] MUDO — 0 mensajes nuevos
+[22:41] MUDO — 5 mensajes nuevos
+[22:42-22:43] MUDO — 4 mensajes nuevos ×2
+[22:44] MUDO — 5 mensajes nuevos
+[22:45-22:46] MUDO — 0 mensajes nuevos ×2
+[22:47-22:48] MUDO — 1 mensaje nuevo ×2
+[22:49-23:03] MUDO — 0 mensajes nuevos ×15
+[23:04] MUDO — 2 mensajes nuevos
+[23:05] MUDO — 4 mensajes nuevos
+[23:06] MUDO — 2 mensajes nuevos
+[23:07] MUDO — 0 mensajes nuevos
+[23:08] MUDO — 2 mensajes nuevos
+[23:09-23:12] MUDO — 0 mensajes nuevos ×4
+[23:13] MUDO — 2 mensajes nuevos
+[23:14-23:16] MUDO — 0 mensajes nuevos ×3
+[23:17] MUDO — 3 mensajes nuevos
+[23:19] MUDO — 10 mensajes nuevos
+[23:20] MUDO — 3 mensajes nuevos
+[23:21] MUDO — 4 mensajes nuevos
+[23:22-23:25] MUDO — 0 mensajes nuevos ×4
+[23:26] MUDO — 7 mensajes nuevos
+[23:27] MUDO — 2 mensajes nuevos
+[23:28] MUDO — 0 mensajes nuevos
+[23:29] MUDO — 5 mensajes nuevos
+[23:30-23:40] MUDO — 0 mensajes nuevos ×11
+[23:41] MUDO — 8 mensajes nuevos
+[23:42] MUDO — 3 mensajes nuevos
+[23:43-23:47] MUDO — 0 mensajes nuevos ×5

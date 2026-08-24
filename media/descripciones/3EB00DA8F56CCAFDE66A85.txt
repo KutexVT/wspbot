@@ -1,0 +1,1 @@
+Recorte de un menu de ajustes en negro: "Sensibilidad de la camara" con la barra casi al minimo y el valor 0.092.

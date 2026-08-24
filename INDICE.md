@@ -40,15 +40,22 @@ Sacar algo de `actual/` no es borrarlo. Es dejar de cargarlo todos los dias.
 
 ## Memoria permanente (fuera de esta carpeta)
 
-Vive en `/home/kutex/.claude/projects/-home-kutex/memory/`. Es lo que Mikel cura a
+Vive en el repo desde el 2026-08-24: `estilo/user_messaging_style.md` y
+`memoria/ginger_novia.md`. La memoria de Claude los ve por symlink, asi que un solo
+archivo real y nada que sincronizar. Es lo que Mikel cura a
 mano y sobrevive al bot. **Nunca se lee entero**: se abre la seccion que hace falta.
 
-**Donde escribo yo, en los dos archivos:** solo al final, bajo `## Aprendido en
-automatico`. Lo nuevo sobre ella (una comida que le gusta, un apodo, una fecha) va a esa
-seccion de `ginger_novia.md`; lo nuevo sobre como escribe Mikel, a la de
-`user_messaging_style.md`. **Nunca dentro de las secciones de arriba**: esas son suyas.
-Asi se ve de un vistazo que escribio el y que escribi yo, y si alguna vez meto la pata se
-limpia mi zona sin tocar la suya.
+**Donde escribo yo, en los dos archivos:** DENTRO de la seccion que le toca, como una
+linea mas, sin fecha ni cita. El perfil es una guia, no un registro. Lo que sobra —
+la fecha, cuantas veces se vio, quien lo corrigio — va a su archivo de cambios:
+
+    estilo/user_messaging_style.md  ->  estilo/cambios.md
+    memoria/ginger_novia.md         ->  memoria/ginger_cambios.md
+
+**Los titulos de seccion NO se tocan.** Se leen con `awk`, y un titulo cambiado no da
+error: devuelve vacio y el bot cree que el dato no existe. Añadir lineas dentro de una
+seccion es seguro; renombrarla o crear una nueva no lo es. Despues de escribir:
+`"/home/kutex/WSP Bot/bin/perfiles.sh" --verificar`
 
 | Archivo | Abrilo cuando |
 |---|---|
@@ -63,12 +70,14 @@ Secciones de `ginger_novia.md`, para abrir solo la que toca:
 `Redes sociales y tecnologia` · `Relacion con el usuario` · `Jerga y forma de hablar` ·
 `Chistes internos y bromas recurrentes` · `Familia y entorno` · `Historial de relaciones` ·
 `Salud y bienestar` · `Educacion` · `Creencias y supersticiones` ·
-`Detalles pequenos que valen oro` · `Manual practico — que funciona con ella` ·
-`Aprendido en automatico`
+`Detalles pequenos que valen oro` · `Manual practico — que funciona con ella`
 
-Como leer una sola seccion sin cargar las 324 lineas:
+(los titulos reales llevan tilde y guion largo: `Datos básicos`, `Gustos — Música`,
+`Manual práctico — qué funciona con ella`. El `awk` usa el titulo real, no el de esta lista)
 
-    awk '/^## Salud y bienestar/,/^## /' "/home/kutex/.claude/projects/-home-kutex/memory/ginger_novia.md"
+Como leer una sola seccion sin cargar el archivo entero:
+
+    awk '/^## Salud y bienestar/,/^## /' "/home/kutex/WSP Bot/memoria/ginger_novia.md"
 
 ## Cuando no encuentro algo: BUSCAR EN TODA LA MEMORIA
 
@@ -112,11 +121,13 @@ el PASO 3 del PROMPT):
 | `bin/registrar.sh` | **Lo ultimo de cada iteracion.** Mueve el cursor y escribe el log de una sola vez, bajo lock. |
 | `bin/transcribir.sh` | Genera `chats/YYYY-MM-DD.md` desde la base. Ver `chats/FORMATO.md`. |
 | `buscar.sh` | Busca un termino en toda la memoria. Ver la seccion de arriba. |
-| `bin/oir.sh` | Transcribe una nota de voz: `bin/oir.sh <ruta.ogg> <message_id>`. Ver PASO 1 del PROMPT. |
+| `bin/oir.sh` | Transcribe una nota de voz: `bin/oir.sh <ruta.ogg> <message_id>`. Ver PASO 1 del PROMPT. Valida la salida del motor antes de cachearla — lee el comentario de arriba del archivo antes de tocarlo. |
+| `bin/asr.py` | El motor de transcripcion que usa `oir.sh`. Dos disponibles: `parakeet` (por defecto) y `whisper`. Se cambia con `WSP_ASR_MOTOR` sin tocar codigo. |
+| `bin/venv-asr/` | Entorno de Python con los dos motores. No se sube al repo. Si falta: `uv venv bin/venv-asr && uv pip install 'onnx-asr[cpu]' faster-whisper`. |
 | `media/transcripciones/` | Cache de audios ya transcritos, uno por message_id. No se lee a mano: lo usa `oir.sh` para no repetir trabajo. `buscar.sh` ya los barre, asi que un audio viejo se puede encontrar por lo que ella dijo en el. |
 | `media/descripciones/` | Lo mismo para fotos: que se ve, en una linea, por message_id. Lo escribe la tulpa al ver una foto; `transcribir.sh` lo inyecta en la transcripcion del dia. |
 | `bin/comun.sh` | Rutas y helpers compartidos por los tres scripts de arriba. No se ejecuta solo. |
-| `bin/models/` | El modelo de whisper (`small`). No tocar. |
+| `bin/models/` | Los pesos de los modelos de transcripcion (parakeet-tdt-0.6b-v3, whisper small y large-v3-turbo). No tocar; se bajan solos la primera vez. |
 
 ### La base de mensajes
 

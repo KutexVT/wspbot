@@ -1,0 +1,1 @@
+Y de hecho no se le llama principales, se le llaman prioritaria. Porque la cuenta principal es la que tienes en configuración, digamos, con tu usuario, con el dispositivo y todo eso es la cuenta principal. La cuenta prioritaria es la primera que iniciaste sesión. Se cambia automáticamente cada que inicias sesión en una cuenta nueva.

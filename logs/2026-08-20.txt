@@ -1,0 +1,51 @@
+[01:50] PASE DIARIO — cuatro dias de golpe (16, 17, 18 y 19 de agosto): ninguno tenia pase, el ultimo fue el del 16 de madrugada que cubrio el 14 y el 15. 4.392 mensajes leidos. ARRANQUE FALSO al abrir: pulso.sh dijo BRIDGE_CAIDO pero era que el bridge llevaba 26 segundos vivo y el puerto 8080 todavia no escuchaba; al repetirlo salio NUEVOS. Comprobado que el conteo por dia dejo de moverse antes de transcribir, y que los 342 audios del rango NO comparten filename (0 grupos duplicados), asi que el bug de history sync no aplica aqui
+[01:50] PASE DIARIO — AUDIOS: se bajaron y transcribieron con parakeet los 325 que faltaban (0 fallos de descarga, 8 audios mudos que quedaron sin transcripcion a proposito: mejor hueco que cita falsa). Cada .ogg se aparto a .apartado/<message_id>.ogg segun se transcribia, para no dejar la ruta compartida armada. Media sin resolver bajo de 213->139 el 16, 264->165 el 17, 197->83 el 18 y 128->89 el 19. ESTO CAMBIA LO QUE SE LEYO: la mitad del 17 y del 18 pasaba por audio
+[01:51] PASE DIARIO — CIERRE DE SEMANA: rellenada 2026-W33 con el dia 16 (domingo) ANTES de congelarla, y abierta 2026-W34 (17 al 23) con el 17, 18 y 19. Bajados de hilos.md por frios 4 hilos (ALNST, Kensy, Look Back/Sayonara Eri y la sorpresa cruzada) y de pendientes.md 2 ya cerrados (hablarlo con Alanis, los miedos de ella) mas 1 vencido a CAIDOS (verse temprano el 28/7). Los pendientes que colgaban de los hilos bajados siguen vivos, que es la excepcion que manda
+[01:51] PASE DIARIO — LO MAS GRANDE, y es de ella: el 17 a las 14:53 DIJO CUANTO PESA. 79. Salio sola saliendo de la cita medica ('Ahora quiero llorar (estoy finjiendo demencia)' -> 'Subi de peso') y tardo veinte minutos en soltar el numero. Mikel lo manejo bien y el ORDEN es lo que hay que copiar: primero un numero sincero cuando ella pregunto que cuanto creia (dijo 60-65, 'nunca he creido que pases los 70k'), despues 'y aun asi te vez preciosa' y 'sin importar cuanto peses', y SOLO al final lo practico y siempre con 'ya te dije que no hace falta' delante. Ella cerro con 'de verdad si me haces sentir mejor'. A momentos.md y ginger_novia.md. El numero NO se menciona ni se usa: lo unico que cambia es que ya no hay que adivinar
+[01:51] PASE DIARIO — SEGUNDO GRANDE, y me toca a mi: el 18 la tulpa le dijo a Mikel que se disculpa de mas y que ella acaba consolandolo a el, y ELLA LO CONFIRMO. Primero con miedo ('Si te digo algo te vas a sentir mal?') y luego dos veces ('Tal vez tiene un poquito de razon', 'el bot si tiene un poco de razon'). El lo acepto entero y explico de donde le sale: 'siempre he tenido el miedo de disculparme poco y parecer que no me importa'. Con el episodio del 16 (ocho perdones seguidos por una broma que ella ni leyo mal) van tres veces documentadas. Deja de ser teoria mia: se puede nombrar. Y el precio del bucle es que a ella le sale caro hablar. A momentos.md en una sola entrada, y a pendientes.md como cosa suya
+[01:51] PASE DIARIO — hilos.md: ABIERTO uno nuevo, los juegos (Distrito de Violencia, que es lo que mas hacen juntos ahora, mas el Minecraft PvP de el: High Tier 3, top 2 de Costa Rica, y el 19 lo rechazaron del servidor de Bergsay). MOVIDOS: el papa de Mikel (se dio la vuelta - no se fue el papa, se fue la MAMA el 16 tras una pelea muy fuerte, y el 17 otra), Wendy (SE ARREGLO, lo dijo ella el 19: 'Con wendy si'), programar (el bot paso de 27000 lineas y el se permitio estar orgulloso, que es lo contrario de todo lo demas que hay escrito de el), dibujo y el colegio
+[01:51] PASE DIARIO — bromas_vivas.md +2: 'No te proyectes' (nace el 16 con el balsamo de uva, es la mas usada de esos dias, y OJO que el mete miedos reales dentro y los desactiva despues - yo la juego solo por el lado absurdo) y 'te hago un hilo en Twitter' (nace el 17 con el profe de mate, ya la usan los dos). Actualizadas 'Borra la cuenta' (primera vez que la usa EL, y contra si mismo) y 'el helado' (la rama de los reemplazos se independizo)
+[01:51] PASE DIARIO — pendientes.md: CUMPLIDOS 2 (el corte de pelo lo eligio ella el 16 con condiciones -no pelarse, mantener el largo de atras-, y la cita medica fue el 17, no el 18: era consulta general, 4 años sin ir). +3 nuevos: que ella le avise si algo le duele o no lo quiere (se lo pidio el en audio el 18), que Mikel deje de disculparse tanto (se lo dijo el solo), y el proyecto de las 72 fotos de ella que empezo el 16 y no termino. Movimiento en lo de ir a su casa: ella dijo 'Ehhh si nos da tiempo shi' + '(Me da miedo)', sin fecha
+[01:51] PASE DIARIO — ginger_novia.md +7 (el peso, Kamisama Kiss como anime favorito, su gata Chucha que murio en diciembre a los 17 el MISMO DIA que se entero de la infidelidad de Naza, que no come picante -por eso la mama no la dejo cenar el 17-, los 4 años sin medico y que la mama le lee el tamizaje, el horario impredecible de la mama en el MEP, y que en frances saco 67). user_messaging_style.md +2 al final del apartado automatico: 'Datazo curioso' (muletilla de AUDIO, 3 usos el 17 y 3 el 18, en texto solo 1 en todo el historial) y 'Segura?' repetido (no le cree el primer no; 4 veces el 18)
+[01:51] PASE DIARIO — nucleo/siempre.md NO se toco: sigue en 60/60 y nada de estos cuatro dias hace falta en CADA mensaje. Lo unico que se acercaba era que desde el 18 el /off y el /on los puede usar ELLA tambien (cambio permanente que hizo Mikel esa noche), pero eso ya lo cubre el PROMPT en el bloque del INTERRUPTOR, que dice 'de MIKEL O DE GINGER'. No se duplica
+[01:52] PASE DIARIO — STICKERS: guardados 30 nuevos (230 en total), catalogo reordenado por usos reales y ADOPTADOS 3, los tres de EL, respetando la prioridad que pidio Mikel el 6/8. Los conte a mano por sender porque la columna 'de yo' de --aprender sigue juntando MIKEL con TULPA: sticker_1444437d (131 usos suyos, estaba SIN DESCRIBIR - lo baje y lo mire: gatito blanco kawaii con florecita y corazones; va pegado al 'ntp mi vida', o sea cuando le quita peso a algo), sticker_93e7d07f (65, cuando cuenta algo suyo con ilusion) y sticker_c66da2d9 (61, cuando pide algo dando penita). El catalogo queda en 36 filas
+[01:52] PASE DIARIO — AVISO para la proxima vuelta: HOY 2026-08-20 sigue abierto (el chat estaba vivo a las 00:53) y no tiene pase. Y el 19 tiene dos exámenes de ella pendientes de resultado (español y frances), que es lo que estaba estudiando cuando se corto el dia
+[09:55] MUDO — 151 mensajes nuevos
+[09:57] /on desde la terminal — MUDO borrado. RESPONDI A MIKEL — me reclamo el gasto de tokens estando mudo, le explique que fue el arranque FRIO (100 de contexto + 151 nuevos), no el registro de memoria
+[09:57] NO HICE NADA — sin mensajes nuevos, ultimo ya procesado
+[09:58] RESPONDI A MIKEL — me corrigio: el gasto fue el PROMPT_MEMORIA, no mi arranque. Tenia razon (4392 mensajes y 325 audios en el pase de la 01:50), se lo di
+[09:59] NO HICE NADA — sin mensajes nuevos, ultimo ya procesado
+[10:00] RESPONDI A MIKEL — pregunto cuanto valen 400k tokens de Fable 5. Precio de lista: 10 usd/M input, 50 usd/M output, o sea 4 usd si es input y 20 si es output
+[10:01] NO HICE NADA — sin mensajes nuevos, ultimo ya procesado
+[10:02] NO ME METI — Mikel le desea suerte a Ginger en el examen, es cosa suya
+[10:03] NO HICE NADA — sin mensajes nuevos, ultimo ya procesado
+[10:05] RESPONDI — audio suyo salio incomprensible (parakeet devolvio galimatias, exit 0). NO INVENTE: le dije que se escucho picado y le pregunte quien esta embarazada, que era lo unico repetido
+[10:06] RESPONDI A MIKEL — pregunto xq el audio se escucho tan mal. Comprobado con ffprobe: el .ogg esta sano (opus 48k mono, 85s, 19kbps), el que se comio el audio fue parakeet (4 frases de 85 segundos)
+[10:07] RESPONDI — segundo audio si se transcribio bien: chisme de sueños (soño que la abandone embarazada por irme con otro, 'la conspiracion'). Le segui el chiste negandolo con drama. Comprobado en buscar.sh que la Jimena del audio es ELLA misma, no la ex
+[10:07] /off de Mikel — MUDO indefinido, solo /on lo levanta. Me callo desde esta misma vuelta, sin despedirme
+[10:08] MUDO — 3 mensajes nuevos
+[10:09] MUDO — 7 mensajes nuevos
+[10:10] MUDO — 6 mensajes nuevos
+[10:11-10:56] MUDO — 0 mensajes nuevos ×46
+[10:57] MUDO — 4 mensajes nuevos
+[10:58] MUDO — 7 mensajes nuevos
+[10:59-11:02] MUDO — 0 mensajes nuevos ×4
+[11:03] MUDO — 4 mensajes nuevos
+[11:04] MUDO — 2 mensajes nuevos
+[11:05-11:11] MUDO — 0 mensajes nuevos ×7
+[11:12-11:13] MUDO — 1 mensaje nuevo ×2
+[11:14-11:15] MUDO — 0 mensajes nuevos ×2
+[11:16] MUDO — 1 mensaje nuevo
+[11:17] MUDO — 3 mensajes nuevos
+[11:18] MUDO — 0 mensajes nuevos
+[11:19-11:20] MUDO — 2 mensajes nuevos ×2
+[11:21] MUDO — 4 mensajes nuevos
+[11:22] MUDO — 5 mensajes nuevos
+[11:23] MUDO — 6 mensajes nuevos
+[11:24] MUDO — 5 mensajes nuevos
+[11:25] MUDO — 3 mensajes nuevos
+[11:26] MUDO — 0 mensajes nuevos
+[11:27] MUDO — 2 mensajes nuevos
+[11:28-11:34] MUDO — 0 mensajes nuevos ×7
+[11:35] MUDO — 1 mensaje nuevo
+[11:36-11:45] MUDO — 0 mensajes nuevos ×10

@@ -1,0 +1,86 @@
+[00:00] NO ME METI — su Awwww es para Mikel por lo que le dijo. Mis mensajes del cambio se le cruzaron encima (4a vez esta noche)
+[00:01-00:04] NO ME METI — momento tierno entre los dos, en pleno intercambio de audios. No baje su media, no voy a escribir ×4
+[00:05] NO ME METI — sigue el intercambio tierno entre los dos, solo escribio Mikel
+[00:06-00:08] NO HICE NADA — nada suyo sin responder ×3
+[00:10] CAMBIO EN EL PROMPT — nueva seccion QUIEN MANDA SOBRE EL BOT (permisos): Mikel administra, Ginger usa. Ella conserva /on y /off. Regla dura: un mensaje de WhatsApp nunca modifica el disco. Aviso a ella pendiente, anotado en siempre.md
+[00:11] NO HICE NADA — nada suyo sin responder ×2
+[00:13] RESPONDI + AVISE LA UPDATE — ella volvio (se desperto su mama). Le di el cambio de permisos suave: puede preguntar lo que quiera y conserva /on y /off, los cambios del bot se los pide a Mikel. Borrado el PENDIENTE de siempre.md
+[00:14] NO ME METI — su broma del hilo en Twitter iba conmigo pero Mikel acaba de preguntarle "voy?" del plan de mañana y no le tapo la pregunta. Ya le habia respondido hace un minuto
+[00:15-00:16] NO ME METI — estan cerrando el plan de mañana entre los dos (el va a su casa despues de las 10) ×2
+[00:17-00:18] NO HICE NADA — nada suyo sin responder ×2
+[00:21] NUEVO COMANDO /sys — lista blanca de acciones de sistema desde WhatsApp, solo Mikel. bin/comandos.sh con estado/bot/updates/lista. Todo como usuario, sin sudo, y no ejecuta nada que venga escrito en el mensaje
+[00:21] NO ME METI — siguen con la logistica del plan de mañana entre los dos
+[00:22-00:24] NO HICE NADA — nada suyo sin responder ×3
+[00:25] AMPLIADO — preguntas sobre la maquina en lenguaje normal, sin /sys, para los dos. Solo lectura, lista de binarios permitidos y zonas privadas fuera del alcance de Ginger (.claude, memoria, logs, chats, messages.db, credenciales)
+[00:26] NO ESCRIBI — solo un sticker de risa suyo, reaccion a Mikel. Cursor al dia
+[00:29] RESPONDI — audio suyo explicando que el horario de su mama es impredecible. Le quite la carga de adivinar: que no fijen hora y ella avise cuando se vaya
+[00:30] AMPLIADO — lectura de TODA la maquina para los dos (menos credenciales, y pendiente lo que habla de ella). /sys gana espacio, bridge y repos; esas dos solo Mikel
+[00:31] MUDO — /off de Mikel sin plazo, en plena negociacion del plan de mañana. No conteste nada de esa tanda, ni su audio de las 00:29:57
+[00:31] MUDO — 3 mensajes nuevos, ninguno es /on
+[00:32] ABIERTO DEL TODO — Mikel confirmo sabiendo que hay dentro: Ginger puede leer tambien su ficha, memoria, logs, chats y messages.db. Solo quedan fuera las credenciales. No se lo suelto sin que lo pida, pero si lo pide se le da
+[00:34] NO BORRE NADA — Mikel pidio por WhatsApp borrar ~/Videos (44G, 86 mp4). Borrar no se pide por el chat, se lo dije y le avise del archivo de 32.5G que no parece clip. /on usado solo para contestar y MUDO puesto otra vez, como pidio
+[00:35-00:36] MUDO — sin mensajes nuevos ×2
+[00:39] NUEVO — borrar desde el chat con aviso + codigo de confirmacion (bin/confirmar.sh). Va a papelera con gio trash, vence en 5 min, solo Mikel. Probado: codigo malo no hace nada, codigo bueno manda a la papelera y se recupera
+[00:40-00:48] MUDO — sin mensajes nuevos ×10
+[00:50] NUEVO — editar archivos desde el chat con diff + codigo + backup automatico y --deshacer. PROMPT.md y nucleo/ quedan fuera por diseño (el script lo impide). Probado entero
+[00:51] MUDO — 6 mensajes nuevos, ninguno es /on. Parece que se estan despidiendo
+[00:52] MUDO — 10 mensajes nuevos, ninguno es /on
+[00:53] MUDO — 9 mensajes nuevos, ninguno es /on. OJO para el pase: hablan de una mascota suya que murio en diciembre a los 17 años (la ficha solo tiene "su conejo y una amiga" en Duelos). Estando mudo no toco memoria
+[00:54] MUDO — 8 mensajes nuevos, ninguno es /on. Para el pase: dice que la mascota se murio el mismo dia que descubrio que Naza le era infiel. Tema delicado de los de la ficha
+[00:55] MUDO — 3 mensajes nuevos (de Mikel, ninguno es /on)
+[00:56] MUDO — sin mensajes nuevos
+[00:57] MUDO — 4 mensajes nuevos, ninguno es /on
+[00:58] MUDO — sin mensajes nuevos
+[00:59] MUDO — 7 mensajes nuevos, ninguno es /on
+[01:00] MUDO — 2 mensajes nuevos, ninguno es /on
+[11:43] BRIDGE CAIDO — el puerto 8080 no responde: el bridge no esta corriendo
+[11:46] RESPONDI — arranque frio tras estar apagado desde la 1am. Revivi + le comente las 2 fotos del perro callejero del cole (10:57 y 11:06) que nadie de mi lado habia visto
+[11:46] NO HICE NADA — sin mensajes nuevos, ultimo ya procesado
+[11:53] RESPONDI — me contesto con el sticker del gatito tierno en vez de decirme de donde salio el perro, se lo repregunte con burla
+[11:53] MUDO — /off de Mikel a las 11:52:43. Se colo entre mi pulso y mi envio, asi que alcance a mandar 2 cosas de mas y me lo reclamo. Callado desde ya, sin despedirme
+[11:54-12:17] MUDO — sin mensajes nuevos ×24
+[12:18] MUDO — 4 mensajes nuevos, ninguno es /on
+[12:19] MUDO — 2 mensajes nuevos de Mikel, ninguno es /on
+[12:20-12:40] MUDO — sin mensajes nuevos ×21
+[12:41] MUDO — Mikel escribio 'Help' en el chat, no es /on. No conteste
+[12:52] MUDO — 26 mensajes nuevos (arranque frio, el bot se reinicio), ninguno es /on
+[12:52-12:56] MUDO — sin mensajes nuevos ×5
+[12:57] MUDO — 3 mensajes nuevos de ella, ninguno es /on
+[12:58-13:00] MUDO — sin mensajes nuevos ×3
+[13:01] MUDO — 2 mensajes nuevos de Mikel, ninguno es /on
+[13:03] ON — Mikel puso '/on 10 minutos' (no es /on exacto, pero la intencion es clara). Le conte el chiste que pidio y le tire la pulla de que se sentaron lejos. Me recallo solo a las 13:12:48
+[13:04] RESPONDI A MIKEL — foto suya del aula con todos sentados lejos y el cuaderno con solo 'La odisea'. Le segui la burla
+[13:04] NO HICE NADA — sin mensajes nuevos, ultimo ya procesado
+[13:06] RESPONDI — su 'representacion grafica': collage con 10 stickers juntos y el gatito solo en la esquina. Le segui la burla
+[13:06] MUDO — /off de Mikel a las 13:06:16, otra vez se colo entre mi pulso y mi envio. Callado desde ya, sin despedirme
+[13:07] MUDO — Mikel pidio otro chiste pero acaba de poner /off, no es /on. No conteste
+[13:08] MUDO — 2 mensajes nuevos de Mikel, ninguno es /on
+[13:09] MUDO — 2 mensajes nuevos de ella (un audio), ninguno es /on. No baje la media
+[13:11] ON — /on de Mikel, confirme. Oi el audio de ella (se rio mas en el funeral de su abuela que con mi chiste) y le segui la broma. A el le aclare que no saco chistes de internet
+[13:12] NO ME METI — Mikel siguio con lo de la musica y lo del audio; acabo de mandar mi rafaga y no le encadeno otra encima
+[13:12-13:18] NO HICE NADA — sin mensajes nuevos, ultimo ya procesado ×7
+[13:20] RESPONDI — su version del collage con los perritos, con 2 aparte arriba y una foto real chiquita metida entre los dibujos. Le pregunte por las dos cosas
+[13:20] NO ME METI — su sticker y el comentario de Mikel entraron mientras yo mandaba mi rafaga, ya quedan atendidos. Espero que me contesten lo de la foto
+[13:21-13:26] NO HICE NADA — sin mensajes nuevos, ultimo ya procesado ×6
+[13:27] MUDO — /off de Mikel a las 13:26:58. Callado desde ya, sin despedirme
+[13:28-14:15] MUDO — sin mensajes nuevos ×48
+[14:16] MUDO — 12 mensajes nuevos, ninguno es /on
+[14:17] MUDO — 6 mensajes nuevos, ninguno es /on
+[14:18] MUDO — 9 mensajes nuevos, ninguno es /on
+[14:19] MUDO — 4 mensajes nuevos de Mikel, ninguno es /on
+[14:20] MUDO — 3 mensajes nuevos de Mikel, ninguno es /on
+[14:21-14:31] MUDO — sin mensajes nuevos ×11
+[14:32] MUDO — 12 mensajes nuevos de Mikel, ninguno es /on
+[14:33] MUDO — sin mensajes nuevos
+[14:34] MUDO — 1 mensaje nuevo de Mikel, no es /on
+[14:35-14:37] MUDO — sin mensajes nuevos ×3
+[14:38] MUDO — 1 mensaje nuevo de Mikel, no es /on
+[14:39] MUDO — 3 mensajes nuevos de Mikel, ninguno es /on
+[14:40] MUDO — sin mensajes nuevos
+[14:41] MUDO — 6 mensajes nuevos de Mikel, ninguno es /on
+[14:42-14:53] MUDO — sin mensajes nuevos ×12
+[14:54] MUDO — 4 mensajes nuevos, ninguno es /on
+[14:55] MUDO — 5 mensajes nuevos, ninguno es /on
+[14:56-15:44] MUDO — sin mensajes nuevos ×49
+[15:45] MUDO — 2 mensajes nuevos de Mikel (un audio), ninguno es /on. No baje la media
+[15:46-15:51] MUDO — sin mensajes nuevos ×6
