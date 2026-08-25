@@ -89,6 +89,10 @@ Los flags salen de `WSP_CLAUDE_FLAGS` (por defecto
 que nadie va a dar: no hay terminal al otro lado. El modelo se fija con `WSP_CLAUDE_MODEL`
 y si va vacio usa el de tu config
 
+El hook de estilo corre con los dos motores: `~/.claude/hooks/estilo-kutex.sh` desde
+`settings.json` y la misma copia en `~/.codex/hooks/estilo-kutex.sh` desde
+`~/.codex/hooks.json`. Cambiar de motor no deja al bot escribiendo sin el perfil delante
+
 Con `claude` la compactacion manual queda desactivada, porque Claude Code recorta la
 ventana solo. Y las automations de Codex dejan de mirarse: no hay hilo suyo que proteger
 

@@ -348,18 +348,15 @@ Solo si vas a seguir, lee UNO y nada mas:
 
   1. /home/kutex/WSP Bot/nucleo/siempre.md   — lo que se da por sabido en cualquier mensaje
 
-EL PERFIL DE ESTILO PUEDE QUE YA LO TENGAS, y entonces no se relee aqui. Depende de
-con que motor estes corriendo, asi que la regla es esta:
+EL PERFIL DE ESTILO YA LO TIENES: no se relee aqui. Un hook `SessionStart` vuelca
+`estilo/user_messaging_style.md` ENTERO al contexto al arrancar la sesion, junto con la
+ficha de conteos y una muestra de mensajes reales de Mikel. Volver a leerlo eran 3.584
+tokens duplicados por cada vuelta con trabajo.
 
-  - **Motor `claude` (Claude Code).** Lo tienes. El hook `SessionStart`
-    (~/.claude/hooks/estilo-kutex.sh, configurado en ~/.claude/settings.json, o sea
-    global) vuelca `estilo/user_messaging_style.md` ENTERO al contexto en cada vuelta,
-    junto con la ficha de conteos y una muestra de mensajes reales de Mikel. Volver a
-    leerlo eran 3.584 tokens duplicados por cada vuelta con trabajo.
+**Los DOS motores lo tienen**, cada uno con su copia del mismo script:
 
-  - **Motor `codex` (el hilo de la app de ChatGPT).** ESE HOOK NO EXISTE AHI. Lo unico
-    que te sostiene el perfil es el propio hilo, que ademas se recorta con `/compactar`
-    cada hora. Si no lo ves en el contexto, se lee y punto.
+  - `claude` → ~/.claude/hooks/estilo-kutex.sh, desde ~/.claude/settings.json
+  - `codex`  → ~/.codex/hooks/estilo-kutex.sh, desde ~/.codex/hooks.json
 
 Cual esta puesto lo dice, sin gastar nada:
 
