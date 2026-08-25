@@ -77,7 +77,14 @@ Secciones de `ginger_novia.md`, para abrir solo la que toca:
 
 Como leer una sola seccion sin cargar el archivo entero:
 
-    awk '/^## Salud y bienestar/,/^## /' "/home/kutex/WSP Bot/memoria/ginger_novia.md"
+    awk -v t="## Salud y bienestar" \
+        'index($0,t)==1 && length($0)==length(t) {f=1; next} f && /^## / {exit} f' \
+        "/home/kutex/WSP Bot/memoria/ginger_novia.md"
+
+Es el mismo awk que corre `bin/perfiles.sh:68`, y se copia tal cual cambiando solo `t`.
+**No uses la version corta** `awk '/^## Titulo/,/^## /'`: el rango de awk se cierra en su
+propia linea de apertura, asi que devuelve el titulo y cero contenido, sin dar error.
+Estuvo documentada aqui hasta el 2026-08-24.
 
 ## Cuando no encuentro algo: BUSCAR EN TODA LA MEMORIA
 

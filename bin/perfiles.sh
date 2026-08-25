@@ -4,12 +4,23 @@
 #   ./bin/perfiles.sh --verificar     0 limpio · 1 warns · 2 errors
 #
 # Existe por un fallo que estuvo semanas activo sin que nadie lo viera. `ginger_novia.md`
-# se lee POR SECCIONES:
+# se lee POR SECCIONES, con el awk de la linea 68 de este mismo archivo:
 #
-#     awk '/^## Salud y bienestar/,/^## /' memoria/ginger_novia.md
+#     awk -v t="## Salud y bienestar" \
+#         'index($0,t)==1 && length($0)==length(t) {f=1; next} f && /^## / {exit} f' \
+#         memoria/ginger_novia.md
 #
 # Un titulo cambiado NO da error: ese awk devuelve vacio y el bot concluye que el dato no
-# existe. Y como las correcciones se escribian al final del archivo en vez de arreglar la
+# existe.
+#
+# OJO — la version corta que parece equivalente esta ROTA y no se usa en ningun lado:
+#
+#     awk '/^## Salud y bienestar/,/^## /'      # devuelve el titulo y CERO contenido
+#
+# El rango de awk se cierra en su propia linea de apertura, porque `/^## /` matchea
+# tambien la linea que abrio el rango. Estuvo documentada en PROMPT.md, PROMPT_MEMORIA.md
+# e INDICE.md hasta el 2026-08-24, asi que el bot leia vacio mientras este script — que
+# usa la buena — daba luz verde. Corregido en los tres. Y como las correcciones se escribian al final del archivo en vez de arreglar la
 # linea, la seccion decia "Le gusta el picante: Si" mientras 300 lineas mas abajo estaba
 # desmentido — y el que leia la seccion se llevaba lo viejo.
 #

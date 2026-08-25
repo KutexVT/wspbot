@@ -31,6 +31,18 @@ DIR_MEDIA="$BASE/whatsapp-mcp/whatsapp-bridge/store/$JID"
 # coincidencia, tres ya es como habla.
 MINIMO_DEF="${WSP_STICKER_MINIMO:-3}"
 
+# Cuantos dias cuentan como "lo que uso ahora". El catalogo se ordena por esto y no por
+# el acumulado: Mikel cambia de sticker cada pocas semanas, y un contador desde el primer
+# dia deja arriba para siempre al que le hacia gracia en agosto. El total se sigue
+# mostrando, pero solo como desempate.
+VENTANA_DEF="${WSP_STICKER_VENTANA:-7}"
+
+# SOLO los suyos. La consulta contaba los de los tres — los de ella y los que ya mando la
+# tulpa — y eso hacia dos cosas mal: mezclaba el gusto de ella con el suyo, y se
+# retroalimentaba, porque cada sticker que mandaba la tulpa subia y por subir se mandaba
+# mas. La preferencia que se replica es la de Mikel.
+SOLO_SUYOS="is_from_me = 1 and coalesce(sender,'') <> '__tulpa__'"
+
 # Marca donde acaban las filas del catalogo. Existe para poder insertar sin adivinar
 # donde termina la tabla en un markdown que alguien puede haber editado a mano.
 MARCA_FIN="<!-- fin de las filas -->"
@@ -161,17 +173,28 @@ if [ "${1:-}" = "--ranking" ]; then
   [ -f "$CATALOGO" ] || morir "no existe el catalogo: $CATALOGO"
   grep -qF "$MARCA_FIN" "$CATALOGO" || morir "al catalogo le falta la marca '$MARCA_FIN'"
 
+  # Una sola consulta para los dos contadores: el bucle de antes lanzaba una por fila.
+  CUENTAS="$(consulta "
+    select filename,
+           sum(case when $TS_SQL >= datetime('now','-$VENTANA_DEF days') then 1 else 0 end),
+           count(*)
+    from messages
+    where chat_jid = '$JID' and media_type = 'sticker' and $SOLO_SUYOS
+      and coalesce(filename,'') <> ''
+    group by filename;")"
+
   ORDENADAS="$(
     grep '^| `sticker' "$CATALOGO" | while IFS='|' read -r _ col1 col2 col3 _; do
       arch="$(echo "$col1" | tr -d ' `')"
       [ -n "$arch" ] || continue
       desc="$(echo "$col2" | sed 's/^ *//;s/ *$//')"
       cuando="$(echo "$col3" | sed 's/^ *//;s/ *$//')"
-      veces="$(consulta "select count(*) from messages
-                 where chat_jid = '$JID' and media_type = 'sticker'
-                   and filename = '${arch//\'/\'\'}';")"
-      printf '%06d\t| `%s` | %s | %s | %s× |\n' "${veces:-0}" "$arch" "$desc" "$cuando" "${veces:-0}"
-    done | sort -rn | cut -f2-
+      fila="$(printf '%s\n' "$CUENTAS" | grep -F "$arch$SEP" | head -1)"
+      semana="$(printf '%s' "$fila" | cut -d"$SEP" -f2)"
+      total="$(printf '%s' "$fila" | cut -d"$SEP" -f3)"
+      printf '%06d\t%06d\t| `%s` | %s | %s | %s esta semana · %s en total |\n' \
+        "${semana:-0}" "${total:-0}" "$arch" "$desc" "$cuando" "${semana:-0}×" "${total:-0}"
+    done | sort -rn -k1,1 -k2,2 | cut -f3-
   )"
 
   TMP="$(mktemp "$CATALOGO.XXXXXX")"
@@ -182,7 +205,7 @@ if [ "${1:-}" = "--ranking" ]; then
   ' "$CATALOGO" > "$TMP"
   chmod 644 "$TMP"
   mv -f "$TMP" "$CATALOGO"
-  echo "catalogo reordenado por uso:"
+  echo "catalogo reordenado por uso de los ultimos $VENTANA_DEF dias (solo los suyos):"
   grep '^| `sticker' "$CATALOGO" | sed 's/|[^|]*|[^|]*| /  /; s/ |$//' | head -20
   exit 0
 fi
@@ -205,23 +228,29 @@ if [ "${1:-}" = "--anotar" ]; then
   [ -f "$CATALOGO" ] || morir "no existe el catalogo: $CATALOGO"
   grep -qF "$MARCA_FIN" "$CATALOGO" || morir "al catalogo le falta la marca '$MARCA_FIN'"
 
-  VECES="$(consulta "select count(*) from messages
-             where chat_jid = '$JID' and media_type = 'sticker'
+  # Los mismos dos contadores del ranking, y con el mismo filtro: solo los que mando el.
+  SEMANA="$(consulta "select count(*) from messages
+             where chat_jid = '$JID' and media_type = 'sticker' and $SOLO_SUYOS
+               and $TS_SQL >= datetime('now','-$VENTANA_DEF days')
                and filename = '${ARCH//\'/\'\'}';")"
+  VECES="$(consulta "select count(*) from messages
+             where chat_jid = '$JID' and media_type = 'sticker' and $SOLO_SUYOS
+               and filename = '${ARCH//\'/\'\'}';")"
+  USOS="${SEMANA:-0}× esta semana · ${VECES:-0} en total"
 
   TMP="$(mktemp "$CATALOGO.XXXXXX")"
   if grep -qF "\`$ARCH\`" "$CATALOGO"; then
     # Ya estaba: se le cambia solo el "cuando", que es la columna que se corrige.
-    awk -v arch="$ARCH" -v desc="$DESC" -v cuando="$CUANDO" -v veces="${VECES:-0}" '
-      index($0, "`" arch "`") { printf "| `%s` | %s | %s | %s× |\n", arch, desc, cuando, veces; next }
+    awk -v arch="$ARCH" -v desc="$DESC" -v cuando="$CUANDO" -v usos="$USOS" '
+      index($0, "`" arch "`") { printf "| `%s` | %s | %s | %s |\n", arch, desc, cuando, usos; next }
       { print }
     ' "$CATALOGO" > "$TMP"
     ACCION="corregido"
   else
-    awk -v arch="$ARCH" -v desc="$DESC" -v cuando="$CUANDO" -v veces="${VECES:-0}" -v fin="$MARCA_FIN" '
+    awk -v arch="$ARCH" -v desc="$DESC" -v cuando="$CUANDO" -v usos="$USOS" -v fin="$MARCA_FIN" '
       # La fila de relleno se va en cuanto entra la primera de verdad.
       /^\| _\(vacio/ { next }
-      index($0, fin) { printf "| `%s` | %s | %s | %s× |\n", arch, desc, cuando, veces; print; next }
+      index($0, fin) { printf "| `%s` | %s | %s | %s |\n", arch, desc, cuando, usos; print; next }
       { print }
     ' "$CATALOGO" > "$TMP"
     ACCION="añadido"
@@ -278,14 +307,16 @@ FILAS="$(consulta "
   select
     count(*) as veces,
     filename,
-    max(case when is_from_me = 0 then 'ella' else 'yo' end) as quien,
+    case when sum(case when $SOLO_SUYOS then 1 else 0 end) > 0 then 'yo' else 'ella' end as quien,
     min($TS_SQL) as primera,
-    max($TS_SQL) as ultima
+    max($TS_SQL) as ultima,
+    sum(case when $SOLO_SUYOS and $TS_SQL >= datetime('now','-$VENTANA_DEF days')
+             then 1 else 0 end) as semana
   from messages
   where media_type = 'sticker' and chat_jid = '$JID' and coalesce(filename,'') <> ''
   group by filename
   having count(*) >= $MINIMO
-  order by veces desc, filename;
+  order by semana desc, veces desc, filename;
 ")"
 
 # Los momentos en que se uso un sticker: para cada aparicion, los tres mensajes de antes
@@ -334,7 +365,7 @@ contexto_de() {
 # --- aprender: solo los que AUN NO estan en el catalogo ---
 if [ "$MODO" = "aprender" ]; then
   hay=0
-  while IFS="$SEP" read -r veces arch quien primera ultima; do
+  while IFS="$SEP" read -r veces arch quien primera ultima semana; do
     [ -n "$arch" ] || continue
     # Ya catalogado: no se vuelve a proponer.
     [ -f "$CATALOGO" ] && grep -qF "$arch" "$CATALOGO" && continue
@@ -344,7 +375,7 @@ if [ "$MODO" = "aprender" ]; then
     [ -s "$DESCRIPCIONES/$clave.txt" ] && desc="$(tr -d '\n' < "$DESCRIPCIONES/$clave.txt")"
 
     hay=1
-    echo "=== $arch  ($veces usos, de $quien) ==="
+    echo "=== $arch  ($veces usos, de $quien — ${semana:-0} suyos en los ultimos $VENTANA_DEF dias) ==="
     echo "  se ve: $desc"
     echo "  del ${primera:0:10} al ${ultima:0:10}"
     [ -f "$DIR_MEDIA/$arch" ] && echo "  archivo: $DIR_MEDIA/$arch" \
@@ -362,7 +393,8 @@ if [ "$MODO" = "aprender" ]; then
 fi
 
 # --- lista / md ---
-echo "$TOTAL stickers en el chat, $DISTINTOS distintos. Los que salen $MINIMO veces o mas:"
+echo "$TOTAL stickers en el chat, $DISTINTOS distintos. Los que salen $MINIMO veces o mas,"
+echo "ordenados por los que MAS USA EL en los ultimos $VENTANA_DEF dias:"
 echo
 
 if [ -z "$FILAS" ]; then
@@ -370,7 +402,7 @@ if [ -z "$FILAS" ]; then
   exit 0
 fi
 
-while IFS="$SEP" read -r veces arch quien primera ultima; do
+while IFS="$SEP" read -r veces arch quien primera ultima semana; do
   [ -n "$arch" ] || continue
   clave="${arch%.webp}"
   desc="(sin describir)"
@@ -381,6 +413,6 @@ while IFS="$SEP" read -r veces arch quien primera ultima; do
   if [ "$MODO" = "md" ]; then
     printf '| `%s` | %s | _(a mano)_ | %s×, de %s |\n' "$arch" "$desc" "$veces" "$quien"
   else
-    printf '%3s×  %-24s  %-5s %s%s\n' "$veces" "$arch" "$quien" "$desc" "$en_catalogo"
+    printf '%3s× (%3s sem)  %-24s  %-5s %s%s\n' "$veces" "${semana:-0}" "$arch" "$quien" "$desc" "$en_catalogo"
   fi
 done <<< "$FILAS"

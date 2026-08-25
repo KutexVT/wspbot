@@ -10,6 +10,7 @@ import (
 	"math/rand"
 	"net/http"
 	"os"
+	"os/exec"
 	"os/signal"
 	"path/filepath"
 	"reflect"
@@ -123,6 +124,90 @@ func (store *MessageStore) StoreMessage(id, chatJID, sender, content string, tim
 		id, chatJID, sender, content, timestamp, isFromMe, mediaType, filename, url, mediaKey, fileSHA256, fileEncSHA256, fileLength,
 	)
 	return err
+}
+
+// HasMessage distinguishes a live message from a replay of an event WhatsApp already
+// delivered. StoreMessage intentionally keeps INSERT OR REPLACE because history sync can
+// complete metadata later; only the Codex trigger needs the stricter "new once" signal.
+func (store *MessageStore) HasMessage(id, chatJID string) (bool, error) {
+	var found int
+	err := store.db.QueryRow(
+		"SELECT 1 FROM messages WHERE id = ? AND chat_jid = ? LIMIT 1",
+		id, chatJID,
+	).Scan(&found)
+	if err == sql.ErrNoRows {
+		return false, nil
+	}
+	if err != nil {
+		return false, err
+	}
+	return true, nil
+}
+
+const defaultEventTrigger = "/home/kutex/WSP Bot/bin/evento-wsp.py"
+const defaultTargetChat = "237799840162013@lid"
+
+func eventTriggerPath() string {
+	if path, ok := os.LookupEnv("WSP_EVENT_TRIGGER"); ok {
+		return path
+	}
+	return defaultEventTrigger
+}
+
+func targetEventChat() string {
+	if jid := os.Getenv("WSP_JID"); jid != "" {
+		return jid
+	}
+	return defaultTargetChat
+}
+
+func shouldTriggerIncoming(chatJID string, isFromMe, isNew bool) bool {
+	return eventTriggerPath() != "" && chatJID == targetEventChat() && !isFromMe && isNew
+}
+
+// notifyIncomingMessage never blocks whatsmeow's event handler. The coordinator applies
+// the debounce, the cross-process lock and the pending-turn rule. No message body goes on
+// the command line, so private chat text is not exposed through ps.
+func notifyIncomingMessage(chatJID, messageID string, isFromMe, isNew bool, logger waLog.Logger) {
+	if !shouldTriggerIncoming(chatJID, isFromMe, isNew) {
+		return
+	}
+	path := eventTriggerPath()
+	go func() {
+		cmd := exec.Command(path, "notify", "--chat-jid", chatJID, "--message-id", messageID)
+		if output, err := cmd.CombinedOutput(); err != nil {
+			logger.Warnf("Codex event trigger failed: %v (%s)", err, strings.TrimSpace(string(output)))
+		}
+	}()
+}
+
+// startEventWatcher adds the events that never arrive as a message: a timed MUDO
+// expiring, one consideration at the silence threshold, the hourly thread compaction and
+// the bridge-down desktop warning. It polls only local state and SQLite; it never calls
+// the model on empty minute-by-minute checks.
+//
+// The watcher is deliberately NOT a child of this process. It is the only thing left
+// watching the bridge's own health, and a bridge that dies takes its children with it —
+// which would silence the warning exactly when it matters. Setsid detaches it; its own
+// watch.lock keeps a restart from starting a second one.
+func startEventWatcher(logger waLog.Logger) {
+	path := eventTriggerPath()
+	if path == "" {
+		logger.Infof("Codex event trigger disabled (WSP_EVENT_TRIGGER is empty)")
+		return
+	}
+	cmd := exec.Command(path, "watch")
+	cmd.Env = os.Environ()
+	cmd.SysProcAttr = &syscall.SysProcAttr{Setsid: true}
+	if err := cmd.Start(); err != nil {
+		logger.Warnf("Codex event watcher failed to start: %v", err)
+		return
+	}
+	// Release() and not Wait(): the watcher outlives this process on purpose, so there is
+	// nobody to reap it here. init adopts it once the session leader detaches.
+	if err := cmd.Process.Release(); err != nil {
+		logger.Warnf("Codex event watcher could not be released: %v", err)
+	}
 }
 
 // Get messages from a chat
@@ -748,6 +833,13 @@ func handleMessage(client *whatsmeow.Client, messageStore *MessageStore, msg *ev
 		return
 	}
 
+	// WhatsApp can replay a live event after reconnecting. Keep updating the stored row,
+	// but wake Codex only for the first successful insert of this message id.
+	alreadyStored, lookupErr := messageStore.HasMessage(msg.Info.ID, chatJID)
+	if lookupErr != nil {
+		logger.Warnf("Failed to check whether message is new: %v", lookupErr)
+	}
+
 	// Store message in database
 	err = messageStore.StoreMessage(
 		msg.Info.ID,
@@ -781,6 +873,10 @@ func handleMessage(client *whatsmeow.Client, messageStore *MessageStore, msg *ev
 		} else if content != "" {
 			fmt.Printf("[%s] %s %s: %s\n", timestamp, direction, sender, content)
 		}
+
+		// A failed lookup is not treated as new: the next real event rechecks the cursor
+		// backlog, while a false duplicate wake spends tokens and may double-reply.
+		notifyIncomingMessage(chatJID, msg.Info.ID, msg.Info.IsFromMe, lookupErr == nil && !alreadyStored, logger)
 	}
 }
 
@@ -1292,6 +1388,18 @@ func startRESTServer(client *whatsmeow.Client, messageStore *MessageStore, port 
 func main() {
 	// Set up logger
 	logger := waLog.Stdout("Client", "INFO", true)
+
+	// This binary takes no arguments: the engine flags belong to bin/wspbot. Silently
+	// ignoring them is how `wspbot --claude` ran on 2026-08-25 with the saved engine
+	// still on codex - every turn died against the ChatGPT writer lock and nothing said
+	// why. A stale shell alias pointing straight at this binary is exactly how that
+	// happens, so refuse instead of swallowing it.
+	if len(os.Args) > 1 {
+		fmt.Fprintf(os.Stderr, "whatsapp-client no acepta argumentos: %v\n", os.Args[1:])
+		fmt.Fprintln(os.Stderr, "los flags del motor son de wspbot:  wspbot --claude | --codex")
+		fmt.Fprintln(os.Stderr, "si acabas de cambiar el alias, abre una terminal nueva o:  unalias wspbot")
+		os.Exit(2)
+	}
 	logger.Infof("Starting WhatsApp client...")
 
 	// Create database connection for storing session data
@@ -1345,6 +1453,7 @@ func main() {
 		return
 	}
 	defer messageStore.Close()
+	startEventWatcher(logger)
 
 	// Setup event handling for messages and history sync
 	client.AddEventHandler(func(evt interface{}) {

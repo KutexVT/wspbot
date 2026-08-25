@@ -1,0 +1,97 @@
+#!/usr/bin/env bash
+# wspbot — arranca el bridge de WhatsApp eligiendo quien piensa.
+#
+#   wspbot            arranca con el ultimo motor elegido
+#   wspbot --claude   cambia a Claude Code y arranca
+#   wspbot --codex    cambia a Codex y arranca
+#   wspbot --status   dice como esta sin arrancar nada
+#
+# Existe porque el alias de antes no podia llevar flags: `wspbot --claude` le pasaba el
+# --claude al binario Go, que no lee argumentos. Y porque el motor elegido tiene que vivir
+# en disco y no en el entorno de una terminal suelta, para que `doctor` no mienta.
+
+set -uo pipefail
+
+BASE="/home/kutex/WSP Bot"
+BRIDGE_DIR="$BASE/whatsapp-mcp/whatsapp-bridge"
+EVENTO="$BASE/bin/evento-wsp.py"
+AGENT_FILE="${WSP_AGENT_FILE:-$BASE/nucleo/eventos/agente}"
+
+rojo()  { printf '\033[31m%s\033[0m\n' "$*" >&2; }
+verde() { printf '\033[32m%s\033[0m\n' "$*"; }
+gris()  { printf '\033[2m%s\033[0m\n' "$*"; }
+
+uso() {
+  cat <<'FIN'
+wspbot — arranca el bot de WhatsApp
+
+  wspbot              arranca con el ultimo motor elegido
+  wspbot --claude     cambia a Claude Code y arranca
+  wspbot --codex      cambia a Codex (hilo de la app de ChatGPT) y arranca
+  wspbot --status     dice como esta sin arrancar nada
+  wspbot --help       esto
+
+Los dos motores NO comparten contexto: cambiar de uno a otro arranca en blanco.
+FIN
+}
+
+SOLO_ESTADO=0
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --claude|--codex)
+      motor="${1#--}"
+      mkdir -p "$(dirname "$AGENT_FILE")"
+      printf '%s\n' "$motor" > "$AGENT_FILE"
+      gris "motor guardado: $motor"
+      ;;
+    --status|-s) SOLO_ESTADO=1 ;;
+    --help|-h)   uso; exit 0 ;;
+    *)           rojo "no conozco la opcion: $1"; echo; uso; exit 2 ;;
+  esac
+  shift
+done
+
+# Nadie mas que este script y evento-wsp.py leen el archivo, asi que la unica fuente de
+# verdad del motor es `doctor`. El banner sale de ahi y no de una variable repetida aqui.
+SALIDA_DOCTOR="$("$EVENTO" doctor 2>&1)"
+RC_DOCTOR=$?
+MOTOR="$(sed -n 's/^AGENT=//p' <<< "$SALIDA_DOCTOR")"
+
+if [ "$SOLO_ESTADO" -eq 1 ]; then
+  echo "$SALIDA_DOCTOR"
+  echo
+  if pid="$(pgrep -x whatsapp-client)"; then
+    verde "bridge:  corriendo (PID $pid)"
+  else
+    gris  "bridge:  apagado"
+  fi
+  if wpid="$(pgrep -f 'evento-wsp\.py watch')"; then
+    verde "watcher: corriendo (PID $wpid)"
+  else
+    gris  "watcher: apagado (arranca con el bridge)"
+  fi
+  [ -s "$BASE/nucleo/eventos/state.json" ] && { echo; "$EVENTO" status; }
+  exit 0
+fi
+
+# Dos bridges se pelean por el mismo store de WhatsApp y por el puerto 8080. Es un lio
+# feo de diagnosticar despues, asi que se corta aqui.
+if pid="$(pgrep -x whatsapp-client)"; then
+  rojo "ya hay un bridge corriendo (PID $pid)"
+  rojo "matalo con Ctrl+C en su terminal antes de arrancar otro"
+  exit 1
+fi
+
+if [ "$RC_DOCTOR" -ne 0 ]; then
+  rojo "doctor fallo, no arranco nada:"
+  echo "$SALIDA_DOCTOR" >&2
+  exit 1
+fi
+
+verde "▶ arrancando con ${MOTOR:-?}"
+gris  "  log de vueltas:  $BASE/nucleo/eventos/runner.log"
+echo
+
+cd "$BRIDGE_DIR" || { rojo "no existe $BRIDGE_DIR"; exit 1; }
+# exec para que el bridge sea ESTE proceso: asi Ctrl+C lo mata directo, igual que antes.
+exec ./whatsapp-client

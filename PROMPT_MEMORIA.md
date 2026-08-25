@@ -71,6 +71,61 @@ no pueden esperar al pase diario. Aca solo se revisa que no hayan quedado suelto
                         fecha; marcar CUMPLIDO o CAIDO cuando corresponda, sin borrar
       momentos.md     → solo si cambia como hay que tratarla despues, con su lectura para la proxima
 
+      >>> TODA ENTRADA NUEVA LLEVA CATEGORIAS. Desde el 2026-08-24, en la misma linea del
+      >>> titular, detras de un ` · `:
+      >>>
+      >>>   ### 2026-08-24 14:30 — lloraba y no lo dijo hasta calmarse  ·  #emocional #inseguridad #familia
+      >>>
+      >>> Por que en la linea del `###` y no debajo: asi `grep '^### '` sigue dando el
+      >>> indice entero del archivo (670 tokens contra los 21 mil de momentos.md) y ahora
+      >>> ademas con los temas dentro. Es lo unico que resuelve el caso "se puso nostalgica
+      >>> y quiero ver que hay guardado", donde no hay palabra que buscar y hasta ahora
+      >>> tocaba leer el archivo completo.
+      >>>
+      >>> REGLAS, y son estrictas:
+      >>>   - De 1 a 3 por entrada. Mas de 3 es no haber elegido.
+      >>>   - SIEMPRE de la lista de abajo. En minuscula, sin acentos, sin plurales.
+      >>>   - **No se inventan categorias nuevas.** Si de verdad no encaja ninguna, usa la
+      >>>     mas cercana y anotalo en el log del PASO 3 para que lo decida Mikel. Un
+      >>>     vocabulario que crece solo llega a 200 etiquetas en un mes y deja de servir
+      >>>     para buscar, que es justo lo que se queria arreglar.
+      >>>   - LOS ARCHIVOS VIEJOS NO SE TOCAN. Las entradas de antes no llevan categoria y
+      >>>     se siguen encontrando por palabra con buscar.sh, igual que siempre. Ir a
+      >>>     etiquetar 41 entradas viejas a mano no compensa.
+      >>>
+      >>> LA LISTA — 40 categorias:
+      >>>
+      >>>   Emocional y relacion
+      >>>     #emocional #inseguridad #autoestima #cuerpo #celos #miedo-abandono
+      >>>     #carino #nostalgia #pelea #reconciliacion #disculpa #limite
+      >>>
+      >>>   Familia y entorno
+      >>>     #mama #papa #hermanos #familia #amigas #terceros
+      >>>
+      >>>   Salud y cuerpo
+      >>>     #salud #sueno #comida #dolor #mental #regla
+      >>>
+      >>>   Vida diaria
+      >>>     #colegio #estudios #trabajo #dinero #planes #salidas #casa
+      >>>
+      >>>   Gustos y ocio
+      >>>     #musica #series #juegos #dibujo #gatos #estetica #redes
+      >>>
+      >>>   Meta — el bot y la relacion con el
+      >>>     #tulpa #correccion #memoria
+      >>>
+      >>> Vale para los CUATRO archivos de memoria/actual/, no solo momentos.md. Van al
+      >>> final de la linea que ABRE la entrada, que segun el archivo es una de dos:
+      >>>
+      >>>   momentos.md, hilos.md, bromas_vivas.md  → la linea del `### `
+      >>>   pendientes.md                            → la vinieta `- **Titulo** — ...`
+      >>>
+      >>> Ese sitio no es un capricho: el bot las lista con
+      >>> `grep -hE '^###|^- \*\*' ... | grep -oh '#[a-z][a-z-]\{2,\}'`, que solo mira
+      >>> lineas de titular. Una categoria escrita en medio del cuerpo no la encuentra
+      >>> nadie. (El filtro existe porque bromas_vivas.md:241 tiene un `(#humor)` dentro
+      >>> de una cita literal de ella, que no es una categoria.)
+
   (2) La bitacora de la semana en curso, memoria/semanas/YYYY-Www.md:
       Una linea por hallazgo, bajo el encabezado del dia, con su tipo:
         - BROMA — nace la comparacion con Caine. → VIVA
@@ -133,9 +188,9 @@ no pueden esperar al pase diario. Aca solo se revisa que no hayan quedado suelto
 
   En los dos perfiles (`user_messaging_style.md` y `ginger_novia.md`):
 
-  - NO se tocan los titulos de seccion. Ni uno. Hay scripts que sacan una seccion con
-    `awk '/^## <titulo>/,/^## /'`, y un titulo cambiado NO da error: devuelve vacio y el
-    bot cree que ese dato no existe. Añadir lineas DENTRO de una seccion es seguro;
+  - NO se tocan los titulos de seccion. Ni uno. Hay scripts que sacan una seccion con el
+    awk de `bin/perfiles.sh:68`, que compara el titulo ENTERO, y un titulo cambiado NO da
+    error: devuelve vacio y el bot cree que ese dato no existe. Añadir lineas DENTRO de una seccion es seguro;
     renombrarla, partirla, moverla o crear una nueva no lo es.
   - SI se edita una linea que ya estaba, cuando lo que dice dejo de ser verdad. Antes esto
     se prohibia, y por eso los perfiles acumulaban correcciones que se contradecian: la
@@ -175,16 +230,21 @@ PRIMERO, dos comandos que no piden criterio y van siempre, en este orden:
     puede desaparecer de los servidores de WhatsApp: lo que no se guarde hoy se pierde.
 
   "/home/kutex/WSP Bot/bin/stickers.sh" --ranking
-    Recuenta los usos reales y reordena el catalogo: los que mas se mandan suben. Como la
-    tabla se lee de arriba abajo, ese orden ES la preferencia — asi los que funcionan se
-    usan cada vez mas y los que no, se hunden solos.
+    Recuenta y reordena el catalogo por los stickers que MIKEL mando en los ultimos 7
+    dias, con el total solo de desempate. Como la tabla se lee de arriba abajo, ese orden
+    ES la preferencia. La ventana existe porque el sticker que le hace gracia cambia cada
+    pocas semanas: contando desde el primer dia, los de agosto se quedaban arriba para
+    siempre y la tulpa mandaba los mismos cuatro. Y cuenta solo los suyos — sumar los de
+    ella y los que ya mando la tulpa hacia que el bot se retroalimentara solo.
 
 DESPUES, lo que si pide criterio:
 
   "/home/kutex/WSP Bot/bin/stickers.sh" --aprender
 
 Saca los que se han usado 3 veces o mas y todavia no estan en el catalogo, con lo que se ve
-en cada uno y los momentos en que se mandaron (los mensajes de antes y de despues). Si dice
+en cada uno y los momentos en que se mandaron (los mensajes de antes y de despues). Salen
+ordenados por los que MAS uso el esta semana, asi que los de arriba son los que le faltan
+al bot ahora mismo — esos primero. Si dice
 que no hay nada nuevo, este paso se acabo: no bajes el minimo para tener algo que hacer.
 
   Por cada candidato:

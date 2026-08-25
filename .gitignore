@@ -15,10 +15,21 @@ whatsapp-mcp/whatsapp-bridge/store/*.db
 whatsapp-mcp/whatsapp-bridge/store/*.db.bak.*
 whatsapp-mcp/whatsapp-bridge/store/*.lock
 
+# El store guarda la media por JID, asi que ahi cae CUALQUIERA que le escriba a Mikel.
+# Solo el chat objetivo del bot tiene sitio en un repo publico: las notas de voz de un
+# tercero que ni sabe que esto existe, no. El 2026-08-25 iban a entrar 37 audios de
+# 137885646848195@lid de esta forma.
+whatsapp-mcp/whatsapp-bridge/store/*@lid/
+!whatsapp-mcp/whatsapp-bridge/store/237799840162013@lid/
+
 # Log del bridge: crece sin parar y no es historial de codigo.
 logs/bridge.log
 bin/venv-asr/
 __pycache__/
+
+# Locks, cola y salida local del trigger por eventos. Se reconstruyen solos y pueden
+# contener ids de mensajes o errores de ejecucion del hilo de Codex.
+nucleo/eventos/
 
 # Sesiones del psicologo: consultas privadas de Mikel sobre la relacion.
 # No se versionan nunca, ni aunque el repo pase a privado.
