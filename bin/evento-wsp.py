@@ -114,6 +114,17 @@ NOTIFY_SEND = os.environ.get("WSP_NOTIFY_SEND", "notify-send")
 # y sobre el mismo target_thread_id: por eso podia chocar con una vuelta en curso.
 # Claude Code recorta la ventana el solo, asi que con ese motor la compactacion manual
 # sobra y va desactivada salvo que se pida a mano.
+def _compacta_a_mano() -> bool:
+    """Si el motor de AHORA necesita que le manden `/compactar`.
+
+    Va aparte del intervalo a proposito: `WSP_COMPACT_CADA_MIN=0` es "no la programes"
+    y esto es "este motor no la entiende". Un `compact` que dejo encolado un watcher en
+    codex no puede acabar corriendose como `claude -p "/compactar"`, que ahi no es
+    ningun comando — seria una vuelta entera gastada en mandarle una barra al modelo.
+    """
+    return _agente() != "claude"
+
+
 def _compact_min() -> float:
     """Minutos entre compactaciones. `WSP_COMPACT_CADA_MIN` gana; si no, lo decide el
     motor vivo: Claude Code recorta la ventana solo y no necesita `/compactar`."""
@@ -799,7 +810,11 @@ def worker() -> int:
             event_actionable = "message" in reasons and incoming > 0
             timed_actionable = "mute_expired" in reasons and MUDO.exists()
             silence_actionable = "silence" in reasons and not MUDO.exists() and _silence_due()
-            compact_pending = "compact" in reasons
+            # Se descarta la compactacion si el motor de AHORA no la necesita. El
+            # `compact` que dejo encolado un watcher en codex no puede acabar
+            # corriendose como `claude -p "/compactar"`, que ahi no es ningun comando:
+            # seria una vuelta entera gastada en mandarle una barra al modelo.
+            compact_pending = "compact" in reasons and _compacta_a_mano()
             if not (event_actionable or timed_actionable or silence_actionable):
                 if compact_pending:
                     # Compactar no toca el chat ni depende de que haya mensajes: es

@@ -763,6 +763,18 @@ open(os.environ['TEST_REG_TRACE'], 'a', encoding='utf-8').write(' '.join(sys.arg
         self.assertNotIn("CLAUDE_CODE_SESSION_ID", heredadas)
         self.assertNotIn("CLAUDECODE", heredadas)
 
+    def test_a_queued_compaction_is_dropped_when_the_engine_changed(self):
+        """Un `compact` encolado por un watcher en codex no puede correrse despues como
+        `claude -p "/compactar"`. Es una vuelta entera gastada en mandarle una barra."""
+        env = self.env.copy()
+        env["WSP_AGENT"] = "claude"
+        env.pop("WSP_COMPACT_CADA_MIN", None)  # con claude el default ya es 0
+        self.seed_state(pending_reasons=["compact"], last_event_at=0.0, worker_active=False)
+        self.run_worker(env)
+        self.assertEqual(self.claude_runs(), [], "corrio una compactacion con el motor claude")
+        self.assertEqual(self.state_json()["compactions"], 0)
+        self.assertEqual(self.state_json()["pending_reasons"], [])
+
 
 if __name__ == "__main__":
     unittest.main()

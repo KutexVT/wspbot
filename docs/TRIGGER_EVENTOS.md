@@ -179,6 +179,12 @@ encola el watcher y la corre el worker, con estas reglas:
 
 Se ajusta con `WSP_COMPACT_CADA_MIN` (60 por defecto; `0` la desactiva)
 
+Con el motor `claude` una compactacion que ya estuviera en la cola **se descarta** en vez
+de correrse. Son dos cosas distintas y por eso van separadas: `WSP_COMPACT_CADA_MIN=0` es
+"no la programes" y el motor es "no la entiende". Sin esto, el `compact` que dejo encolado
+un watcher en codex se ejecutaba despues como `claude -p "/compactar"` — una vuelta entera
+gastada en mandarle una barra al modelo
+
 ## Activacion
 
 Despues de compilar y reiniciar el bridge:
